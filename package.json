@@ -1,0 +1,15 @@
+{
+  "name": "night-shift-noc-operations-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static Night Shift NOC Operations Dashboard built with HTML, CSS and Vanilla JavaScript.",
+  "scripts": {
+    "start": "node ./scripts/serve.mjs",
+    "check": "node ./scripts/check-project.mjs",
+    "test": "node ./scripts/check-project.mjs && node ./scripts/test-data.mjs && node ./scripts/test-spec.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "type": "module"
+}
