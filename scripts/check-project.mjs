@@ -6,7 +6,7 @@ const root = new URL('../', import.meta.url);
 const rootPath = fileURLToPath(root);
 const required = [
   'index.html','404.html','.nojekyll','assets/css/variables.css','assets/css/base.css','assets/css/layout.css',
-  'assets/css/components.css','assets/css/pages.css','assets/css/responsive.css','assets/js/app.js','assets/js/router.js',
+  'assets/css/components.css','assets/css/pages.css','assets/css/responsive.css','assets/js/navigation.js','assets/js/app.js','assets/js/router.js',
   'assets/js/storage.js','assets/js/utils.js','assets/js/modal.js','assets/js/toast.js','assets/js/dashboard.js',
   'assets/js/checklist.js','assets/js/links.js','assets/js/report.js','assets/js/history.js','assets/js/settings.js',
   '.github/workflows/deploy-pages.yml','package.json','README.md','QA_REPORT.md','DELIVERY.md','scripts/test-data.mjs','scripts/test-spec.mjs'
