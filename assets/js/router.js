@@ -1,0 +1,50 @@
+import { getCurrentRoute, saveCurrentRoute } from './storage.js';
+
+const ROUTES = Object.freeze({
+  dashboard: 'ภาพรวมกะดึก',
+  checklist: 'เช็กลิสต์กะดึก',
+  'work-links': 'รวมลิงก์งาน',
+  report: 'บันทึกรายงานและส่งมอบ',
+  history: 'ประวัติการทำงาน',
+  settings: 'ตั้งค่า'
+});
+
+const ROUTE_ALIASES = Object.freeze({ links: 'work-links' });
+
+function normalizeRoute(value) {
+  const candidate = String(value || '').replace(/^#/, '');
+  const aliased = ROUTE_ALIASES[candidate] || candidate;
+  return ROUTES[aliased] ? aliased : 'dashboard';
+}
+
+export function initRouter() {
+  window.addEventListener('hashchange', renderRoute);
+  renderRoute();
+}
+
+export function navigate(route) {
+  const safeRoute = normalizeRoute(route);
+  if (location.hash === `#${safeRoute}`) renderRoute();
+  else location.hash = safeRoute;
+}
+
+export function renderRoute() {
+  const routeFromHash = location.hash.replace('#', '');
+  const storedRoute = normalizeRoute(getCurrentRoute());
+  const route = routeFromHash ? normalizeRoute(routeFromHash) : storedRoute;
+  if (location.hash !== `#${route}`) history.replaceState(null, '', `#${route}`);
+
+  document.querySelectorAll('[data-route]').forEach(page => {
+    page.hidden = page.dataset.route !== route;
+  });
+  document.querySelectorAll('[data-route-link]').forEach(link => {
+    const active = normalizeRoute(link.dataset.routeLink) === route;
+    if (active) link.setAttribute('aria-current', 'page');
+    else link.removeAttribute('aria-current');
+  });
+  document.getElementById('page-title').textContent = ROUTES[route];
+  document.title = `${ROUTES[route]} | Night Shift NOC`;
+  saveCurrentRoute(route);
+  window.dispatchEvent(new CustomEvent('nightNoc:route-changed', { detail: { route } }));
+  document.getElementById('main-content').focus({ preventScroll: true });
+}
