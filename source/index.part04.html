@@ -1,0 +1,26 @@
+              <label class="field span-2"><span>ผลตรวจสอบเหตุการณ์โจมตี</span><select id="attack-result"><option value="normal">ไม่พบเหตุการณ์ผิดปกติ</option><option value="blocked">พบเหตุการณ์และถูก Block โดย Arbor</option><option value="followup">พบเหตุการณ์ต้องติดตาม</option><option value="other">อื่น ๆ</option></select></label>
+              <label class="field"><span>จำนวนเหตุการณ์</span><input id="attack-count" type="number" min="0" step="1" value="0" inputmode="numeric"></label>
+              <label class="field span-full" id="attack-other-wrap" hidden><span>รายละเอียดอื่น ๆ</span><input id="attack-other" type="text" maxlength="200"></label>
+            </div></section>
+
+            <section class="temperature-section" aria-labelledby="temperature-heading"><div class="section-heading"><div><p class="eyebrow">DEVICE ENVIRONMENT</p><h3 id="temperature-heading">อุณหภูมิอุปกรณ์</h3></div><button class="button button-secondary button-small" type="button" id="open-command-modal-top">Command Env temp</button></div><div class="temperature-grid" id="temperature-grid"></div></section>
+
+            <section class="panel form-panel" aria-labelledby="note-heading"><div class="panel-heading"><div><p class="eyebrow">OPERATIONS NOTE</p><h3 id="note-heading">หมายเหตุและ Path งาน</h3></div></div><div class="form-grid form-grid-2">
+              <label class="field span-full"><span>หมายเหตุ</span><textarea id="report-note" rows="4" maxlength="1500" placeholder="ระบุเหตุการณ์ งานค้าง หรือข้อมูลที่ต้องติดตาม"></textarea></label>
+              <div class="field span-full"><span>File Share Path</span><div class="copy-field"><code id="file-share-path">\\10.1.1.94\share noc\รายงานประจำวัน</code><button class="button button-secondary button-small" type="button" id="copy-file-path">Copy Path</button></div></div>
+            </div></section>
+
+            <section class="panel handover-panel" aria-labelledby="handover-message-heading"><div class="panel-heading"><div><p class="eyebrow">READY TO SEND</p><h3 id="handover-message-heading">ข้อความพร้อมส่งมอบ</h3></div><span class="status-badge status-neutral" id="report-completion-badge">Draft</span></div><label class="field" for="handover-message"><span class="sr-only">ข้อความพร้อมส่งมอบ</span><textarea id="handover-message" rows="15" readonly></textarea></label><div class="action-bar"><button class="button button-primary" type="button" id="copy-handover">คัดลอกข้อความทั้งหมด</button><button class="button button-success" type="button" id="complete-handover">ทำเครื่องหมายเสร็จ</button><button class="button button-secondary" type="button" id="open-command-modal">Command Env temp</button></div></section>
+          </form>
+        </section>
+
+        <section class="page" id="page-history" data-route="history" aria-labelledby="history-heading" hidden>
+          <div class="page-heading"><div><p class="eyebrow">AUDIT TRAIL</p><h2 id="history-heading">ประวัติการทำงาน</h2><p class="muted">ดูรายละเอียด แก้ไข คัดลอก นำเข้า และส่งออกข้อมูล</p></div><div class="button-row"><button class="button button-secondary" id="export-history-json" type="button">Export JSON</button><button class="button button-secondary" id="export-history-csv" type="button">Export CSV</button><button class="button button-ghost" id="import-history-trigger" type="button">Import JSON</button><input id="import-history-file" type="file" accept="application/json,.json" hidden></div></div>
+          <div class="panel toolbar-panel history-toolbar"><label class="field compact-field grow"><span>ค้นหา</span><input id="history-search" type="search" placeholder="ชื่อผู้ส่งมอบ ผู้รับมอบ หรือหมายเหตุ"></label><label class="field compact-field"><span>วันที่</span><input id="history-date-filter" type="date"></label><label class="field compact-field"><span>สถานะ</span><select id="history-status-filter"><option value="all">ทั้งหมด</option><option value="completed">เสร็จแล้ว</option><option value="draft">Draft</option></select></label></div>
+          <div id="history-list" class="history-list"></div>
+        </section>
+
+        <section class="page" id="page-settings" data-route="settings" aria-labelledby="settings-heading" hidden>
+          <div class="page-heading"><div><p class="eyebrow">CONFIGURATION</p><h2 id="settings-heading">ตั้งค่า</h2><p class="muted">จัดการรายชื่อ เกณฑ์อุณหภูมิ และรูปแบบหน้าจอ</p></div></div>
+          <div class="settings-grid">
+            <section class="panel form-panel" aria-labelledby="threshold-heading"><div class="panel-heading"><div><p class="eyebrow">TEMPERATURE POLICY</p><h3 id="threshold-heading">เกณฑ์อุณหภูมิ</h3></div></div><form id="threshold-form" class="form-grid form-grid-2"><label class="field"><span>Warning เริ่มที่ (°C)</span><input id="warning-threshold" type="number" min="1" max="99" required></label><label class="field"><span>Critical เริ่มที่ (°C)</span><input id="critical-threshold" type="number" min="2" max="100" required></label><button class="button button-primary span-full" type="submit">บันทึกเกณฑ์</button></form></section>
