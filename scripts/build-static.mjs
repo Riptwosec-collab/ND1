@@ -17,6 +17,9 @@ const index = (await Promise.all(partNames.map(name => readFile(join(sourceDir, 
 if (!index.includes('id="app-shell"') || !index.includes('./assets/js/app.js')) {
   throw new Error('Direct index source is incomplete');
 }
+if (!index.includes('./assets/js/navigation.js')) {
+  throw new Error('Independent navigation script is missing');
+}
 if (index.includes('archive/part') || index.includes('Failed to fetch') || index.includes('atob(')) {
   throw new Error('Runtime archive loader was found in direct index');
 }
@@ -31,7 +34,7 @@ await writeFile(join(outputDir, '.nojekyll'), '', 'utf8');
 const requiredAssets = [
   'assets/css/variables.css', 'assets/css/base.css', 'assets/css/layout.css',
   'assets/css/components.css', 'assets/css/pages.css', 'assets/css/responsive.css',
-  'assets/js/app.js', 'assets/js/router.js', 'assets/js/storage.js', 'assets/js/utils.js',
+  'assets/js/navigation.js', 'assets/js/app.js', 'assets/js/router.js', 'assets/js/storage.js', 'assets/js/utils.js',
   'assets/js/modal.js', 'assets/js/toast.js', 'assets/js/dashboard.js', 'assets/js/checklist.js',
   'assets/js/links.js', 'assets/js/report.js', 'assets/js/history.js', 'assets/js/settings.js',
   'assets/icons/noc-mark.svg'
