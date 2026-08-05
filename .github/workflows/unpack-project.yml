@@ -1,10 +1,12 @@
 name: Expand project archive
 
 on:
+  workflow_dispatch:
   push:
     branches: ["main"]
     paths:
       - "archive/READY"
+      - "archive/part*.b64"
 
 permissions:
   contents: write
@@ -25,6 +27,10 @@ jobs:
           unzip -q /tmp/Night-D1.zip -d /tmp/night-d1
           rsync -a --delete --exclude='.git/' /tmp/night-d1/Night-D1/ ./
 
+      - name: Validate expanded source
+        shell: bash
+        run: npm test
+
       - name: Commit expanded project
         shell: bash
         run: |
@@ -36,5 +42,5 @@ jobs:
             echo "No changes to commit"
             exit 0
           fi
-          git commit -m "Publish Night Shift NOC dashboard"
+          git commit -m "Publish Night Shift NOC dashboard v2"
           git push
