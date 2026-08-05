@@ -65,6 +65,7 @@ function initShellControls() {
   sidebarClose.addEventListener('click', closeSidebar);
   backdrop.addEventListener('click', closeSidebar);
   document.querySelectorAll('[data-route-link]').forEach(link => {
+    if (link.dataset.navigationBound === 'true') return;
     link.addEventListener('click', event => {
       if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
       event.preventDefault();
