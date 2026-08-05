@@ -1,0 +1,20 @@
+            <section class="panel form-panel" aria-labelledby="theme-heading"><div class="panel-heading"><div><p class="eyebrow">APPEARANCE</p><h3 id="theme-heading">Theme Settings</h3></div></div><form id="theme-form" class="form-grid"><label class="field"><span>ความเข้ม Accent</span><select id="theme-accent"><option value="cyan">Cyan</option><option value="teal">Teal</option><option value="blue">Blue</option><option value="green">Green</option></select></label><label class="check-control"><input id="compact-density" type="checkbox"><span>โหมดข้อมูลหนาแน่น</span></label><button class="button button-primary" type="submit">บันทึก Theme</button></form></section>
+          </div>
+          <section class="panel form-panel" aria-labelledby="people-heading"><div class="panel-heading"><div><p class="eyebrow">HANDOVER PEOPLE</p><h3 id="people-heading">รายชื่อผู้ส่งมอบและผู้รับมอบ</h3></div></div><form id="person-form" class="inline-form"><label class="field grow"><span>ชื่อใหม่</span><input id="person-name" type="text" maxlength="100" required placeholder="ชื่อ-นามสกุล"></label><button class="button button-primary" type="submit">เพิ่มรายชื่อ</button></form><div id="people-list" class="people-list"></div></section>
+          <section class="panel danger-zone" aria-labelledby="data-heading"><div><p class="eyebrow">LOCAL DATA</p><h3 id="data-heading">จัดการข้อมูลในเครื่อง</h3><p class="muted">ระบบจะสร้าง Backup ใน LocalStorage ก่อน Reset</p></div><button class="button button-danger-outline" id="reset-all-data" type="button">ล้างข้อมูลทั้งหมด</button></section>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="modal-layer" id="modal-layer" hidden>
+    <div class="modal-backdrop" data-modal-close></div>
+    <section class="modal" id="app-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
+      <header class="modal-header"><div><p class="eyebrow" id="modal-eyebrow">NOC TOOL</p><h2 id="modal-title">รายละเอียด</h2></div><button class="icon-button" id="modal-close" type="button" aria-label="ปิดหน้าต่าง">×</button></header>
+      <div class="modal-body" id="modal-body"></div><footer class="modal-footer" id="modal-footer"></footer>
+    </section>
+  </div>
+  <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <script type="module" src="./assets/js/app.js"></script>
+</body>
+</html>
