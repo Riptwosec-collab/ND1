@@ -1,0 +1,87 @@
+@media (max-width: 1180px) {
+  .metric-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .dashboard-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .dashboard-grid > :last-child { grid-column: 1 / -1; }
+  .form-grid-3 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .temperature-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .temperature-grid > :last-child { grid-column: 1 / -1; }
+  .history-meta { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+
+@media (max-width: 900px) {
+  .sidebar { transform: translateX(-102%); width: min(86vw, 300px); }
+  .workspace, .app-shell.sidebar-collapsed .workspace { margin-left: 0; }
+  .app-shell.sidebar-open .sidebar { transform: translateX(0); }
+  .app-shell.sidebar-collapsed .sidebar { width: min(86vw, 300px); }
+  .app-shell.sidebar-collapsed .brand-copy,
+  .app-shell.sidebar-collapsed .nav-link span:not(.nav-icon),
+  .app-shell.sidebar-collapsed .system-indicator { display: initial; }
+  .app-shell.sidebar-collapsed .nav-link { justify-content: flex-start; }
+  .app-shell.sidebar-collapsed .brand { justify-content: flex-start; }
+  .menu-toggle, .sidebar-close { display: inline-grid; }
+  .sidebar-close { margin-left: auto; }
+  #sidebar-collapse { display: none; }
+  .topbar { min-height: 76px; }
+  .topbar-meta { gap: .5rem; }
+  .operator-control { min-width: 150px; }
+  .settings-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 700px) {
+  .topbar { align-items: center; flex-wrap: wrap; }
+  .topbar > div:nth-child(2) { flex: 1; }
+  .topbar-meta { width: 100%; margin-left: 48px; justify-content: space-between; }
+  .live-clock { text-align: left; }
+  .operator-control { flex: 1; }
+  main { padding: 1rem; }
+  .page-heading, .section-heading, .panel-heading:not(.compact), .danger-zone { align-items: flex-start; flex-direction: column; }
+  .metric-grid, .dashboard-grid, .form-grid-2, .form-grid-3, .temperature-grid { grid-template-columns: 1fr; }
+  .dashboard-grid > :last-child, .temperature-grid > :last-child, .span-2 { grid-column: auto; }
+  .toolbar-panel, .inline-form { align-items: stretch; flex-direction: column; }
+  .toolbar-summary { text-align: left; }
+  .compact-field { min-width: 0; width: 100%; }
+  .link-card { grid-template-columns: auto 1fr; }
+  .link-card .item-actions { grid-column: 1 / -1; }
+  .history-card { grid-template-columns: 1fr; }
+  .history-actions { flex-direction: row; flex-wrap: wrap; }
+  .copy-field { align-items: stretch; flex-direction: column; }
+  .modal-list-item { align-items: flex-start; flex-direction: column; }
+  .modal-list-item .item-actions { width: 100%; }
+  .modal-list-item .item-actions .button { flex: 1; }
+}
+
+@media (max-width: 440px) {
+  .metric-grid { grid-template-columns: 1fr; }
+  .metric-card { min-height: 132px; }
+  .checklist-item { grid-template-columns: auto 1fr; align-items: start; }
+  .checklist-actions { grid-column: 1 / -1; padding-left: 2.25rem; flex-wrap: wrap; }
+  .checklist-add-row { flex-direction: column; }
+  .history-meta { grid-template-columns: 1fr; }
+  .action-bar .button, .button-row .button { width: 100%; }
+  .topbar-meta { margin-left: 0; }
+  .modal-layer { padding: .45rem; }
+  .modal { max-height: 95vh; border-radius: 14px; }
+}
+
+@media (max-width: 1480px) {
+  .dashboard-metrics { grid-template-columns: repeat(3, minmax(0,1fr)); }
+  .link-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+}
+
+@media (max-width: 1180px) {
+  .link-toolbar { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .filter-check, .result-count { align-self: center; }
+  .link-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .work-link-management-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 700px) {
+  .operator-banner { align-items: flex-start; flex-direction: column; }
+  .dashboard-metrics, .quick-links-grid, .link-grid, .link-toolbar, .checklist-link-options { grid-template-columns: 1fr; }
+  .quick-link-row { grid-template-columns: 1fr; }
+  .quick-link-row .item-actions, .link-card-actions { width: 100%; }
+  .quick-link-row .button, .link-card-actions .button, .link-card-actions a { flex: 1 1 120px; }
+  .netflow-status-controls { grid-template-columns: 1fr; }
+  .category-manager-row { align-items: flex-start; flex-direction: column; }
+  .category-manager-row .item-actions { width: 100%; }
+}
