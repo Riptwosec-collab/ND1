@@ -10,25 +10,36 @@ import { initReport } from './report.js';
 import { initHistory } from './history.js';
 import { applyAppearance, initSettings } from './settings.js';
 
+function runInitializer(name, initializer) {
+  try {
+    initializer();
+  } catch (error) {
+    console.error(`[Night Shift NOC] ${name} initialization failed`, error);
+  }
+}
+
 function initApp() {
   initStorage();
-  initToast();
-  initModal();
-  applyAppearance(getSettings());
-  initShellControls();
-  populateOperatorSelect();
-  initDashboard();
-  initChecklist();
-  initLinks();
-  initReport();
-  initHistory();
-  initSettings();
-  initClock();
   initRouter();
 
+  runInitializer('toast', initToast);
+  runInitializer('modal', initModal);
+  runInitializer('appearance', () => applyAppearance(getSettings()));
+  runInitializer('shell controls', initShellControls);
+  runInitializer('operator selector', populateOperatorSelect);
+  runInitializer('dashboard', initDashboard);
+  runInitializer('checklist', initChecklist);
+  runInitializer('work links', initLinks);
+  runInitializer('report', initReport);
+  runInitializer('history', initHistory);
+  runInitializer('settings', initSettings);
+  runInitializer('clock', initClock);
+
   window.addEventListener('nightNoc:settings-changed', () => {
-    populateOperatorSelect();
-    applyAppearance(getSettings());
+    runInitializer('settings refresh', () => {
+      populateOperatorSelect();
+      applyAppearance(getSettings());
+    });
   });
 }
 
@@ -53,7 +64,14 @@ function initShellControls() {
   menuToggle.addEventListener('click', openSidebar);
   sidebarClose.addEventListener('click', closeSidebar);
   backdrop.addEventListener('click', closeSidebar);
-  document.querySelectorAll('[data-route-link]').forEach(link => link.addEventListener('click', closeSidebar));
+  document.querySelectorAll('[data-route-link]').forEach(link => {
+    link.addEventListener('click', event => {
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      closeSidebar();
+      navigate(link.dataset.routeLink);
+    });
+  });
 
   collapseButton.addEventListener('click', () => {
     const settings = getSettings();
