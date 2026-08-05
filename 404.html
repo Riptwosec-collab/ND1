@@ -2,26 +2,18 @@
 <html lang="th">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>กำลังกลับเข้าสู่ Night Shift NOC</title>
-  <style>
-    html,body{min-height:100%;margin:0;background:#020811;color:#e9f8ff;font-family:Tahoma,Arial,sans-serif}body{display:grid;place-items:center;text-align:center;padding:1rem}a{color:#39d8ff}
-  </style>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="refresh" content="0;url=/ND1/#dashboard">
+  <title>กำลังเปิด Dashboard</title>
+  <style>html,body{min-height:100%;margin:0;background:#020811;color:#e9f8ff;font-family:Tahoma,Arial,sans-serif}body{display:grid;place-items:center;text-align:center;padding:1rem}a{color:#39d8ff}</style>
 </head>
 <body>
   <main>
-    <h1>กำลังกลับเข้าสู่ Dashboard</h1>
-    <p><a id="fallback-link" href="./#dashboard">กดที่นี่หากระบบไม่เปลี่ยนหน้าอัตโนมัติ</a></p>
+    <h1>กำลังเปิด Dashboard</h1>
+    <p><a href="/ND1/#dashboard">กดที่นี่หากระบบไม่เปลี่ยนหน้าอัตโนมัติ</a></p>
   </main>
   <script>
-    (function () {
-      var pathParts = location.pathname.split('/').filter(Boolean);
-      var repository = pathParts.length ? '/' + pathParts[0] + '/' : '/';
-      var route = location.hash || '#dashboard';
-      var target = repository + route;
-      document.getElementById('fallback-link').setAttribute('href', target);
-      location.replace(target);
-    }());
+    location.replace('/ND1/' + (location.hash || '#dashboard'));
   </script>
 </body>
 </html>
