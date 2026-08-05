@@ -18,12 +18,20 @@ function normalizeRoute(value) {
 }
 
 export function initRouter() {
+  if (window.NightNocNavigation) {
+    window.NightNocNavigation.renderRoute();
+    return;
+  }
   window.addEventListener('hashchange', renderRoute);
   renderRoute();
 }
 
 export function navigate(route) {
   const safeRoute = normalizeRoute(route);
+  if (window.NightNocNavigation) {
+    window.NightNocNavigation.navigate(safeRoute);
+    return;
+  }
   if (location.hash === `#${safeRoute}`) renderRoute();
   else location.hash = safeRoute;
 }
