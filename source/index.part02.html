@@ -1,0 +1,31 @@
+          <section class="panel progress-panel" aria-labelledby="progress-heading">
+            <div class="panel-heading compact"><div><p class="eyebrow">SHIFT PROGRESS</p><h3 id="progress-heading">ความคืบหน้ากะ</h3></div><strong id="dashboard-progress-text">0%</strong></div>
+            <div class="progress-track" aria-label="ความคืบหน้ากะ" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="dashboard-progress-bar"><span id="dashboard-progress-fill"></span></div>
+            <p class="muted" id="dashboard-shift-window">ช่วงเวลา 06.00 - 20.30 น.</p>
+          </section>
+
+          <div class="dashboard-grid">
+            <section class="panel" aria-labelledby="temp-summary-heading"><div class="panel-heading compact"><div><p class="eyebrow">ENVIRONMENT</p><h3 id="temp-summary-heading">สรุปอุณหภูมิอุปกรณ์</h3></div><a href="#report" class="text-link">กรอกค่า</a></div><div id="dashboard-temp-summary" class="stack-list"></div></section>
+            <section class="panel" aria-labelledby="attack-summary-heading"><div class="panel-heading compact"><div><p class="eyebrow">SMOC</p><h3 id="attack-summary-heading">สรุปเหตุการณ์โจมตี</h3></div><a href="#report" class="text-link">ตรวจสอบ</a></div><div class="summary-block"><span class="status-badge status-neutral" id="dashboard-attack-status">ยังไม่ระบุผล</span><strong id="dashboard-attack-count">0 เหตุการณ์</strong><p class="muted" id="dashboard-attack-note">กรอกข้อมูลในหน้ารายงานและส่งมอบ</p></div></section>
+            <section class="panel" aria-labelledby="handover-summary-heading"><div class="panel-heading compact"><div><p class="eyebrow">HANDOVER</p><h3 id="handover-summary-heading">งานที่ต้องส่งมอบ</h3></div><a href="#history" class="text-link">ดูประวัติ</a></div><div class="summary-block"><strong id="dashboard-handover-status">ยังไม่ทำเครื่องหมายเสร็จ</strong><p class="muted" id="dashboard-handover-people">ผู้ส่งมอบ / ผู้รับมอบ: ยังไม่ระบุ</p><button class="button button-secondary button-small" type="button" data-go-route="report">ไปหน้าส่งมอบ</button></div></section>
+          </div>
+
+          <section class="panel netflow-overview" aria-labelledby="netflow-overview-heading"><div class="panel-heading compact"><div><p class="eyebrow">NETFLOW CHECK</p><h3 id="netflow-overview-heading">สถานะตรวจสอบ NetFlow</h3></div><button class="button button-secondary button-small" type="button" data-go-route="work-links">เปิดรายการงาน</button></div><strong id="dashboard-netflow-status">ตรวจแล้ว 0/14 จุด</strong></section>
+
+          <div class="quick-links-grid">
+            <section class="panel" aria-labelledby="favorite-links-heading"><div class="panel-heading compact"><div><p class="eyebrow">PINNED & FAVORITE</p><h3 id="favorite-links-heading">Quick Links</h3></div><a href="#work-links" class="text-link">ดูทั้งหมด</a></div><div id="dashboard-favorite-links" class="quick-link-list"></div></section>
+            <section class="panel" aria-labelledby="recent-links-heading"><div class="panel-heading compact"><div><p class="eyebrow">RECENT ACTIVITY</p><h3 id="recent-links-heading">ลิงก์ที่ใช้ล่าสุด</h3></div><a href="#work-links" class="text-link">ดูทั้งหมด</a></div><div id="dashboard-recent-links" class="quick-link-list"></div></section>
+          </div>
+        </section>
+
+        <section class="page" id="page-checklist" data-route="checklist" aria-labelledby="checklist-heading" hidden>
+          <div class="page-heading"><div><p class="eyebrow">DAILY WORKFLOW</p><h2 id="checklist-heading">เช็กลิสต์กะดึก</h2><p class="muted">เชื่อมลิงก์งานได้ และจะไม่ทำเครื่องหมายเสร็จอัตโนมัติเมื่อเปิดลิงก์</p></div><div class="button-row"><button class="button button-secondary" id="add-checklist-section" type="button">เพิ่มหัวข้อ</button><button class="button button-danger-outline" id="reset-daily-checklist" type="button">Reset เฉพาะวัน</button></div></div>
+          <div class="panel toolbar-panel"><label class="field compact-field grow" for="checklist-search"><span>ค้นหารายการ</span><input id="checklist-search" type="search" placeholder="ค้นหาชื่องานหรือหัวข้อ"></label><div class="toolbar-summary"><strong id="checklist-summary">0 / 0 เสร็จแล้ว</strong><span class="muted" id="checklist-current-date"></span></div></div>
+          <div id="checklist-sections" class="checklist-sections"></div>
+        </section>
+
+        <section class="page" id="page-work-links" data-route="work-links" aria-labelledby="links-heading" hidden>
+          <div class="page-heading"><div><p class="eyebrow">WORK RESOURCES</p><h2 id="links-heading">รวมลิงก์งาน</h2><p class="muted">ค้นหา กรอง จัดลำดับ ติดตามการใช้งาน และจัดการลิงก์ได้ในหน้าเดียว</p></div><div class="button-row"><button class="button button-secondary" id="link-import-trigger" type="button">Import JSON</button><input id="link-import-file" type="file" accept="application/json,.json" hidden><button class="button button-secondary" id="link-export-json" type="button">Export JSON</button><button class="button button-secondary" id="link-export-csv" type="button">Export CSV</button><button class="button button-danger-outline" id="reset-user-links" type="button">Reset ลิงก์ที่เพิ่มเอง</button></div></div>
+
+          <section class="panel link-toolbar" aria-label="ตัวกรองลิงก์งาน">
+            <label class="field grow" for="link-search"><span>ค้นหาลิงก์</span><input id="link-search" type="search" placeholder="ชื่อ คำอธิบาย หมวดหมู่ URL หรือ Path"></label>
