@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Night Shift Helpdesk futuristic command center</title>
+  <desc id="desc">Blue neon night operations room with a connected world map, city skyline, moon, monitoring consoles and circular command floor.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#010612"/>
+      <stop offset=".48" stop-color="#03152f"/>
+      <stop offset="1" stop-color="#01050d"/>
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="55%" r="50%">
+      <stop offset="0" stop-color="#057dff" stop-opacity=".42"/>
+      <stop offset=".44" stop-color="#003d9b" stop-opacity=".17"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="moon" cx="35%" cy="30%" r="70%">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".35" stop-color="#dceaff"/>
+      <stop offset=".7" stop-color="#9db9dd"/>
+      <stop offset="1" stop-color="#5d769b"/>
+    </radialGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#071a3b"/>
+      <stop offset="1" stop-color="#010713"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#061b3b" stop-opacity=".76"/>
+      <stop offset="1" stop-color="#01040a" stop-opacity=".98"/>
+    </linearGradient>
+    <filter id="blueGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+    <pattern id="windows" width="18" height="24" patternUnits="userSpaceOnUse">
+      <rect width="18" height="24" fill="#020915"/>
+      <rect x="4" y="5" width="3" height="6" rx="1" fill="#087ef2" opacity=".8"/>
+      <rect x="11" y="5" width="3" height="6" rx="1" fill="#0fdcff" opacity=".55"/>
+      <rect x="4" y="15" width="3" height="5" rx="1" fill="#0066d9" opacity=".55"/>
+    </pattern>
+    <pattern id="grid" width="70" height="48" patternUnits="userSpaceOnUse">
+      <path d="M70 0H0V48" fill="none" stroke="#087cff" stroke-opacity=".16" stroke-width="1"/>
+    </pattern>
+    <clipPath id="floorClip"><path d="M0 590Q800 500 1600 590V900H0Z"/></clipPath>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <rect width="1600" height="900" fill="url(#centerGlow)"/>
+
+  <!-- stars -->
+  <g fill="#65d8ff" opacity=".75">
+    <circle cx="70" cy="55" r="1.2"/><circle cx="139" cy="82" r="1"/><circle cx="210" cy="42" r="1.4"/>
+    <circle cx="292" cy="96" r="1"/><circle cx="391" cy="55" r="1.3"/><circle cx="482" cy="79" r="1"/>
+    <circle cx="586" cy="44" r="1.3"/><circle cx="679" cy="91" r="1"/><circle cx="765" cy="54" r="1.2"/>
+    <circle cx="875" cy="86" r="1"/><circle cx="966" cy="39" r="1.3"/><circle cx="1052" cy="74" r="1"/>
+    <circle cx="1164" cy="48" r="1.4"/><circle cx="1270" cy="90" r="1"/><circle cx="1388" cy="48" r="1.2"/>
+    <circle cx="1505" cy="87" r="1.1"/><circle cx="95" cy="147" r="1"/><circle cx="352" cy="150" r="1.2"/>
+    <circle cx="712" cy="136" r="1"/><circle cx="1010" cy="142" r="1.1"/><circle cx="1454" cy="143" r="1"/>
+  </g>
+
+  <!-- moon -->
+  <circle cx="1310" cy="96" r="54" fill="#c8ddff" opacity=".12" filter="url(#softGlow)"/>
+  <circle cx="1310" cy="96" r="43" fill="url(#moon)"/>
+  <g fill="#708db4" opacity=".32">
+    <ellipse cx="1293" cy="81" rx="10" ry="6"/><ellipse cx="1321" cy="110" rx="13" ry="8"/>
+    <ellipse cx="1302" cy="121" rx="7" ry="4"/><ellipse cx="1327" cy="73" rx="7" ry="5"/>
+  </g>
+
+  <!-- connected world map -->
+  <g transform="translate(255 70)" fill="none" stroke="#0b78ff" stroke-width="2" opacity=".6" filter="url(#blueGlow)">
+    <path d="M30 120L80 80L155 58L215 75L250 58L300 88L335 80L390 100L425 88L480 115L535 93L600 115L660 88L720 108L790 78L865 95L920 72L1000 100L1050 130"/>
+    <path d="M120 165L185 135L255 148L330 120L410 155L490 128L565 158L650 135L735 158L820 132L910 165"/>
+    <path d="M70 68L215 148M155 58L330 120M250 58L410 155M390 100L565 158M480 115L650 135M600 115L735 158M720 108L820 132M865 95L910 165M920 72L820 132"/>
+  </g>
+  <g fill="#27b8ff" filter="url(#blueGlow)">
+    <circle cx="335" cy="190" r="4"/><circle cx="410" cy="150" r="3"/><circle cx="470" cy="218" r="4"/>
+    <circle cx="555" cy="145" r="3"/><circle cx="635" cy="210" r="4"/><circle cx="725" cy="170" r="3"/>
+    <circle cx="820" cy="220" r="4"/><circle cx="905" cy="168" r="3"/><circle cx="995" cy="210" r="4"/>
+    <circle cx="1080" cy="162" r="3"/><circle cx="1170" cy="205" r="4"/><circle cx="1242" cy="150" r="3"/>
+  </g>
+
+  <!-- skyline -->
+  <g opacity=".96">
+    <path d="M0 470V290H40V245H70V335H94V205H128V164H159V314H184V248H214V470Z" fill="url(#windows)"/>
+    <path d="M1386 470V282H1417V230H1444V322H1468V180H1502V145H1530V295H1554V220H1580V470Z" fill="url(#windows)"/>
+    <path d="M205 470V338H240V287H274V470ZM1290 470V326H1325V278H1358V470Z" fill="url(#windows)" opacity=".9"/>
+  </g>
+
+  <!-- side monitoring consoles -->
+  <g fill="url(#panel)" stroke="#075cc8" stroke-width="2">
+    <path d="M0 455L360 405L420 575L0 645Z"/>
+    <path d="M1600 455L1240 405L1180 575L1600 645Z"/>
+  </g>
+  <g fill="#031020" stroke="#0a7eff" stroke-width="2" opacity=".94">
+    <rect x="24" y="468" width="126" height="95" rx="6"/><rect x="164" y="448" width="142" height="103" rx="6"/><rect x="320" y="430" width="90" height="98" rx="6"/>
+    <rect x="1450" y="468" width="126" height="95" rx="6"/><rect x="1294" y="448" width="142" height="103" rx="6"/><rect x="1190" y="430" width="90" height="98" rx="6"/>
+  </g>
+  <g stroke="#18baff" stroke-width="2" opacity=".65">
+    <path d="M40 540V500M58 540V486M76 540V520M94 540V474M112 540V510M130 540V492"/>
+    <path d="M181 520L205 500L228 510L250 475L274 493L295 468" fill="none"/>
+    <circle cx="1240" cy="478" r="24" fill="none"/><path d="M1220 478h40M1240 458v40"/>
+    <path d="M1310 520V478M1330 520V492M1350 520V466M1370 520V488M1390 520V472M1410 520V500"/>
+    <path d="M1472 518L1498 492L1522 505L1544 476L1560 490" fill="none"/>
+  </g>
+
+  <!-- floor -->
+  <g clip-path="url(#floorClip)">
+    <rect y="520" width="1600" height="380" fill="url(#floor)"/>
+    <rect y="520" width="1600" height="380" fill="url(#grid)" opacity=".8"/>
+    <g fill="none" stroke="#087cff" opacity=".43">
+      <ellipse cx="800" cy="660" rx="500" ry="120" stroke-width="2"/>
+      <ellipse cx="800" cy="660" rx="405" ry="96"/>
+      <ellipse cx="800" cy="660" rx="310" ry="72"/>
+      <ellipse cx="800" cy="660" rx="220" ry="50"/>
+      <ellipse cx="800" cy="660" rx="120" ry="28"/>
+    </g>
+    <ellipse cx="800" cy="659" rx="260" ry="38" fill="#006dff" opacity=".15" filter="url(#softGlow)"/>
+    <ellipse cx="800" cy="659" rx="170" ry="18" fill="none" stroke="#00d8ff" stroke-width="4" filter="url(#blueGlow)"/>
+    <circle cx="800" cy="659" r="7" fill="#b9f5ff" filter="url(#blueGlow)"/>
+  </g>
+
+  <rect width="1600" height="900" fill="none" stroke="#087cff" stroke-opacity=".25" stroke-width="2"/>
+</svg>
