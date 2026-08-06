@@ -1,91 +1,190 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
-  <title id="title">Night Shift Helpdesk futuristic command center</title>
-  <desc id="desc">Bright blue neon control room with connected world map, city skyline, moon, monitoring consoles and circular command floor.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+  <title id="title">Night Shift Helpdesk cinematic NOC command center</title>
+  <desc id="desc">Futuristic blue night operations room with a luminous connected world map, city skyline, moon, curved monitoring consoles and reflective hologram floor.</desc>
   <defs>
-    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#010716"/><stop offset=".48" stop-color="#041b42"/><stop offset="1" stop-color="#01050e"/></linearGradient>
-    <radialGradient id="centerGlow" cx="50%" cy="55%" r="58%"><stop offset="0" stop-color="#087cff" stop-opacity=".52"/><stop offset=".42" stop-color="#0049ba" stop-opacity=".25"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
-    <radialGradient id="moon" cx="34%" cy="28%" r="72%"><stop offset="0" stop-color="#fff"/><stop offset=".34" stop-color="#e7f0ff"/><stop offset=".72" stop-color="#9ab8df"/><stop offset="1" stop-color="#506b91"/></radialGradient>
-    <linearGradient id="building" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#071b3b"/><stop offset="1" stop-color="#010610"/></linearGradient>
-    <linearGradient id="console" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#082653"/><stop offset="1" stop-color="#010715"/></linearGradient>
-    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#08234e" stop-opacity=".92"/><stop offset="1" stop-color="#01040a" stop-opacity="1"/></linearGradient>
-    <filter id="glow" x="-120%" y="-120%" width="340%" height="340%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="strongGlow" x="-120%" y="-120%" width="340%" height="340%"><feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <filter id="soft" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="18"/></filter>
-    <pattern id="grid" width="72" height="48" patternUnits="userSpaceOnUse"><path d="M72 0H0V48" fill="none" stroke="#168bff" stroke-opacity=".26" stroke-width="1"/></pattern>
-    <pattern id="litWindows" width="17" height="22" patternUnits="userSpaceOnUse"><rect width="17" height="22" fill="#020917"/><rect x="3" y="4" width="3" height="5" rx="1" fill="#19cfff"/><rect x="10" y="4" width="3" height="5" rx="1" fill="#087cff"/><rect x="3" y="13" width="3" height="5" rx="1" fill="#006eff" opacity=".72"/><rect x="10" y="13" width="3" height="5" rx="1" fill="#33e7ff" opacity=".52"/></pattern>
-    <clipPath id="floorClip"><path d="M0 555Q800 480 1600 555V900H0Z"/></clipPath>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#010713"/>
+      <stop offset=".42" stop-color="#041a3a"/>
+      <stop offset=".70" stop-color="#020a19"/>
+      <stop offset="1" stop-color="#01040b"/>
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="47%" r="55%">
+      <stop offset="0" stop-color="#0a74ff" stop-opacity=".46"/>
+      <stop offset=".32" stop-color="#0049ba" stop-opacity=".25"/>
+      <stop offset=".68" stop-color="#001637" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="moon" cx="36%" cy="30%" r="72%">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".32" stop-color="#e8f2ff"/>
+      <stop offset=".68" stop-color="#a6c0e2"/>
+      <stop offset="1" stop-color="#5e789e"/>
+    </radialGradient>
+    <linearGradient id="building" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#08234b"/>
+      <stop offset=".5" stop-color="#04142c"/>
+      <stop offset="1" stop-color="#010710"/>
+    </linearGradient>
+    <linearGradient id="console" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#061a3b"/>
+      <stop offset="1" stop-color="#010713"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#03142c"/>
+      <stop offset="1" stop-color="#020817"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#061b3c" stop-opacity=".86"/>
+      <stop offset=".46" stop-color="#021024" stop-opacity=".94"/>
+      <stop offset="1" stop-color="#01040a"/>
+    </linearGradient>
+    <pattern id="windows" width="20" height="26" patternUnits="userSpaceOnUse">
+      <rect width="20" height="26" fill="#020915"/>
+      <rect x="4" y="5" width="3" height="6" rx="1" fill="#087ef2" opacity=".92"/>
+      <rect x="12" y="5" width="3" height="6" rx="1" fill="#20d8ff" opacity=".70"/>
+      <rect x="4" y="16" width="3" height="5" rx="1" fill="#0066d9" opacity=".64"/>
+      <rect x="12" y="16" width="3" height="5" rx="1" fill="#0a96ff" opacity=".48"/>
+    </pattern>
+    <pattern id="floorGrid" width="86" height="58" patternUnits="userSpaceOnUse">
+      <path d="M86 0H0V58" fill="none" stroke="#0b77ff" stroke-opacity=".19" stroke-width="1"/>
+    </pattern>
+    <filter id="blueGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+    <filter id="screenGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="2.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="floorClip"><path d="M0 660Q960 540 1920 660V1080H0Z"/></clipPath>
   </defs>
 
-  <rect width="1600" height="900" fill="url(#sky)"/>
-  <rect width="1600" height="900" fill="url(#centerGlow)"/>
+  <rect width="1920" height="1080" fill="url(#sky)"/>
+  <rect width="1920" height="1080" fill="url(#centerGlow)"/>
 
-  <!-- stars and clouds -->
-  <g fill="#5bdcff" opacity=".92" filter="url(#glow)">
-    <circle cx="76" cy="65" r="1.4"/><circle cx="151" cy="94" r="1.1"/><circle cx="230" cy="48" r="1.5"/><circle cx="318" cy="103" r="1.1"/><circle cx="408" cy="61" r="1.5"/><circle cx="505" cy="86" r="1.1"/><circle cx="602" cy="46" r="1.4"/><circle cx="704" cy="99" r="1.1"/><circle cx="789" cy="56" r="1.4"/><circle cx="890" cy="93" r="1.1"/><circle cx="987" cy="44" r="1.5"/><circle cx="1085" cy="84" r="1.1"/><circle cx="1184" cy="52" r="1.5"/><circle cx="1284" cy="98" r="1.1"/><circle cx="1402" cy="52" r="1.4"/><circle cx="1512" cy="92" r="1.2"/>
-  </g>
-  <path d="M1260 160c54-46 129-38 174 1 34 30 65 39 116 32v74h-306c-24-37-15-79 16-107Z" fill="#06122c" opacity=".82"/>
-  <path d="M1283 172c39-28 83-25 113-4 29 20 56 28 97 24" fill="none" stroke="#0b3472" stroke-width="5" opacity=".7"/>
-
-  <!-- moon -->
-  <circle cx="1290" cy="103" r="68" fill="#d8e8ff" opacity=".18" filter="url(#soft)"/>
-  <circle cx="1290" cy="103" r="48" fill="url(#moon)" filter="url(#glow)"/>
-  <g fill="#6f8db6" opacity=".38"><ellipse cx="1271" cy="88" rx="11" ry="7"/><ellipse cx="1305" cy="119" rx="14" ry="8"/><ellipse cx="1283" cy="130" rx="8" ry="5"/><ellipse cx="1309" cy="78" rx="7" ry="5"/></g>
-
-  <!-- luminous world map silhouettes -->
-  <g transform="translate(240 52)" fill="#0756b9" fill-opacity=".28" stroke="#1b92ff" stroke-width="2.2" filter="url(#glow)">
-    <path d="M30 104 76 66 140 55 195 69 223 54 279 72 302 97 269 119 238 112 210 132 177 122 148 143 111 131 79 145 45 131Z"/>
-    <path d="M246 139 283 150 304 181 298 217 279 247 263 232 251 201 235 177Z"/>
-    <path d="M390 77 424 61 458 70 485 62 513 78 535 72 554 88 541 106 512 104 494 119 468 112 447 128 418 119 398 101Z"/>
-    <path d="M455 126 487 130 519 153 536 190 523 225 494 252 467 233 452 201 439 165Z"/>
-    <path d="M542 91 589 65 653 72 694 60 752 77 808 66 865 83 915 68 972 90 1030 85 1074 113 1048 135 1000 128 969 145 921 134 879 151 835 139 790 159 744 142 702 151 663 130 621 141 583 119Z"/>
-    <path d="M873 166 902 181 913 207 894 224 866 216 852 193Z"/>
+  <!-- Fine stars and digital particles -->
+  <g fill="#6ee6ff" opacity=".86">
+    <circle cx="70" cy="70" r="1.4"/><circle cx="145" cy="116" r="1"/><circle cx="234" cy="58" r="1.5"/>
+    <circle cx="338" cy="108" r="1.1"/><circle cx="442" cy="64" r="1.3"/><circle cx="552" cy="106" r="1"/>
+    <circle cx="666" cy="50" r="1.3"/><circle cx="778" cy="98" r="1"/><circle cx="887" cy="62" r="1.2"/>
+    <circle cx="1008" cy="92" r="1"/><circle cx="1118" cy="47" r="1.4"/><circle cx="1220" cy="92" r="1"/>
+    <circle cx="1335" cy="54" r="1.3"/><circle cx="1454" cy="101" r="1"/><circle cx="1580" cy="52" r="1.2"/>
+    <circle cx="1708" cy="96" r="1.1"/><circle cx="1824" cy="61" r="1.2"/>
+    <circle cx="94" cy="192" r="1"/><circle cx="282" cy="168" r="1.2"/><circle cx="510" cy="183" r="1"/>
+    <circle cx="765" cy="155" r="1.2"/><circle cx="1030" cy="176" r="1"/><circle cx="1290" cy="155" r="1.2"/>
+    <circle cx="1510" cy="186" r="1"/><circle cx="1782" cy="166" r="1.2"/>
   </g>
 
-  <!-- network connections -->
-  <g transform="translate(240 52)" fill="none" stroke="#41c8ff" stroke-width="1.5" stroke-opacity=".78" filter="url(#glow)">
-    <path d="M76 66Q245 5 424 61M140 55Q361 10 589 65M195 69Q485 0 694 60M279 72Q566 18 808 66M390 77Q676 15 915 68M513 78Q779 22 1030 85"/>
-    <path d="M111 131Q413 43 663 72M210 132Q524 37 752 77M302 97Q610 45 865 83M468 112Q745 55 972 90M541 106Q828 61 1074 113"/>
+  <!-- Moon and clouds -->
+  <ellipse cx="1566" cy="128" rx="104" ry="72" fill="#d6e8ff" opacity=".12" filter="url(#softGlow)"/>
+  <circle cx="1570" cy="127" r="58" fill="url(#moon)"/>
+  <g fill="#718eb4" opacity=".32">
+    <ellipse cx="1548" cy="106" rx="13" ry="8"/><ellipse cx="1585" cy="145" rx="17" ry="10"/>
+    <ellipse cx="1558" cy="158" rx="10" ry="6"/><ellipse cx="1593" cy="96" rx="9" ry="7"/>
   </g>
-  <g fill="#7aeaff" filter="url(#strongGlow)"><circle cx="316" cy="118" r="3.4"/><circle cx="380" cy="106" r="3.4"/><circle cx="435" cy="121" r="3.4"/><circle cx="519" cy="104" r="3.4"/><circle cx="632" cy="130" r="3.4"/><circle cx="745" cy="111" r="3.4"/><circle cx="844" cy="132" r="3.4"/><circle cx="960" cy="116" r="3.4"/><circle cx="1068" cy="135" r="3.4"/><circle cx="1170" cy="120" r="3.4"/><circle cx="1260" cy="142" r="3.4"/></g>
-
-  <!-- city skyline both sides -->
-  <g fill="url(#litWindows)" stroke="#074aa3" stroke-width="1.5">
-    <path d="M0 500V270H35v-63h34v112h23V178h42v-51h32v166h27v-98h38v305Z"/>
-    <path d="M188 500V329h38v-75h37v246Zm80 0V292h39v-112h38v320Zm78 0V350h42v-67h39v217Z"/>
-    <path d="M1172 500V340h42v-80h39v240Zm82 0V295h40V182h38v318Zm83 0V329h39v-76h37v247Z"/>
-    <path d="M1394 500V266h35v-66h31v122h24V172h40v-52h32v171h22v-107h22v316Z"/>
+  <g fill="#0a1830" opacity=".62">
+    <ellipse cx="1645" cy="174" rx="108" ry="26"/><ellipse cx="1730" cy="186" rx="140" ry="31"/>
+    <ellipse cx="1490" cy="202" rx="128" ry="28"/><ellipse cx="1775" cy="228" rx="165" ry="34"/>
   </g>
-  <g stroke="#1bc8ff" stroke-width="2" opacity=".7"><path d="M134 127v-34M307 180v-41M1294 182v-43M1524 120V82"/><circle cx="134" cy="91" r="3" fill="#ff5e74"/><circle cx="307" cy="137" r="3" fill="#ff5e74"/><circle cx="1294" cy="137" r="3" fill="#ff5e74"/><circle cx="1524" cy="80" r="3" fill="#ff5e74"/></g>
 
-  <!-- curved monitoring desk -->
-  <path d="M0 440Q245 385 458 414L500 610Q242 562 0 652Z" fill="url(#console)" stroke="#0b76ef" stroke-width="3"/>
-  <path d="M1600 440Q1355 385 1142 414L1100 610Q1358 562 1600 652Z" fill="url(#console)" stroke="#0b76ef" stroke-width="3"/>
-
-  <!-- bright monitors -->
-  <g fill="#03142d" stroke="#168cff" stroke-width="3" filter="url(#glow)">
-    <rect x="18" y="454" width="142" height="110" rx="7"/><rect x="176" y="430" width="151" height="119" rx="7"/><rect x="343" y="414" width="126" height="111" rx="7"/>
-    <rect x="1440" y="454" width="142" height="110" rx="7"/><rect x="1273" y="430" width="151" height="119" rx="7"/><rect x="1131" y="414" width="126" height="111" rx="7"/>
+  <!-- Connected digital world map -->
+  <g transform="translate(270 82)" fill="#05306b" fill-opacity=".22" stroke="#1689ff" stroke-width="2.1" stroke-linejoin="round" opacity=".94" filter="url(#blueGlow)">
+    <path d="M50 132L95 84L178 61L247 73L290 52L338 85L325 126L279 148L252 196L205 209L166 176L118 173L85 155Z"/>
+    <path d="M302 200L340 222L360 260L341 314L312 346L290 310L296 267L276 236Z"/>
+    <path d="M425 86L475 67L535 78L581 64L635 84L679 82L736 106L759 137L721 156L689 149L649 178L604 181L565 150L526 154L487 132L445 137L411 112Z"/>
+    <path d="M548 187L604 186L646 218L667 260L648 306L619 344L582 324L562 279L538 235Z"/>
+    <path d="M731 156L785 138L833 154L871 142L918 167L945 202L915 235L864 224L829 243L786 224L757 196Z"/>
+    <path d="M932 248L974 232L1018 250L1047 279L1028 311L986 318L949 296Z"/>
   </g>
-  <g stroke="#36d7ff" stroke-width="3" opacity=".92">
-    <path d="M39 538V500M60 538V481M81 538V515M102 538V469M123 538V502M144 538V487"/>
-    <path d="M193 518 218 493 240 507 267 468 293 486 316 458" fill="none"/>
-    <path d="M365 497h80M380 477h48M390 512h42"/>
-    <path d="M1457 518 1482 493 1506 506 1532 470 1562 488" fill="none"/>
-    <path d="M1290 535V489M1312 535V506M1334 535V475M1356 535V497M1378 535V482M1400 535V510"/>
-    <circle cx="1194" cy="472" r="30" fill="none"/><path d="M1169 472h50M1194 447v50"/>
+  <g transform="translate(270 82)" fill="none" stroke="#35d9ff" stroke-width="1.35" opacity=".66">
+    <path d="M72 128L174 83L269 126L431 105L557 119L699 119L824 174L958 274"/>
+    <path d="M102 162L214 176L330 236L520 147L624 210L800 203L930 185"/>
+    <path d="M178 61L252 196M290 52L205 209M475 67L604 181M581 64L649 178M736 106L604 181M833 154L786 224M918 167L864 224"/>
+    <path d="M174 83Q340 34 520 147T824 174T958 274" opacity=".58"/>
+    <path d="M102 162Q306 252 520 147T930 185" opacity=".55"/>
   </g>
-  <g fill="#0b7dff" opacity=".55"><rect x="30" y="580" width="360" height="15" rx="6"/><rect x="1210" y="580" width="360" height="15" rx="6"/></g>
+  <g fill="#6ee6ff" filter="url(#blueGlow)">
+    <circle cx="342" cy="210" r="4.4"/><circle cx="448" cy="165" r="3.5"/><circle cx="520" cy="278" r="4.2"/>
+    <circle cx="610" cy="151" r="3.6"/><circle cx="718" cy="268" r="4.3"/><circle cx="825" cy="196" r="3.5"/>
+    <circle cx="930" cy="298" r="4.3"/><circle cx="1040" cy="214" r="3.6"/><circle cx="1145" cy="295" r="4.2"/>
+    <circle cx="1248" cy="228" r="3.4"/><circle cx="1354" cy="322" r="4.4"/><circle cx="1452" cy="262" r="3.4"/>
+  </g>
 
-  <!-- command floor -->
+  <!-- Night skyline -->
+  <g opacity=".98">
+    <path d="M0 642V348H58V302H99V406H138V260H190V202H232V426H270V336H315V642Z" fill="url(#windows)"/>
+    <path d="M306 642V446H360V378H408V642ZM1510 642V432H1560V355H1608V642Z" fill="url(#windows)" opacity=".92"/>
+    <path d="M1604 642V338H1650V284H1688V402H1728V242H1782V190H1825V420H1864V324H1920V642Z" fill="url(#windows)"/>
+    <path d="M200 642V390H238V324H271V642ZM1454 642V386H1490V314H1522V642Z" fill="url(#building)"/>
+  </g>
+  <g stroke="#1ab9ff" stroke-width="2" opacity=".65" filter="url(#screenGlow)">
+    <path d="M58 382H99M138 303H190M1650 330H1688M1728 286H1782"/>
+    <path d="M111 260V216M1748 241V196"/>
+  </g>
+
+  <!-- Curved NOC monitoring consoles -->
+  <g fill="url(#console)" stroke="#0b68d9" stroke-width="2.2">
+    <path d="M0 610L398 520L505 760L0 842Z"/>
+    <path d="M1920 610L1522 520L1415 760L1920 842Z"/>
+  </g>
+  <g fill="#020b19" stroke="#108eff" stroke-width="2.2">
+    <rect x="28" y="610" width="176" height="126" rx="9"/>
+    <rect x="224" y="570" width="188" height="134" rx="9"/>
+    <rect x="429" y="546" width="100" height="120" rx="9"/>
+    <rect x="1716" y="610" width="176" height="126" rx="9"/>
+    <rect x="1508" y="570" width="188" height="134" rx="9"/>
+    <rect x="1391" y="546" width="100" height="120" rx="9"/>
+  </g>
+  <g fill="url(#screen)" stroke="#0f83f2" stroke-width="1.5">
+    <rect x="43" y="625" width="146" height="96" rx="5"/>
+    <rect x="240" y="586" width="156" height="102" rx="5"/>
+    <rect x="444" y="560" width="70" height="91" rx="4"/>
+    <rect x="1731" y="625" width="146" height="96" rx="5"/>
+    <rect x="1524" y="586" width="156" height="102" rx="5"/>
+    <rect x="1406" y="560" width="70" height="91" rx="4"/>
+  </g>
+  <g stroke="#35d9ff" stroke-width="2" fill="none" opacity=".78" filter="url(#screenGlow)">
+    <path d="M58 699V662M77 699V646M96 699V680M115 699V634M134 699V667M153 699V650M172 699V674"/>
+    <path d="M256 663L281 640L307 651L334 612L360 631L384 604"/>
+    <circle cx="479" cy="606" r="23"/><path d="M456 606h46M479 583v46"/>
+    <path d="M1746 699V659M1765 699V671M1784 699V641M1803 699V660M1822 699V630M1841 699V649M1860 699V676"/>
+    <path d="M1540 664L1567 639L1591 652L1618 614L1643 634L1667 608"/>
+    <circle cx="1441" cy="606" r="23"/><path d="M1418 606h46M1441 583v46"/>
+  </g>
+  <g fill="#087cff" opacity=".50">
+    <circle cx="66" cy="643" r="3"/><circle cx="82" cy="643" r="3"/><circle cx="98" cy="643" r="3"/>
+    <circle cx="1550" cy="604" r="3"/><circle cx="1566" cy="604" r="3"/><circle cx="1582" cy="604" r="3"/>
+  </g>
+
+  <!-- Reflective command floor -->
   <g clip-path="url(#floorClip)">
-    <rect y="500" width="1600" height="400" fill="url(#floor)"/>
-    <rect y="500" width="1600" height="400" fill="url(#grid)"/>
-    <g fill="none" stroke="#168bff" opacity=".58"><ellipse cx="800" cy="670" rx="580" ry="145" stroke-width="3"/><ellipse cx="800" cy="670" rx="480" ry="118" stroke-width="2"/><ellipse cx="800" cy="670" rx="375" ry="90" stroke-width="2"/><ellipse cx="800" cy="670" rx="275" ry="64"/><ellipse cx="800" cy="670" rx="175" ry="39"/></g>
-    <ellipse cx="800" cy="668" rx="285" ry="45" fill="#087cff" opacity=".18" filter="url(#soft)"/>
-    <ellipse cx="800" cy="668" rx="210" ry="25" fill="none" stroke="#21dcff" stroke-width="5" filter="url(#strongGlow)"/>
-    <ellipse cx="800" cy="668" rx="115" ry="13" fill="none" stroke="#0088ff" stroke-width="4" filter="url(#glow)"/>
-    <circle cx="800" cy="668" r="8" fill="#d4fbff" filter="url(#strongGlow)"/>
+    <rect y="590" width="1920" height="490" fill="url(#floor)"/>
+    <rect y="590" width="1920" height="490" fill="url(#floorGrid)" opacity=".85"/>
+    <g stroke="#0b77ff" fill="none" opacity=".48">
+      <path d="M0 810Q960 640 1920 810"/>
+      <path d="M0 900Q960 700 1920 900"/>
+      <path d="M0 990Q960 760 1920 990"/>
+      <path d="M960 610V1080M730 620L560 1080M1190 620L1360 1080M520 640L180 1080M1400 640L1740 1080"/>
+    </g>
+    <g fill="none" stroke="#0b7fff" opacity=".56">
+      <ellipse cx="960" cy="790" rx="610" ry="145" stroke-width="2.4"/>
+      <ellipse cx="960" cy="790" rx="510" ry="122" stroke-width="2"/>
+      <ellipse cx="960" cy="790" rx="405" ry="98" stroke-width="1.8"/>
+      <ellipse cx="960" cy="790" rx="305" ry="72" stroke-width="1.6"/>
+      <ellipse cx="960" cy="790" rx="202" ry="48" stroke-width="1.5"/>
+    </g>
+    <ellipse cx="960" cy="792" rx="370" ry="58" fill="#006dff" opacity=".18" filter="url(#softGlow)"/>
+    <ellipse cx="960" cy="790" rx="238" ry="30" fill="none" stroke="#00d8ff" stroke-width="5" filter="url(#blueGlow)"/>
+    <ellipse cx="960" cy="790" rx="150" ry="18" fill="none" stroke="#1677ff" stroke-width="3" stroke-dasharray="14 10" filter="url(#blueGlow)"/>
+    <circle cx="960" cy="790" r="9" fill="#d9fbff" filter="url(#blueGlow)"/>
+    <path d="M960 790V655" stroke="#42e8ff" stroke-width="3" opacity=".40" filter="url(#softGlow)"/>
   </g>
 
-  <rect width="1600" height="900" fill="none" stroke="#087cff" stroke-opacity=".32" stroke-width="2"/>
+  <!-- Soft reflections and vignette -->
+  <ellipse cx="960" cy="865" rx="470" ry="95" fill="#087cff" opacity=".08" filter="url(#softGlow)"/>
+  <rect width="1920" height="1080" fill="none" stroke="#1677ff" stroke-opacity=".22" stroke-width="2"/>
+  <rect width="1920" height="1080" fill="url(#centerGlow)" opacity=".26"/>
 </svg>
