@@ -1,0 +1,158 @@
+:root{
+  --shift-cyan:#61ecff;
+  --shift-blue:#087dff;
+  --shift-deep:#010713;
+}
+
+/* Global shift countdown: reuses the existing clock nodes on every route. */
+.live-clock{
+  min-width:188px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  grid-template-rows:auto auto;
+  align-items:center;
+  gap:2px 14px;
+  padding:8px 14px;
+  border:1px solid rgba(57,217,255,.42);
+  border-radius:12px;
+  background:linear-gradient(135deg,rgba(1,11,29,.92),rgba(2,29,61,.82));
+  box-shadow:0 0 8px rgba(57,217,255,.30),0 0 24px rgba(0,119,255,.20),inset 0 0 16px rgba(0,153,255,.10);
+}
+.live-clock span{
+  grid-column:1;
+  grid-row:1/3;
+  align-self:center;
+  color:#9fc5dc!important;
+  font-size:.68rem!important;
+  font-weight:600;
+  line-height:1.25;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.live-clock strong{
+  grid-column:2;
+  grid-row:1/3;
+  color:var(--shift-cyan)!important;
+  font-size:1.55rem!important;
+  font-weight:800;
+  line-height:1;
+  letter-spacing:.07em;
+  font-variant-numeric:tabular-nums;
+  text-shadow:0 0 7px rgba(97,236,255,.78),0 0 18px rgba(0,119,255,.44)!important;
+}
+
+/* Home keeps only the countdown portion of the existing topbar. */
+body:has(#page-dashboard:not([hidden])) .topbar{
+  display:flex!important;
+  position:fixed!important;
+  top:8px!important;
+  right:16px!important;
+  left:auto!important;
+  z-index:220!important;
+  width:auto!important;
+  height:auto!important;
+  min-height:0!important;
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  pointer-events:none;
+}
+body:has(#page-dashboard:not([hidden])) .topbar-title,
+body:has(#page-dashboard:not([hidden])) .topbar .menu-toggle,
+body:has(#page-dashboard:not([hidden])) .topbar .operator-control{display:none!important}
+body:has(#page-dashboard:not([hidden])) .topbar-meta{
+  display:flex!important;
+  width:auto!important;
+  margin:0!important;
+  gap:0!important;
+}
+body:has(#page-dashboard:not([hidden])) .topbar .live-clock{
+  display:grid!important;
+  min-width:204px;
+  padding:9px 15px;
+  border-right:1px solid rgba(57,217,255,.42)!important;
+  pointer-events:auto;
+}
+
+/* Use the cleaned cinematic scene without foreground shadow sheets. */
+.helpdesk-hero::before{
+  background-image:url("../images/night-shift-helpdesk-bg.svg?v=20260806-13")!important;
+  background-position:center center!important;
+  background-size:cover!important;
+  filter:saturate(1.12) contrast(1.08) brightness(1.06)!important;
+}
+.helpdesk-hero::after{
+  background:repeating-linear-gradient(180deg,rgba(57,217,255,.012) 0 1px,transparent 1px 5px)!important;
+  opacity:.38!important;
+}
+.hero-skyline{opacity:.42!important}
+.hero-skyline::after{display:none!important}
+
+/* Remove the rotating central object completely. */
+.hero-orbit{display:none!important}
+
+/* Keep the existing frame, but make NIGHT SHIFT the only primary title. */
+.hero-command-panel{
+  top:27%!important;
+  width:min(820px,55vw)!important;
+  min-height:218px!important;
+  padding:38px 72px 34px!important;
+  background:linear-gradient(180deg,rgba(4,22,53,.89),rgba(0,6,20,.94))!important;
+}
+.hero-kicker{
+  margin:0!important;
+  color:transparent!important;
+  font-family:"Arial Narrow","Rajdhani","Segoe UI",sans-serif!important;
+  font-size:clamp(4.4rem,7vw,7.8rem)!important;
+  font-weight:900!important;
+  line-height:.88!important;
+  letter-spacing:.08em!important;
+  background:linear-gradient(180deg,#fff 0%,#f5fbff 46%,#b9daf4 78%,#eef9ff 100%)!important;
+  -webkit-background-clip:text!important;
+  background-clip:text!important;
+  text-shadow:0 0 4px rgba(255,255,255,.94),0 0 14px rgba(104,211,255,.76),0 0 34px rgba(0,102,255,.50)!important;
+}
+.hero-title{display:none!important}
+.hero-subtitle{margin-top:25px!important}
+.hero-afterhours{margin-top:13px!important}
+
+/* Bring the menu closer to the reference and keep the background unobstructed. */
+.hero-menu{
+  bottom:4.6%!important;
+  width:min(880px,75vw)!important;
+  gap:62px!important;
+}
+.hero-menu::before{top:56px!important}
+.hero-menu-icon{
+  width:112px!important;
+  height:112px!important;
+  background:radial-gradient(circle at 50% 46%,rgba(0,151,255,.27),rgba(0,22,58,.84) 48%,rgba(0,6,22,.96) 74%)!important;
+}
+
+@media(max-width:1180px){
+  .hero-command-panel{top:25%!important;width:min(760px,67vw)!important}
+  .hero-kicker{font-size:clamp(4rem,8vw,6.8rem)!important}
+  .hero-menu{width:min(820px,86vw)!important;gap:34px!important}
+}
+@media(max-width:900px){
+  body:has(#page-dashboard:not([hidden])) .topbar{top:9px!important;right:10px!important}
+  body:has(#page-dashboard:not([hidden])) .topbar .live-clock{min-width:176px;padding:7px 11px}
+  .live-clock strong{font-size:1.25rem!important}
+  .hero-command-panel{top:16%!important;width:min(700px,84vw)!important;min-height:200px!important;padding:30px 38px!important}
+  .hero-kicker{font-size:clamp(3.7rem,11vw,6rem)!important}
+  .hero-menu{bottom:4%!important}
+}
+@media(max-width:650px){
+  body:has(#page-dashboard:not([hidden])) .topbar .live-clock{min-width:160px}
+  .live-clock span{font-size:.58rem!important}
+  .live-clock strong{font-size:1.05rem!important}
+  .hero-command-panel{top:9%!important;width:91vw!important;min-height:168px!important;padding:26px 20px!important}
+  .hero-kicker{font-size:clamp(2.7rem,15vw,4.4rem)!important;letter-spacing:.05em!important}
+  .hero-subtitle{margin-top:17px!important}
+  .hero-menu{top:40%!important;bottom:auto!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-command-panel,.hero-menu-icon,.hero-skyline::before{animation:none!important}
+}
