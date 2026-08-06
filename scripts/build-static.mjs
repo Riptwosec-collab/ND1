@@ -19,28 +19,28 @@ const dashboardMarkup = `        <section class="page" id="page-dashboard" data-
               <div class="hero-command-panel">
                 <p class="hero-kicker">NIGHT SHIFT</p>
                 <h2 class="hero-title" id="hero-title">HELPDESK</h2>
-                <p class="hero-subtitle">Night Ops Command Center</p>
+                <p class="hero-subtitle">NIGHT OPS COMMAND CENTER</p>
                 <p class="hero-afterhours">AFTER-HOURS SUPPORT · <span id="hero-date"></span></p>
               </div>
               <div class="hero-orbit" aria-hidden="true"></div>
+              <nav class="hero-menu" aria-label="Main work menus">
+                <a class="hero-menu-link" href="#checklist" aria-label="Open Night Shift Checklist">
+                  <span class="hero-menu-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M21 10h22a5 5 0 0 1 5 5v39H16V15a5 5 0 0 1 5-5Z"/><path d="M25 7h14v8H25z"/><path d="m23 27 4 4 7-8M23 39l4 4 7-8M38 27h5M38 39h5"/></svg></span>
+                  <strong>NIGHT SHIFT CHECKLIST</strong>
+                  <span>Follow the essential steps for the night shift.</span>
+                </a>
+                <a class="hero-menu-link" href="#work-links" aria-label="Open Work Links">
+                  <span class="hero-menu-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="m26 39-5 5a10 10 0 0 1-14-14l9-9a10 10 0 0 1 14 0"/><path d="m38 25 5-5a10 10 0 1 1 14 14l-9 9a10 10 0 0 1-14 0"/><path d="m23 41 18-18"/></svg></span>
+                  <strong>WORK LINKS</strong>
+                  <span>Quick access to tools, systems, and resources.</span>
+                </a>
+                <a class="hero-menu-link" href="#todo" aria-label="Open Tasks To Do">
+                  <span class="hero-menu-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M21 10h22a5 5 0 0 1 5 5v39H16V15a5 5 0 0 1 5-5Z"/><path d="M25 7h14v8H25zM23 27h4M23 38h4M23 49h4M33 27h10M33 38h10M33 49h10"/></svg></span>
+                  <strong>TASKS TO DO</strong>
+                  <span>View and manage your after-hours tasks.</span>
+                </a>
+              </nav>
             </div>
-            <nav class="hero-menu" aria-label="เมนูงานหลัก">
-              <a class="hero-menu-link" href="#checklist">
-                <span class="hero-menu-icon" aria-hidden="true">✓</span>
-                <strong>Night Shift Checklist</strong>
-                <span>ตรวจสอบและติดตามขั้นตอนสำคัญของกะดึก</span>
-              </a>
-              <a class="hero-menu-link" href="#work-links">
-                <span class="hero-menu-icon" aria-hidden="true">↗</span>
-                <strong>Work Links</strong>
-                <span>เปิดเครื่องมือ ระบบงาน และลิงก์ที่ใช้งานประจำ</span>
-              </a>
-              <a class="hero-menu-link" href="#todo">
-                <span class="hero-menu-icon" aria-hidden="true">☷</span>
-                <strong>Tasks To Do</strong>
-                <span>ดู เพิ่ม แก้ไข และจัดการงานที่ต้องทำหลังเวลางาน</span>
-              </a>
-            </nav>
           </div>
         </section>
 
@@ -77,6 +77,7 @@ index=index.replace(netflowSource,netflowReplacement);
 
 index=index
   .replace('<link rel="stylesheet" href="./assets/css/work-links-v7.css?v=20260806-1">','<link rel="stylesheet" href="./assets/css/work-links-v7.css?v=20260806-1">\n  <link rel="stylesheet" href="./assets/css/task-checklist-v7.css?v=20260806-1">\n  <link rel="stylesheet" href="./assets/css/night-helpdesk-theme.css?v=20260806-2">')
+  .replace('night-helpdesk-scene.css?v=20260806-8','night-helpdesk-scene.css?v=20260806-9')
   .replace('<div class="brand-copy"><strong>Night Shift</strong><span>Operations Dashboard</span></div>','<div class="brand-copy"><strong>NIGHT SHIFT HELPDESK</strong><span>SUPPORT • MONITOR • RESOLVE</span></div>')
   .replace(/<a class="nav-link" href="#report"[^\n]*<span>บันทึกรายงานและส่งมอบ<\/span><\/a>/,'<a class="nav-link" href="#todo" data-route-link="todo"><span class="nav-icon" aria-hidden="true">◎</span><span>งานที่ต้องทำ</span></a>')
   .replace(/^\s*<a class="nav-link" href="#history"[^\n]*\n/m,'')
