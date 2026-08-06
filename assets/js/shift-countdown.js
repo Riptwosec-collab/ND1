@@ -35,36 +35,41 @@
       hours: Math.floor(secondsTotal / 3600),
       minutes: Math.floor((secondsTotal % 3600) / 60),
       seconds: secondsTotal % 60,
-      label: active ? 'เวลาที่เหลือของกะ' : 'นับถอยหลังก่อนเริ่มกะ'
+      label: active ? 'SHIFT ENDS IN' : 'SHIFT STARTS IN'
     };
   }
 
   function ensureCountdownBox() {
-    const panel = document.querySelector('#page-dashboard .hero-command-panel');
-    if (!panel) return null;
+    const topbarMeta = document.querySelector('.topbar-meta');
+    if (!topbarMeta) return null;
 
     let box = document.getElementById('shiftCountdownBox');
-    if (box) return box;
+    if (!box) {
+      box = document.createElement('div');
+      box.className = 'shift-countdown-box';
+      box.id = 'shiftCountdownBox';
+      box.setAttribute('aria-live', 'polite');
 
-    box = document.createElement('div');
-    box.className = 'shift-countdown-box';
-    box.id = 'shiftCountdownBox';
-    box.setAttribute('aria-live', 'polite');
+      const label = document.createElement('small');
+      label.id = 'shiftCountdownLabel';
+      label.textContent = 'SHIFT ENDS IN';
 
-    const label = document.createElement('small');
-    label.id = 'shiftCountdownLabel';
-    label.textContent = 'กำลังคำนวณเวลา';
+      const value = document.createElement('strong');
+      value.id = 'shiftCountdown';
+      value.textContent = '--:--:--';
 
-    const value = document.createElement('strong');
-    value.id = 'shiftCountdown';
-    value.textContent = '--:--:--';
+      const range = document.createElement('span');
+      range.id = 'shiftCountdownSub';
+      range.textContent = '20:30–08:30';
 
-    const range = document.createElement('span');
-    range.id = 'shiftCountdownSub';
-    range.textContent = 'เวลาทำงาน 20:30 - 08:30 น.';
+      box.append(label, value, range);
+    }
 
-    box.append(label, value, range);
-    panel.append(box);
+    const operatorControl = topbarMeta.querySelector('.operator-control');
+    if (box.parentElement !== topbarMeta) {
+      topbarMeta.insertBefore(box, operatorControl || null);
+    }
+
     return box;
   }
 
