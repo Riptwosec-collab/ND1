@@ -1,5 +1,4 @@
 import { getSettings, initStorage, saveSettings } from './storage.js';
-import { formatThaiDate, currentTimeText, todayIso } from './utils.js';
 import { initToast } from './toast.js';
 import { initModal } from './modal.js';
 import { initRouter, navigate } from './router.js';
@@ -33,7 +32,7 @@ function initApp() {
   runInitializer('operator selector', populateOperatorSelect);
   runInitializer('dashboard', initDashboard);
   if (!document.getElementById('linkTaskGrid')) runInitializer('work links', initLinks);
-  runInitializer('clock', initClock);
+  runInitializer('shift countdown', initClock);
 }
 
 function initShellControls() {
@@ -72,11 +71,53 @@ function populateOperatorSelect() {
   select.onchange = () => { const latest = getSettings(); latest.activeOperator = select.value; saveSettings(latest); window.dispatchEvent(new CustomEvent('nightNoc:data-changed', { detail: { source: 'operator' } })); };
 }
 
+function getShiftCountdownState(now = new Date()) {
+  const current = new Date(now);
+  const shiftEnd = new Date(current);
+  shiftEnd.setHours(8, 30, 0, 0);
+  const shiftStart = new Date(current);
+  shiftStart.setHours(20, 30, 0, 0);
+
+  let target;
+  let activeShift;
+
+  if (current < shiftEnd) {
+    target = shiftEnd;
+    activeShift = true;
+  } else if (current >= shiftStart) {
+    target = new Date(current);
+    target.setDate(target.getDate() + 1);
+    target.setHours(8, 30, 0, 0);
+    activeShift = true;
+  } else {
+    target = shiftStart;
+    activeShift = false;
+  }
+
+  const totalSeconds = Math.max(0, Math.floor((target.getTime() - current.getTime()) / 1000));
+  return {
+    activeShift,
+    hours: Math.floor(totalSeconds / 3600),
+    minutes: Math.floor((totalSeconds % 3600) / 60),
+    seconds: totalSeconds % 60
+  };
+}
+
 function initClock() {
-  const dateNode = document.getElementById('clock-date');
+  const labelNode = document.getElementById('clock-date');
   const timeNode = document.getElementById('clock-time');
-  const tick = () => { dateNode.textContent = formatThaiDate(todayIso()); timeNode.textContent = currentTimeText(); };
-  tick(); setInterval(tick, 1000);
+  if (!labelNode || !timeNode) return;
+
+  const pad = value => String(value).padStart(2, '0');
+  const tick = () => {
+    const state = getShiftCountdownState(new Date());
+    labelNode.textContent = state.activeShift ? 'เหลือเวลากะ' : 'เริ่มกะใน';
+    timeNode.textContent = `${pad(state.hours)}:${pad(state.minutes)}:${pad(state.seconds)}`;
+    timeNode.parentElement?.setAttribute('aria-label', `${labelNode.textContent} ${timeNode.textContent}`);
+  };
+
+  tick();
+  window.setInterval(tick, 1000);
 }
 
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initApp, { once: true });
