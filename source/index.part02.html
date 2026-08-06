@@ -25,7 +25,70 @@
         </section>
 
         <section class="page" id="page-work-links" data-route="work-links" aria-labelledby="links-heading" hidden>
-          <div class="page-heading"><div><p class="eyebrow">WORK RESOURCES</p><h2 id="links-heading">รวมลิงก์งาน</h2><p class="muted">ค้นหา กรอง จัดลำดับ ติดตามการใช้งาน และจัดการลิงก์ได้ในหน้าเดียว</p></div><div class="button-row"><button class="button button-secondary" id="link-import-trigger" type="button">Import JSON</button><input id="link-import-file" type="file" accept="application/json,.json" hidden><button class="button button-secondary" id="link-export-json" type="button">Export JSON</button><button class="button button-secondary" id="link-export-csv" type="button">Export CSV</button><button class="button button-danger-outline" id="reset-user-links" type="button">Reset ลิงก์ที่เพิ่มเอง</button></div></div>
+          <div class="wl7-heading">
+            <div><p class="eyebrow">WORK RESOURCES V7</p><h2 id="links-heading">รวมลิงก์งาน</h2><p>แต่ละหัวข้อทำเครื่องหมายเสร็จได้ และบันทึกสถานะในเครื่องอัตโนมัติ</p></div>
+            <span class="wl7-badge" id="linkProgressBadge">0/0 เสร็จ</span>
+          </div>
 
-          <section class="panel link-toolbar" aria-label="ตัวกรองลิงก์งาน">
-            <label class="field grow" for="link-search"><span>ค้นหาลิงก์</span><input id="link-search" type="search" placeholder="ชื่อ คำอธิบาย หมวดหมู่ URL หรือ Path"></label>
+          <div class="wl7-grid" id="linkTaskGrid">
+            <article class="wl7-card full" data-link-id="temperature">
+              <div class="wl7-card-head"><div class="wl7-num">1</div><div class="wl7-copy"><h3>ตรวจสอบอุณหภูมิอุปกรณ์ 3 ตัว / ตรวจสอบ Email เหตุการณ์โจมตีจาก SMOC</h3><small>เลือกวันที่แบบวันเดียวหรือช่วง 2 วัน เลือกกะเวลาและรูปแบบเหตุการณ์ได้</small></div><span class="wl7-badge task-state">รอดำเนินการ</span></div>
+              <div class="wl7-card-body">
+                <div class="wl7-report-controls">
+                  <div class="wl7-field"><label for="reportDateMode">รูปแบบวันที่</label><select class="wl7-select" id="reportDateMode"><option value="single">วันเดียว</option><option value="range">ช่วง 2 วัน</option></select></div>
+                  <div class="wl7-field"><label for="reportDateStart">วันที่เริ่ม</label><input class="wl7-input" id="reportDateStart" type="date"></div>
+                  <div class="wl7-field" id="reportDateEndField" hidden><label for="reportDateEnd">วันที่สิ้นสุด</label><input class="wl7-input" id="reportDateEnd" type="date"></div>
+                  <div class="wl7-field"><label for="reportShift">ช่วงเวลา</label><select class="wl7-select" id="reportShift"><option value="day">06.00 - 20.30 น.</option><option value="night">20.30 - 06.00 น.</option></select></div>
+                  <div class="wl7-field"><label for="incidentMode">เหตุการณ์โจมตี</label><select class="wl7-select" id="incidentMode"><option value="found">พบเหตุการณ์ ถูก Block โดย Arbor</option><option value="none">ไม่พบเหตุการณ์ผิดปกติ</option></select></div>
+                  <div class="wl7-field" id="attackCountField"><label for="attackCount">จำนวนเหตุการณ์</label><input class="wl7-input" id="attackCount" type="number" min="1" step="1" value="4"></div>
+                </div>
+                <div class="wl7-temp-grid">
+                  <div class="wl7-device"><strong>IT05-C3750X-Intra-Inter</strong><small>10.1.100.3 · System Temperature Value</small><div class="wl7-temp-row"><div class="wl7-field"><label for="temp3">อุณหภูมิ</label><input class="wl7-input temperature-input" id="temp3" type="number" min="0" max="99" step="1" value="32"></div><div class="wl7-degree">Degree Celsius</div></div><span class="wl7-badge temp-status" data-temp-for="temp3">ปกติ</span></div>
+                  <div class="wl7-device"><strong>IT06-C9500-CSW1-A01</strong><small>10.1.100.1 · FL6-Rack A01 Temperature</small><div class="wl7-temp-row"><div class="wl7-field"><label for="temp1">อุณหภูมิ</label><input class="wl7-input temperature-input" id="temp1" type="number" min="0" max="99" step="1" value="49"></div><div class="wl7-degree">Degree Celsius</div></div><span class="wl7-badge temp-status warn" data-temp-for="temp1">Warning</span></div>
+                  <div class="wl7-device"><strong>IT06-C9500-CSW2-A02</strong><small>10.1.100.2 · FL6-Rack A02 Temperature</small><div class="wl7-temp-row"><div class="wl7-field"><label for="temp2">อุณหภูมิ</label><input class="wl7-input temperature-input" id="temp2" type="number" min="0" max="99" step="1" value="47"></div><div class="wl7-degree">Degree Celsius</div></div><span class="wl7-badge temp-status warn" data-temp-for="temp2">Warning</span></div>
+                </div>
+                <div class="wl7-field"><label for="temperatureReport">ข้อความพร้อมคัดลอก</label><textarea class="wl7-textarea wl7-report-preview" id="temperatureReport" readonly></textarea></div>
+              </div>
+              <div class="wl7-card-foot"><button class="wl7-btn primary" type="button" id="copyTemperatureReport">คัดลอกข้อความทั้งหมด</button><button class="wl7-btn success complete-link" type="button" data-link-id="temperature">ทำเครื่องหมายเสร็จ</button></div>
+            </article>
+
+            <article class="wl7-card" data-link-id="uih">
+              <div class="wl7-card-head"><div class="wl7-num">2</div><div class="wl7-copy"><h3>รายงานคงค้าง UIH</h3><small>ส่งกลุ่ม LINE เครือข่ายขัดข้อง</small></div><span class="wl7-badge task-state">รอดำเนินการ</span></div>
+              <div class="wl7-card-body"><div class="wl7-path-box" id="uihPath">\\10.1.1.94\share noc\รายงานประจำวัน</div><p class="wl7-note">ส่งกลุ่ม LINE เครือข่ายขัดข้อง</p></div>
+              <div class="wl7-card-foot"><button class="wl7-btn" type="button" id="copyUih">คัดลอก Path</button><button class="wl7-btn success complete-link" type="button" data-link-id="uih">ทำเครื่องหมายเสร็จ</button></div>
+            </article>
+
+            <article class="wl7-card" data-link-id="netflow">
+              <div class="wl7-card-head"><div class="wl7-num">3</div><div class="wl7-copy"><h3>ตรวจสอบกราฟ NetFlow</h3><small>ตรวจสอบแนวโน้ม Traffic และความผิดปกติ</small></div><span class="wl7-badge task-state">รอดำเนินการ</span></div>
+              <div class="wl7-card-body"><div class="wl7-link-box">Google Sheet สำหรับตรวจสอบกราฟ NetFlow</div></div>
+              <div class="wl7-card-foot"><a class="wl7-btn primary" href="https://docs.google.com/spreadsheets/d/1UfpRN9_BTltivyFqurGEgdouX_w5HeDhSVd9bGIdmZY/edit?gid=1195571999#gid=1195571999" target="_blank" rel="noopener noreferrer">เปิด Google Sheet</a><button class="wl7-btn copy-url" type="button" data-url="https://docs.google.com/spreadsheets/d/1UfpRN9_BTltivyFqurGEgdouX_w5HeDhSVd9bGIdmZY/edit?gid=1195571999#gid=1195571999">คัดลอกลิงก์</button><button class="wl7-btn success complete-link" type="button" data-link-id="netflow">ทำเครื่องหมายเสร็จ</button></div>
+            </article>
+
+            <article class="wl7-card" data-link-id="service">
+              <div class="wl7-card-head"><div class="wl7-num">4</div><div class="wl7-copy"><h3>ตรวจสอบ Service ระบบงาน</h3><small>ตรวจสอบความพร้อมใช้งานจาก Google Sheet</small></div><span class="wl7-badge task-state">รอดำเนินการ</span></div>
+              <div class="wl7-card-body"><div class="wl7-link-box">Google Sheet สำหรับตรวจสอบ Service ระบบงาน</div></div>
+              <div class="wl7-card-foot"><a class="wl7-btn primary" href="https://docs.google.com/spreadsheets/d/1PmNbHP_K2yjKsHNJtgr1CUlr1lygfINuRjUz995XhEM/edit?gid=821606506#gid=821606506" target="_blank" rel="noopener noreferrer">เปิด Google Sheet</a><button class="wl7-btn copy-url" type="button" data-url="https://docs.google.com/spreadsheets/d/1PmNbHP_K2yjKsHNJtgr1CUlr1lygfINuRjUz995XhEM/edit?gid=821606506#gid=821606506">คัดลอกลิงก์</button><button class="wl7-btn success complete-link" type="button" data-link-id="service">ทำเครื่องหมายเสร็จ</button></div>
+            </article>
+
+            <article class="wl7-card" data-link-id="ipam">
+              <div class="wl7-card-head"><div class="wl7-num">5</div><div class="wl7-copy"><h3>Add IPAM ที่ Solawind</h3><small>ลิงก์วิธี Add IPAM</small></div><span class="wl7-badge task-state">รอดำเนินการ</span></div>
+              <div class="wl7-card-body"><div class="wl7-link-box">https://drive.google.com/file/d/1Dwj4jG7KPQ4QnTVQSmoo2WazvW9CwPV1/view?usp=sharing</div><p class="wl7-note">- Add เฉพาะหัวข้อใบงาน แก้ IP และ MAC Address</p></div>
+              <div class="wl7-card-foot"><a class="wl7-btn primary" href="https://drive.google.com/file/d/1Dwj4jG7KPQ4QnTVQSmoo2WazvW9CwPV1/view?usp=sharing" target="_blank" rel="noopener noreferrer">เปิดวิธี Add</a><button class="wl7-btn copy-url" type="button" data-url="https://drive.google.com/file/d/1Dwj4jG7KPQ4QnTVQSmoo2WazvW9CwPV1/view?usp=sharing">คัดลอกลิงก์</button><button class="wl7-btn success complete-link" type="button" data-link-id="ipam">ทำเครื่องหมายเสร็จ</button></div>
+            </article>
+          </div>
+
+          <section class="wl7-panel wl7-custom">
+            <div class="wl7-panel-head"><div><h3>เพิ่มข้อมูลและลิงก์งานเอง</h3><span class="muted">เมื่อเพิ่มแล้ว การ์ดใหม่จะต่อจากข้อสุดท้ายด้านบน</span></div></div>
+            <div class="wl7-panel-body">
+              <form id="customLinkForm" novalidate>
+                <div class="wl7-form-grid">
+                  <div class="wl7-field"><label for="customLinkTitle">ชื่องาน</label><input class="wl7-input" id="customLinkTitle" maxlength="120" required><p class="wl7-error" id="customLinkTitleError"></p></div>
+                  <div class="wl7-field"><label for="customLinkUrl">ลิงก์ URL</label><input class="wl7-input" id="customLinkUrl" type="url" placeholder="https://..." required><p class="wl7-error" id="customLinkUrlError"></p></div>
+                  <div class="wl7-field wide"><label for="customLinkDetail">รายละเอียด</label><textarea class="wl7-textarea" id="customLinkDetail" maxlength="600"></textarea></div>
+                </div>
+                <div class="wl7-row"><button class="wl7-btn primary" type="submit">เพิ่มข้อมูลและลิงก์งาน</button></div>
+              </form>
+            </div>
+          </section>
+          <div class="wl7-toast-wrap" id="wl7Toasts" aria-live="polite"></div>
+        </section>
