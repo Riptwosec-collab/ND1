@@ -6,9 +6,6 @@ import { initRouter, navigate } from './router.js';
 import { initDashboard } from './dashboard.js';
 import { initChecklist } from './checklist.js';
 import { initLinks } from './links.js';
-import { initReport } from './report.js';
-import { initHistory } from './history.js';
-import { applyAppearance, initSettings } from './settings.js';
 
 function runInitializer(name, initializer) {
   try {
@@ -18,29 +15,31 @@ function runInitializer(name, initializer) {
   }
 }
 
+function applySavedShell(settings = getSettings()) {
+  document.documentElement.dataset.accent = settings.accent || 'cyan';
+  document.body.classList.toggle('density-compact', Boolean(settings.compactDensity));
+  const shell = document.getElementById('app-shell');
+  const collapseButton = document.getElementById('sidebar-collapse');
+  shell?.classList.toggle('sidebar-collapsed', Boolean(settings.sidebarCollapsed));
+  if (collapseButton) {
+    collapseButton.textContent = settings.sidebarCollapsed ? 'ขยายเมนู' : 'ย่อเมนู';
+    collapseButton.setAttribute('aria-expanded', String(!settings.sidebarCollapsed));
+  }
+}
+
 function initApp() {
   initStorage();
   initRouter();
 
   runInitializer('toast', initToast);
   runInitializer('modal', initModal);
-  runInitializer('appearance', () => applyAppearance(getSettings()));
+  runInitializer('saved appearance', () => applySavedShell(getSettings()));
   runInitializer('shell controls', initShellControls);
   runInitializer('operator selector', populateOperatorSelect);
   runInitializer('dashboard', initDashboard);
   runInitializer('checklist', initChecklist);
   if (!document.getElementById('linkTaskGrid')) runInitializer('work links', initLinks);
-  runInitializer('report', initReport);
-  runInitializer('history', initHistory);
-  runInitializer('settings', initSettings);
   runInitializer('clock', initClock);
-
-  window.addEventListener('nightNoc:settings-changed', () => {
-    runInitializer('settings refresh', () => {
-      populateOperatorSelect();
-      applyAppearance(getSettings());
-    });
-  });
 }
 
 function initShellControls() {
@@ -78,7 +77,7 @@ function initShellControls() {
     const settings = getSettings();
     settings.sidebarCollapsed = !settings.sidebarCollapsed;
     saveSettings(settings);
-    applyAppearance(settings);
+    applySavedShell(settings);
   });
 
   document.addEventListener('click', event => {
