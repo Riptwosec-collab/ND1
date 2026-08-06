@@ -36,7 +36,7 @@ for (const marker of required) {
 for (const retired of ['data-route="report"','data-route="history"','data-route="settings"']) {
   if (html.includes(retired)) errors.push(`Retired route remains: ${retired}`);
 }
-if (!dashboard.includes('shiftCountdown') || !dashboard.includes('20, 30') || !dashboard.includes('8, 30')) errors.push('Built dashboard countdown logic is incomplete');
+if (html.includes('shift-countdown.js') || html.includes('shiftCountdownBox')) errors.push('Removed Home countdown still appears in built HTML');
 if (!dashboard.includes('night-helpdesk-scene.css')) errors.push('Built dashboard does not load the scene stylesheet');
 if (!sceneCss.includes('../images/night-shift-helpdesk-bg.svg')) errors.push('Built scene CSS does not reference the background asset');
 if (!sceneSvg.includes('connected world map') || !sceneSvg.includes('monitoring consoles')) errors.push('Built command-center SVG is incomplete');
@@ -45,4 +45,4 @@ if (errors.length) {
   console.error(errors.join('\n'));
   process.exit(1);
 }
-console.log('PASS: landing page, scene assets, four routes, countdown, UIH path and NetFlow controls are present.');
+console.log('PASS: landing page, scene assets, four routes, UIH path and NetFlow controls are present; Home countdown is removed.');
