@@ -4,10 +4,7 @@
   const routeTitles = Object.freeze({
     dashboard: 'ภาพรวมกะดึก',
     checklist: 'เช็กลิสต์กะดึก',
-    'work-links': 'รวมลิงก์งาน',
-    report: 'บันทึกรายงานและส่งมอบ',
-    history: 'ประวัติการทำงาน',
-    settings: 'ตั้งค่า'
+    'work-links': 'รวมลิงก์งาน'
   });
   const aliases = Object.freeze({ links: 'work-links' });
   const storageKey = 'nightNoc.currentRoute.v2';
