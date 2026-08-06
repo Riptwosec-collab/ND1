@@ -12,6 +12,9 @@ if (result.status !== 0) {
 }
 
 const html = await readFile(new URL('../dist/index.html', import.meta.url), 'utf8');
+const dashboard = await readFile(new URL('../dist/assets/js/dashboard.js', import.meta.url), 'utf8');
+const sceneCss = await readFile(new URL('../dist/assets/css/night-helpdesk-scene.css', import.meta.url), 'utf8');
+const sceneSvg = await readFile(new URL('../dist/assets/images/night-shift-helpdesk-bg.svg', import.meta.url), 'utf8');
 const errors = [];
 const required = [
   'class="helpdesk-hero"',
@@ -33,8 +36,13 @@ for (const marker of required) {
 for (const retired of ['data-route="report"','data-route="history"','data-route="settings"']) {
   if (html.includes(retired)) errors.push(`Retired route remains: ${retired}`);
 }
+if (!dashboard.includes('shiftCountdown') || !dashboard.includes('20, 30') || !dashboard.includes('8, 30')) errors.push('Built dashboard countdown logic is incomplete');
+if (!dashboard.includes('night-helpdesk-scene.css')) errors.push('Built dashboard does not load the scene stylesheet');
+if (!sceneCss.includes('../images/night-shift-helpdesk-bg.svg')) errors.push('Built scene CSS does not reference the background asset');
+if (!sceneSvg.includes('connected world map') || !sceneSvg.includes('monitoring consoles')) errors.push('Built command-center SVG is incomplete');
+
 if (errors.length) {
   console.error(errors.join('\n'));
   process.exit(1);
 }
-console.log('PASS: built landing page, four routes, UIH path and NetFlow script controls are present.');
+console.log('PASS: landing page, scene assets, four routes, countdown, UIH path and NetFlow controls are present.');
