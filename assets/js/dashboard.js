@@ -2,6 +2,7 @@ import { formatThaiDate, todayIso } from './utils.js';
 
 export function initDashboard() {
   ensureSceneStylesheet();
+  ensureVisualOverride();
   updateDashboard();
 
   window.addEventListener('nightNoc:route-changed', event => {
@@ -28,5 +29,16 @@ function ensureSceneStylesheet() {
   link.id = stylesheetId;
   link.rel = 'stylesheet';
   link.href = stylesheetHref;
+  document.head.append(link);
+}
+
+function ensureVisualOverride() {
+  const stylesheetId = 'home-cleanup-v13-styles';
+  if (document.getElementById(stylesheetId)) return;
+
+  const link = document.createElement('link');
+  link.id = stylesheetId;
+  link.rel = 'stylesheet';
+  link.href = './assets/css/home-cleanup-v13.css?v=20260806-13';
   document.head.append(link);
 }
