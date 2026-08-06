@@ -16,11 +16,17 @@ export function updateDashboard() {
 
 function ensureSceneStylesheet() {
   const stylesheetId = 'night-helpdesk-scene-styles';
-  if (document.getElementById(stylesheetId)) return;
+  const stylesheetHref = './assets/css/night-helpdesk-scene.css?v=20260806-12';
+  const existing = document.getElementById(stylesheetId);
+
+  if (existing) {
+    if (!existing.getAttribute('href')?.includes('20260806-12')) existing.setAttribute('href', stylesheetHref);
+    return;
+  }
 
   const link = document.createElement('link');
   link.id = stylesheetId;
   link.rel = 'stylesheet';
-  link.href = './assets/css/night-helpdesk-scene.css?v=20260806-10';
+  link.href = stylesheetHref;
   document.head.append(link);
 }
