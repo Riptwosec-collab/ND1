@@ -3,10 +3,7 @@ import { getCurrentRoute, saveCurrentRoute } from './storage.js';
 const ROUTES = Object.freeze({
   dashboard: 'ภาพรวมกะดึก',
   checklist: 'เช็กลิสต์กะดึก',
-  'work-links': 'รวมลิงก์งาน',
-  report: 'บันทึกรายงานและส่งมอบ',
-  history: 'ประวัติการทำงาน',
-  settings: 'ตั้งค่า'
+  'work-links': 'รวมลิงก์งาน'
 });
 
 const ROUTE_ALIASES = Object.freeze({ links: 'work-links' });
