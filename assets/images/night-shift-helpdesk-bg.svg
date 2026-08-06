@@ -1,124 +1,91 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
   <title id="title">Night Shift Helpdesk futuristic command center</title>
-  <desc id="desc">Blue neon night operations room with a connected world map, city skyline, moon, monitoring consoles and circular command floor.</desc>
+  <desc id="desc">Bright blue neon control room with connected world map, city skyline, moon, monitoring consoles and circular command floor.</desc>
   <defs>
-    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#010612"/>
-      <stop offset=".48" stop-color="#03152f"/>
-      <stop offset="1" stop-color="#01050d"/>
-    </linearGradient>
-    <radialGradient id="centerGlow" cx="50%" cy="55%" r="50%">
-      <stop offset="0" stop-color="#057dff" stop-opacity=".42"/>
-      <stop offset=".44" stop-color="#003d9b" stop-opacity=".17"/>
-      <stop offset="1" stop-color="#000" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="moon" cx="35%" cy="30%" r="70%">
-      <stop offset="0" stop-color="#fff"/>
-      <stop offset=".35" stop-color="#dceaff"/>
-      <stop offset=".7" stop-color="#9db9dd"/>
-      <stop offset="1" stop-color="#5d769b"/>
-    </radialGradient>
-    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#071a3b"/>
-      <stop offset="1" stop-color="#010713"/>
-    </linearGradient>
-    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#061b3b" stop-opacity=".76"/>
-      <stop offset="1" stop-color="#01040a" stop-opacity=".98"/>
-    </linearGradient>
-    <filter id="blueGlow" x="-80%" y="-80%" width="260%" height="260%">
-      <feGaussianBlur stdDeviation="5" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%">
-      <feGaussianBlur stdDeviation="12"/>
-    </filter>
-    <pattern id="windows" width="18" height="24" patternUnits="userSpaceOnUse">
-      <rect width="18" height="24" fill="#020915"/>
-      <rect x="4" y="5" width="3" height="6" rx="1" fill="#087ef2" opacity=".8"/>
-      <rect x="11" y="5" width="3" height="6" rx="1" fill="#0fdcff" opacity=".55"/>
-      <rect x="4" y="15" width="3" height="5" rx="1" fill="#0066d9" opacity=".55"/>
-    </pattern>
-    <pattern id="grid" width="70" height="48" patternUnits="userSpaceOnUse">
-      <path d="M70 0H0V48" fill="none" stroke="#087cff" stroke-opacity=".16" stroke-width="1"/>
-    </pattern>
-    <clipPath id="floorClip"><path d="M0 590Q800 500 1600 590V900H0Z"/></clipPath>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#010716"/><stop offset=".48" stop-color="#041b42"/><stop offset="1" stop-color="#01050e"/></linearGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="55%" r="58%"><stop offset="0" stop-color="#087cff" stop-opacity=".52"/><stop offset=".42" stop-color="#0049ba" stop-opacity=".25"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+    <radialGradient id="moon" cx="34%" cy="28%" r="72%"><stop offset="0" stop-color="#fff"/><stop offset=".34" stop-color="#e7f0ff"/><stop offset=".72" stop-color="#9ab8df"/><stop offset="1" stop-color="#506b91"/></radialGradient>
+    <linearGradient id="building" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#071b3b"/><stop offset="1" stop-color="#010610"/></linearGradient>
+    <linearGradient id="console" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#082653"/><stop offset="1" stop-color="#010715"/></linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#08234e" stop-opacity=".92"/><stop offset="1" stop-color="#01040a" stop-opacity="1"/></linearGradient>
+    <filter id="glow" x="-120%" y="-120%" width="340%" height="340%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="strongGlow" x="-120%" y="-120%" width="340%" height="340%"><feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="soft" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="18"/></filter>
+    <pattern id="grid" width="72" height="48" patternUnits="userSpaceOnUse"><path d="M72 0H0V48" fill="none" stroke="#168bff" stroke-opacity=".26" stroke-width="1"/></pattern>
+    <pattern id="litWindows" width="17" height="22" patternUnits="userSpaceOnUse"><rect width="17" height="22" fill="#020917"/><rect x="3" y="4" width="3" height="5" rx="1" fill="#19cfff"/><rect x="10" y="4" width="3" height="5" rx="1" fill="#087cff"/><rect x="3" y="13" width="3" height="5" rx="1" fill="#006eff" opacity=".72"/><rect x="10" y="13" width="3" height="5" rx="1" fill="#33e7ff" opacity=".52"/></pattern>
+    <clipPath id="floorClip"><path d="M0 555Q800 480 1600 555V900H0Z"/></clipPath>
   </defs>
 
   <rect width="1600" height="900" fill="url(#sky)"/>
   <rect width="1600" height="900" fill="url(#centerGlow)"/>
 
-  <!-- stars -->
-  <g fill="#65d8ff" opacity=".75">
-    <circle cx="70" cy="55" r="1.2"/><circle cx="139" cy="82" r="1"/><circle cx="210" cy="42" r="1.4"/>
-    <circle cx="292" cy="96" r="1"/><circle cx="391" cy="55" r="1.3"/><circle cx="482" cy="79" r="1"/>
-    <circle cx="586" cy="44" r="1.3"/><circle cx="679" cy="91" r="1"/><circle cx="765" cy="54" r="1.2"/>
-    <circle cx="875" cy="86" r="1"/><circle cx="966" cy="39" r="1.3"/><circle cx="1052" cy="74" r="1"/>
-    <circle cx="1164" cy="48" r="1.4"/><circle cx="1270" cy="90" r="1"/><circle cx="1388" cy="48" r="1.2"/>
-    <circle cx="1505" cy="87" r="1.1"/><circle cx="95" cy="147" r="1"/><circle cx="352" cy="150" r="1.2"/>
-    <circle cx="712" cy="136" r="1"/><circle cx="1010" cy="142" r="1.1"/><circle cx="1454" cy="143" r="1"/>
+  <!-- stars and clouds -->
+  <g fill="#5bdcff" opacity=".92" filter="url(#glow)">
+    <circle cx="76" cy="65" r="1.4"/><circle cx="151" cy="94" r="1.1"/><circle cx="230" cy="48" r="1.5"/><circle cx="318" cy="103" r="1.1"/><circle cx="408" cy="61" r="1.5"/><circle cx="505" cy="86" r="1.1"/><circle cx="602" cy="46" r="1.4"/><circle cx="704" cy="99" r="1.1"/><circle cx="789" cy="56" r="1.4"/><circle cx="890" cy="93" r="1.1"/><circle cx="987" cy="44" r="1.5"/><circle cx="1085" cy="84" r="1.1"/><circle cx="1184" cy="52" r="1.5"/><circle cx="1284" cy="98" r="1.1"/><circle cx="1402" cy="52" r="1.4"/><circle cx="1512" cy="92" r="1.2"/>
   </g>
+  <path d="M1260 160c54-46 129-38 174 1 34 30 65 39 116 32v74h-306c-24-37-15-79 16-107Z" fill="#06122c" opacity=".82"/>
+  <path d="M1283 172c39-28 83-25 113-4 29 20 56 28 97 24" fill="none" stroke="#0b3472" stroke-width="5" opacity=".7"/>
 
   <!-- moon -->
-  <circle cx="1310" cy="96" r="54" fill="#c8ddff" opacity=".12" filter="url(#softGlow)"/>
-  <circle cx="1310" cy="96" r="43" fill="url(#moon)"/>
-  <g fill="#708db4" opacity=".32">
-    <ellipse cx="1293" cy="81" rx="10" ry="6"/><ellipse cx="1321" cy="110" rx="13" ry="8"/>
-    <ellipse cx="1302" cy="121" rx="7" ry="4"/><ellipse cx="1327" cy="73" rx="7" ry="5"/>
+  <circle cx="1290" cy="103" r="68" fill="#d8e8ff" opacity=".18" filter="url(#soft)"/>
+  <circle cx="1290" cy="103" r="48" fill="url(#moon)" filter="url(#glow)"/>
+  <g fill="#6f8db6" opacity=".38"><ellipse cx="1271" cy="88" rx="11" ry="7"/><ellipse cx="1305" cy="119" rx="14" ry="8"/><ellipse cx="1283" cy="130" rx="8" ry="5"/><ellipse cx="1309" cy="78" rx="7" ry="5"/></g>
+
+  <!-- luminous world map silhouettes -->
+  <g transform="translate(240 52)" fill="#0756b9" fill-opacity=".28" stroke="#1b92ff" stroke-width="2.2" filter="url(#glow)">
+    <path d="M30 104 76 66 140 55 195 69 223 54 279 72 302 97 269 119 238 112 210 132 177 122 148 143 111 131 79 145 45 131Z"/>
+    <path d="M246 139 283 150 304 181 298 217 279 247 263 232 251 201 235 177Z"/>
+    <path d="M390 77 424 61 458 70 485 62 513 78 535 72 554 88 541 106 512 104 494 119 468 112 447 128 418 119 398 101Z"/>
+    <path d="M455 126 487 130 519 153 536 190 523 225 494 252 467 233 452 201 439 165Z"/>
+    <path d="M542 91 589 65 653 72 694 60 752 77 808 66 865 83 915 68 972 90 1030 85 1074 113 1048 135 1000 128 969 145 921 134 879 151 835 139 790 159 744 142 702 151 663 130 621 141 583 119Z"/>
+    <path d="M873 166 902 181 913 207 894 224 866 216 852 193Z"/>
   </g>
 
-  <!-- connected world map -->
-  <g transform="translate(255 70)" fill="none" stroke="#0b78ff" stroke-width="2" opacity=".6" filter="url(#blueGlow)">
-    <path d="M30 120L80 80L155 58L215 75L250 58L300 88L335 80L390 100L425 88L480 115L535 93L600 115L660 88L720 108L790 78L865 95L920 72L1000 100L1050 130"/>
-    <path d="M120 165L185 135L255 148L330 120L410 155L490 128L565 158L650 135L735 158L820 132L910 165"/>
-    <path d="M70 68L215 148M155 58L330 120M250 58L410 155M390 100L565 158M480 115L650 135M600 115L735 158M720 108L820 132M865 95L910 165M920 72L820 132"/>
+  <!-- network connections -->
+  <g transform="translate(240 52)" fill="none" stroke="#41c8ff" stroke-width="1.5" stroke-opacity=".78" filter="url(#glow)">
+    <path d="M76 66Q245 5 424 61M140 55Q361 10 589 65M195 69Q485 0 694 60M279 72Q566 18 808 66M390 77Q676 15 915 68M513 78Q779 22 1030 85"/>
+    <path d="M111 131Q413 43 663 72M210 132Q524 37 752 77M302 97Q610 45 865 83M468 112Q745 55 972 90M541 106Q828 61 1074 113"/>
   </g>
-  <g fill="#27b8ff" filter="url(#blueGlow)">
-    <circle cx="335" cy="190" r="4"/><circle cx="410" cy="150" r="3"/><circle cx="470" cy="218" r="4"/>
-    <circle cx="555" cy="145" r="3"/><circle cx="635" cy="210" r="4"/><circle cx="725" cy="170" r="3"/>
-    <circle cx="820" cy="220" r="4"/><circle cx="905" cy="168" r="3"/><circle cx="995" cy="210" r="4"/>
-    <circle cx="1080" cy="162" r="3"/><circle cx="1170" cy="205" r="4"/><circle cx="1242" cy="150" r="3"/>
-  </g>
+  <g fill="#7aeaff" filter="url(#strongGlow)"><circle cx="316" cy="118" r="3.4"/><circle cx="380" cy="106" r="3.4"/><circle cx="435" cy="121" r="3.4"/><circle cx="519" cy="104" r="3.4"/><circle cx="632" cy="130" r="3.4"/><circle cx="745" cy="111" r="3.4"/><circle cx="844" cy="132" r="3.4"/><circle cx="960" cy="116" r="3.4"/><circle cx="1068" cy="135" r="3.4"/><circle cx="1170" cy="120" r="3.4"/><circle cx="1260" cy="142" r="3.4"/></g>
 
-  <!-- skyline -->
-  <g opacity=".96">
-    <path d="M0 470V290H40V245H70V335H94V205H128V164H159V314H184V248H214V470Z" fill="url(#windows)"/>
-    <path d="M1386 470V282H1417V230H1444V322H1468V180H1502V145H1530V295H1554V220H1580V470Z" fill="url(#windows)"/>
-    <path d="M205 470V338H240V287H274V470ZM1290 470V326H1325V278H1358V470Z" fill="url(#windows)" opacity=".9"/>
+  <!-- city skyline both sides -->
+  <g fill="url(#litWindows)" stroke="#074aa3" stroke-width="1.5">
+    <path d="M0 500V270H35v-63h34v112h23V178h42v-51h32v166h27v-98h38v305Z"/>
+    <path d="M188 500V329h38v-75h37v246Zm80 0V292h39v-112h38v320Zm78 0V350h42v-67h39v217Z"/>
+    <path d="M1172 500V340h42v-80h39v240Zm82 0V295h40V182h38v318Zm83 0V329h39v-76h37v247Z"/>
+    <path d="M1394 500V266h35v-66h31v122h24V172h40v-52h32v171h22v-107h22v316Z"/>
   </g>
+  <g stroke="#1bc8ff" stroke-width="2" opacity=".7"><path d="M134 127v-34M307 180v-41M1294 182v-43M1524 120V82"/><circle cx="134" cy="91" r="3" fill="#ff5e74"/><circle cx="307" cy="137" r="3" fill="#ff5e74"/><circle cx="1294" cy="137" r="3" fill="#ff5e74"/><circle cx="1524" cy="80" r="3" fill="#ff5e74"/></g>
 
-  <!-- side monitoring consoles -->
-  <g fill="url(#panel)" stroke="#075cc8" stroke-width="2">
-    <path d="M0 455L360 405L420 575L0 645Z"/>
-    <path d="M1600 455L1240 405L1180 575L1600 645Z"/>
-  </g>
-  <g fill="#031020" stroke="#0a7eff" stroke-width="2" opacity=".94">
-    <rect x="24" y="468" width="126" height="95" rx="6"/><rect x="164" y="448" width="142" height="103" rx="6"/><rect x="320" y="430" width="90" height="98" rx="6"/>
-    <rect x="1450" y="468" width="126" height="95" rx="6"/><rect x="1294" y="448" width="142" height="103" rx="6"/><rect x="1190" y="430" width="90" height="98" rx="6"/>
-  </g>
-  <g stroke="#18baff" stroke-width="2" opacity=".65">
-    <path d="M40 540V500M58 540V486M76 540V520M94 540V474M112 540V510M130 540V492"/>
-    <path d="M181 520L205 500L228 510L250 475L274 493L295 468" fill="none"/>
-    <circle cx="1240" cy="478" r="24" fill="none"/><path d="M1220 478h40M1240 458v40"/>
-    <path d="M1310 520V478M1330 520V492M1350 520V466M1370 520V488M1390 520V472M1410 520V500"/>
-    <path d="M1472 518L1498 492L1522 505L1544 476L1560 490" fill="none"/>
-  </g>
+  <!-- curved monitoring desk -->
+  <path d="M0 440Q245 385 458 414L500 610Q242 562 0 652Z" fill="url(#console)" stroke="#0b76ef" stroke-width="3"/>
+  <path d="M1600 440Q1355 385 1142 414L1100 610Q1358 562 1600 652Z" fill="url(#console)" stroke="#0b76ef" stroke-width="3"/>
 
-  <!-- floor -->
+  <!-- bright monitors -->
+  <g fill="#03142d" stroke="#168cff" stroke-width="3" filter="url(#glow)">
+    <rect x="18" y="454" width="142" height="110" rx="7"/><rect x="176" y="430" width="151" height="119" rx="7"/><rect x="343" y="414" width="126" height="111" rx="7"/>
+    <rect x="1440" y="454" width="142" height="110" rx="7"/><rect x="1273" y="430" width="151" height="119" rx="7"/><rect x="1131" y="414" width="126" height="111" rx="7"/>
+  </g>
+  <g stroke="#36d7ff" stroke-width="3" opacity=".92">
+    <path d="M39 538V500M60 538V481M81 538V515M102 538V469M123 538V502M144 538V487"/>
+    <path d="M193 518 218 493 240 507 267 468 293 486 316 458" fill="none"/>
+    <path d="M365 497h80M380 477h48M390 512h42"/>
+    <path d="M1457 518 1482 493 1506 506 1532 470 1562 488" fill="none"/>
+    <path d="M1290 535V489M1312 535V506M1334 535V475M1356 535V497M1378 535V482M1400 535V510"/>
+    <circle cx="1194" cy="472" r="30" fill="none"/><path d="M1169 472h50M1194 447v50"/>
+  </g>
+  <g fill="#0b7dff" opacity=".55"><rect x="30" y="580" width="360" height="15" rx="6"/><rect x="1210" y="580" width="360" height="15" rx="6"/></g>
+
+  <!-- command floor -->
   <g clip-path="url(#floorClip)">
-    <rect y="520" width="1600" height="380" fill="url(#floor)"/>
-    <rect y="520" width="1600" height="380" fill="url(#grid)" opacity=".8"/>
-    <g fill="none" stroke="#087cff" opacity=".43">
-      <ellipse cx="800" cy="660" rx="500" ry="120" stroke-width="2"/>
-      <ellipse cx="800" cy="660" rx="405" ry="96"/>
-      <ellipse cx="800" cy="660" rx="310" ry="72"/>
-      <ellipse cx="800" cy="660" rx="220" ry="50"/>
-      <ellipse cx="800" cy="660" rx="120" ry="28"/>
-    </g>
-    <ellipse cx="800" cy="659" rx="260" ry="38" fill="#006dff" opacity=".15" filter="url(#softGlow)"/>
-    <ellipse cx="800" cy="659" rx="170" ry="18" fill="none" stroke="#00d8ff" stroke-width="4" filter="url(#blueGlow)"/>
-    <circle cx="800" cy="659" r="7" fill="#b9f5ff" filter="url(#blueGlow)"/>
+    <rect y="500" width="1600" height="400" fill="url(#floor)"/>
+    <rect y="500" width="1600" height="400" fill="url(#grid)"/>
+    <g fill="none" stroke="#168bff" opacity=".58"><ellipse cx="800" cy="670" rx="580" ry="145" stroke-width="3"/><ellipse cx="800" cy="670" rx="480" ry="118" stroke-width="2"/><ellipse cx="800" cy="670" rx="375" ry="90" stroke-width="2"/><ellipse cx="800" cy="670" rx="275" ry="64"/><ellipse cx="800" cy="670" rx="175" ry="39"/></g>
+    <ellipse cx="800" cy="668" rx="285" ry="45" fill="#087cff" opacity=".18" filter="url(#soft)"/>
+    <ellipse cx="800" cy="668" rx="210" ry="25" fill="none" stroke="#21dcff" stroke-width="5" filter="url(#strongGlow)"/>
+    <ellipse cx="800" cy="668" rx="115" ry="13" fill="none" stroke="#0088ff" stroke-width="4" filter="url(#glow)"/>
+    <circle cx="800" cy="668" r="8" fill="#d4fbff" filter="url(#strongGlow)"/>
   </g>
 
-  <rect width="1600" height="900" fill="none" stroke="#087cff" stroke-opacity=".25" stroke-width="2"/>
+  <rect width="1600" height="900" fill="none" stroke="#087cff" stroke-opacity=".32" stroke-width="2"/>
 </svg>
