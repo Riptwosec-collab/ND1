@@ -3,10 +3,11 @@ import { getCurrentRoute, saveCurrentRoute } from './storage.js';
 const ROUTES = Object.freeze({
   dashboard: 'ภาพรวมกะดึก',
   checklist: 'เช็กลิสต์กะดึก',
-  'work-links': 'รวมลิงก์งาน'
+  'work-links': 'รวมลิงก์งาน',
+  todo: 'งานที่ต้องทำ'
 });
 
-const ROUTE_ALIASES = Object.freeze({ links: 'work-links' });
+const ROUTE_ALIASES = Object.freeze({ links: 'work-links', report: 'todo', history: 'dashboard', settings: 'dashboard' });
 
 function normalizeRoute(value) {
   const candidate = String(value || '').replace(/^#/, '');
@@ -15,22 +16,15 @@ function normalizeRoute(value) {
 }
 
 export function initRouter() {
-  if (window.NightNocNavigation) {
-    window.NightNocNavigation.renderRoute();
-    return;
-  }
+  if (window.NightNocNavigation) { window.NightNocNavigation.renderRoute(); return; }
   window.addEventListener('hashchange', renderRoute);
   renderRoute();
 }
 
 export function navigate(route) {
   const safeRoute = normalizeRoute(route);
-  if (window.NightNocNavigation) {
-    window.NightNocNavigation.navigate(safeRoute);
-    return;
-  }
-  if (location.hash === `#${safeRoute}`) renderRoute();
-  else location.hash = safeRoute;
+  if (window.NightNocNavigation) { window.NightNocNavigation.navigate(safeRoute); return; }
+  if (location.hash === `#${safeRoute}`) renderRoute(); else location.hash = safeRoute;
 }
 
 export function renderRoute() {
@@ -38,14 +32,10 @@ export function renderRoute() {
   const storedRoute = normalizeRoute(getCurrentRoute());
   const route = routeFromHash ? normalizeRoute(routeFromHash) : storedRoute;
   if (location.hash !== `#${route}`) history.replaceState(null, '', `#${route}`);
-
-  document.querySelectorAll('[data-route]').forEach(page => {
-    page.hidden = page.dataset.route !== route;
-  });
+  document.querySelectorAll('[data-route]').forEach(page => { page.hidden = page.dataset.route !== route; });
   document.querySelectorAll('[data-route-link]').forEach(link => {
     const active = normalizeRoute(link.dataset.routeLink) === route;
-    if (active) link.setAttribute('aria-current', 'page');
-    else link.removeAttribute('aria-current');
+    if (active) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current');
   });
   document.getElementById('page-title').textContent = ROUTES[route];
   document.title = `${ROUTES[route]} | Night Shift NOC`;
