@@ -1,190 +1,208 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
   <title id="title">Night Shift Helpdesk cinematic NOC command center</title>
-  <desc id="desc">Futuristic blue night operations room with a luminous connected world map, city skyline, moon, curved monitoring consoles and reflective hologram floor.</desc>
+  <desc id="desc">Deep navy futuristic operations room with a connected world map, night skyline, moon, curved monitoring consoles, reflective metallic floor and holographic platform.</desc>
   <defs>
     <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#010713"/>
-      <stop offset=".42" stop-color="#041a3a"/>
-      <stop offset=".70" stop-color="#020a19"/>
+      <stop offset="0" stop-color="#01040b"/>
+      <stop offset=".34" stop-color="#03132c"/>
+      <stop offset=".68" stop-color="#020b1c"/>
       <stop offset="1" stop-color="#01040b"/>
     </linearGradient>
-    <radialGradient id="centerGlow" cx="50%" cy="47%" r="55%">
-      <stop offset="0" stop-color="#0a74ff" stop-opacity=".46"/>
-      <stop offset=".32" stop-color="#0049ba" stop-opacity=".25"/>
-      <stop offset=".68" stop-color="#001637" stop-opacity=".08"/>
+    <radialGradient id="atmosphere" cx="50%" cy="47%" r="60%">
+      <stop offset="0" stop-color="#0876ff" stop-opacity=".30"/>
+      <stop offset=".32" stop-color="#0048b7" stop-opacity=".18"/>
+      <stop offset=".72" stop-color="#00132c" stop-opacity=".04"/>
       <stop offset="1" stop-color="#000" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="moon" cx="36%" cy="30%" r="72%">
-      <stop offset="0" stop-color="#fff"/>
-      <stop offset=".32" stop-color="#e8f2ff"/>
-      <stop offset=".68" stop-color="#a6c0e2"/>
-      <stop offset="1" stop-color="#5e789e"/>
-    </radialGradient>
-    <linearGradient id="building" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#08234b"/>
-      <stop offset=".5" stop-color="#04142c"/>
-      <stop offset="1" stop-color="#010710"/>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#071e43" stop-opacity=".90"/>
+      <stop offset=".34" stop-color="#03132d" stop-opacity=".96"/>
+      <stop offset="1" stop-color="#01040b"/>
     </linearGradient>
-    <linearGradient id="console" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#061a3b"/>
-      <stop offset="1" stop-color="#010713"/>
+    <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0a2751"/>
+      <stop offset=".24" stop-color="#061b3b"/>
+      <stop offset=".7" stop-color="#020a19"/>
+      <stop offset="1" stop-color="#01050d"/>
     </linearGradient>
     <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#03142c"/>
-      <stop offset="1" stop-color="#020817"/>
+      <stop offset="0" stop-color="#051a39"/>
+      <stop offset=".55" stop-color="#031127"/>
+      <stop offset="1" stop-color="#010712"/>
     </linearGradient>
-    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#061b3c" stop-opacity=".86"/>
-      <stop offset=".46" stop-color="#021024" stop-opacity=".94"/>
-      <stop offset="1" stop-color="#01040a"/>
-    </linearGradient>
-    <pattern id="windows" width="20" height="26" patternUnits="userSpaceOnUse">
-      <rect width="20" height="26" fill="#020915"/>
-      <rect x="4" y="5" width="3" height="6" rx="1" fill="#087ef2" opacity=".92"/>
-      <rect x="12" y="5" width="3" height="6" rx="1" fill="#20d8ff" opacity=".70"/>
-      <rect x="4" y="16" width="3" height="5" rx="1" fill="#0066d9" opacity=".64"/>
-      <rect x="12" y="16" width="3" height="5" rx="1" fill="#0a96ff" opacity=".48"/>
+    <radialGradient id="moon" cx="38%" cy="30%" r="75%">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset=".32" stop-color="#ecf5ff"/>
+      <stop offset=".72" stop-color="#9fb9da"/>
+      <stop offset="1" stop-color="#637e9f"/>
+    </radialGradient>
+    <pattern id="windows" width="18" height="24" patternUnits="userSpaceOnUse">
+      <rect width="18" height="24" fill="#020918"/>
+      <rect x="3" y="4" width="3" height="5" rx="1" fill="#087cff" opacity=".88"/>
+      <rect x="11" y="4" width="3" height="5" rx="1" fill="#35d9ff" opacity=".62"/>
+      <rect x="3" y="14" width="3" height="5" rx="1" fill="#0a58ba" opacity=".60"/>
+      <rect x="11" y="14" width="3" height="5" rx="1" fill="#0b9eea" opacity=".46"/>
     </pattern>
-    <pattern id="floorGrid" width="86" height="58" patternUnits="userSpaceOnUse">
-      <path d="M86 0H0V58" fill="none" stroke="#0b77ff" stroke-opacity=".19" stroke-width="1"/>
+    <pattern id="fineGrid" width="64" height="42" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V42" fill="none" stroke="#0b72df" stroke-opacity=".18" stroke-width="1"/>
     </pattern>
-    <filter id="blueGlow" x="-80%" y="-80%" width="260%" height="260%">
-      <feGaussianBlur stdDeviation="5" result="b"/>
+    <filter id="glowSmall" x="-70%" y="-70%" width="240%" height="240%">
+      <feGaussianBlur stdDeviation="2.7" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
-    <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%">
-      <feGaussianBlur stdDeviation="16"/>
-    </filter>
-    <filter id="screenGlow" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="2.5" result="b"/>
+    <filter id="glowMedium" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="7" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
-    <clipPath id="floorClip"><path d="M0 660Q960 540 1920 660V1080H0Z"/></clipPath>
+    <filter id="blurLarge" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="28"/>
+    </filter>
+    <clipPath id="floorClip"><path d="M0 640Q960 540 1920 640V1080H0Z"/></clipPath>
   </defs>
 
   <rect width="1920" height="1080" fill="url(#sky)"/>
-  <rect width="1920" height="1080" fill="url(#centerGlow)"/>
+  <rect width="1920" height="1080" fill="url(#atmosphere)"/>
+  <ellipse cx="960" cy="520" rx="690" ry="360" fill="#0877ff" opacity=".055" filter="url(#blurLarge)"/>
 
-  <!-- Fine stars and digital particles -->
-  <g fill="#6ee6ff" opacity=".86">
-    <circle cx="70" cy="70" r="1.4"/><circle cx="145" cy="116" r="1"/><circle cx="234" cy="58" r="1.5"/>
-    <circle cx="338" cy="108" r="1.1"/><circle cx="442" cy="64" r="1.3"/><circle cx="552" cy="106" r="1"/>
-    <circle cx="666" cy="50" r="1.3"/><circle cx="778" cy="98" r="1"/><circle cx="887" cy="62" r="1.2"/>
-    <circle cx="1008" cy="92" r="1"/><circle cx="1118" cy="47" r="1.4"/><circle cx="1220" cy="92" r="1"/>
-    <circle cx="1335" cy="54" r="1.3"/><circle cx="1454" cy="101" r="1"/><circle cx="1580" cy="52" r="1.2"/>
-    <circle cx="1708" cy="96" r="1.1"/><circle cx="1824" cy="61" r="1.2"/>
-    <circle cx="94" cy="192" r="1"/><circle cx="282" cy="168" r="1.2"/><circle cx="510" cy="183" r="1"/>
-    <circle cx="765" cy="155" r="1.2"/><circle cx="1030" cy="176" r="1"/><circle cx="1290" cy="155" r="1.2"/>
-    <circle cx="1510" cy="186" r="1"/><circle cx="1782" cy="166" r="1.2"/>
-  </g>
-
-  <!-- Moon and clouds -->
-  <ellipse cx="1566" cy="128" rx="104" ry="72" fill="#d6e8ff" opacity=".12" filter="url(#softGlow)"/>
-  <circle cx="1570" cy="127" r="58" fill="url(#moon)"/>
-  <g fill="#718eb4" opacity=".32">
-    <ellipse cx="1548" cy="106" rx="13" ry="8"/><ellipse cx="1585" cy="145" rx="17" ry="10"/>
-    <ellipse cx="1558" cy="158" rx="10" ry="6"/><ellipse cx="1593" cy="96" rx="9" ry="7"/>
-  </g>
-  <g fill="#0a1830" opacity=".62">
-    <ellipse cx="1645" cy="174" rx="108" ry="26"/><ellipse cx="1730" cy="186" rx="140" ry="31"/>
-    <ellipse cx="1490" cy="202" rx="128" ry="28"/><ellipse cx="1775" cy="228" rx="165" ry="34"/>
+  <!-- Star particles -->
+  <g fill="#71e8ff" opacity=".82">
+    <circle cx="56" cy="64" r="1.2"/><circle cx="124" cy="118" r="1"/><circle cx="208" cy="46" r="1.3"/>
+    <circle cx="292" cy="101" r="1"/><circle cx="387" cy="55" r="1.4"/><circle cx="476" cy="132" r="1"/>
+    <circle cx="585" cy="61" r="1.2"/><circle cx="683" cy="116" r="1"/><circle cx="781" cy="48" r="1.3"/>
+    <circle cx="884" cy="97" r="1"/><circle cx="995" cy="54" r="1.4"/><circle cx="1102" cy="116" r="1"/>
+    <circle cx="1217" cy="49" r="1.3"/><circle cx="1324" cy="102" r="1"/><circle cx="1430" cy="61" r="1.2"/>
+    <circle cx="1544" cy="109" r="1"/><circle cx="1648" cy="48" r="1.3"/><circle cx="1760" cy="98" r="1"/>
+    <circle cx="1872" cy="58" r="1.2"/><circle cx="97" cy="214" r="1"/><circle cx="274" cy="185" r="1.2"/>
+    <circle cx="455" cy="222" r="1"/><circle cx="670" cy="177" r="1.2"/><circle cx="890" cy="205" r="1"/>
+    <circle cx="1115" cy="170" r="1.1"/><circle cx="1332" cy="218" r="1"/><circle cx="1518" cy="178" r="1.2"/>
+    <circle cx="1792" cy="207" r="1"/>
   </g>
 
-  <!-- Connected digital world map -->
-  <g transform="translate(270 82)" fill="#05306b" fill-opacity=".22" stroke="#1689ff" stroke-width="2.1" stroke-linejoin="round" opacity=".94" filter="url(#blueGlow)">
-    <path d="M50 132L95 84L178 61L247 73L290 52L338 85L325 126L279 148L252 196L205 209L166 176L118 173L85 155Z"/>
-    <path d="M302 200L340 222L360 260L341 314L312 346L290 310L296 267L276 236Z"/>
-    <path d="M425 86L475 67L535 78L581 64L635 84L679 82L736 106L759 137L721 156L689 149L649 178L604 181L565 150L526 154L487 132L445 137L411 112Z"/>
-    <path d="M548 187L604 186L646 218L667 260L648 306L619 344L582 324L562 279L538 235Z"/>
-    <path d="M731 156L785 138L833 154L871 142L918 167L945 202L915 235L864 224L829 243L786 224L757 196Z"/>
-    <path d="M932 248L974 232L1018 250L1047 279L1028 311L986 318L949 296Z"/>
+  <!-- Moon and cloud haze -->
+  <ellipse cx="1580" cy="126" rx="120" ry="88" fill="#d9ecff" opacity=".11" filter="url(#blurLarge)"/>
+  <circle cx="1580" cy="126" r="62" fill="url(#moon)"/>
+  <g fill="#6e88aa" opacity=".30">
+    <ellipse cx="1556" cy="103" rx="14" ry="8"/><ellipse cx="1600" cy="145" rx="19" ry="11"/>
+    <ellipse cx="1570" cy="162" rx="11" ry="7"/><ellipse cx="1612" cy="96" rx="10" ry="7"/>
   </g>
-  <g transform="translate(270 82)" fill="none" stroke="#35d9ff" stroke-width="1.35" opacity=".66">
-    <path d="M72 128L174 83L269 126L431 105L557 119L699 119L824 174L958 274"/>
-    <path d="M102 162L214 176L330 236L520 147L624 210L800 203L930 185"/>
-    <path d="M178 61L252 196M290 52L205 209M475 67L604 181M581 64L649 178M736 106L604 181M833 154L786 224M918 167L864 224"/>
-    <path d="M174 83Q340 34 520 147T824 174T958 274" opacity=".58"/>
-    <path d="M102 162Q306 252 520 147T930 185" opacity=".55"/>
-  </g>
-  <g fill="#6ee6ff" filter="url(#blueGlow)">
-    <circle cx="342" cy="210" r="4.4"/><circle cx="448" cy="165" r="3.5"/><circle cx="520" cy="278" r="4.2"/>
-    <circle cx="610" cy="151" r="3.6"/><circle cx="718" cy="268" r="4.3"/><circle cx="825" cy="196" r="3.5"/>
-    <circle cx="930" cy="298" r="4.3"/><circle cx="1040" cy="214" r="3.6"/><circle cx="1145" cy="295" r="4.2"/>
-    <circle cx="1248" cy="228" r="3.4"/><circle cx="1354" cy="322" r="4.4"/><circle cx="1452" cy="262" r="3.4"/>
+  <g fill="#09182e" opacity=".58">
+    <ellipse cx="1680" cy="172" rx="118" ry="27"/><ellipse cx="1776" cy="191" rx="154" ry="34"/>
+    <ellipse cx="1466" cy="201" rx="132" ry="30"/><ellipse cx="1810" cy="232" rx="170" ry="37"/>
   </g>
 
-  <!-- Night skyline -->
+  <!-- Large connected world network map -->
+  <g transform="translate(182 42) scale(1.18)" fill="#05275a" fill-opacity=".20" stroke="#168cff" stroke-width="1.7" stroke-linejoin="round" opacity=".88" filter="url(#glowSmall)">
+    <path d="M78 139L124 86L205 58L277 71L319 49L369 82L352 127L305 151L276 202L228 216L184 181L132 180L98 160Z"/>
+    <path d="M329 208L369 229L391 272L370 328L338 363L315 329L320 283L298 247Z"/>
+    <path d="M454 84L505 64L564 76L613 62L667 83L715 80L772 105L797 136L758 158L724 149L681 180L635 184L595 151L554 156L516 133L470 138L436 111Z"/>
+    <path d="M581 187L636 185L678 220L699 265L681 312L650 352L611 329L592 284L567 236Z"/>
+    <path d="M769 156L824 137L872 153L911 140L958 165L988 201L957 236L905 225L870 245L827 226L796 197Z"/>
+    <path d="M976 250L1019 233L1064 251L1094 281L1074 315L1032 322L993 298Z"/>
+  </g>
+  <g transform="translate(182 42) scale(1.18)" fill="none" stroke="#39d9ff" stroke-width="1.05" opacity=".61">
+    <path d="M102 137L204 80L307 127L469 104L596 120L739 118L867 175L1009 279"/>
+    <path d="M126 166L241 179L359 246L558 148L664 214L843 205L974 187"/>
+    <path d="M204 80Q371 25 558 148T867 175T1009 279"/>
+    <path d="M126 166Q338 263 558 148T974 187"/>
+    <path d="M277 71L228 216M319 49L184 181M505 64L635 184M613 62L681 180M772 105L635 184M872 153L827 226M958 165L905 225"/>
+  </g>
+  <g fill="#7bf0ff" filter="url(#glowMedium)">
+    <circle cx="330" cy="202" r="3.8"/><circle cx="451" cy="151" r="3.2"/><circle cx="539" cy="281" r="3.7"/>
+    <circle cx="647" cy="139" r="3.3"/><circle cx="771" cy="271" r="3.8"/><circle cx="896" cy="186" r="3.2"/>
+    <circle cx="1025" cy="302" r="3.8"/><circle cx="1152" cy="206" r="3.2"/><circle cx="1276" cy="300" r="3.8"/>
+    <circle cx="1396" cy="220" r="3.2"/><circle cx="1477" cy="319" r="3.8"/>
+  </g>
+  <g fill="none" stroke="#1789ff" stroke-width="1.4" opacity=".45">
+    <path d="M336 201Q612 16 896 186T1477 319"/>
+    <path d="M451 151Q758 332 1025 302T1396 220"/>
+    <path d="M539 281Q814 85 1152 206T1477 319"/>
+  </g>
+
+  <!-- City skyline: left and right, central gap preserved -->
   <g opacity=".98">
-    <path d="M0 642V348H58V302H99V406H138V260H190V202H232V426H270V336H315V642Z" fill="url(#windows)"/>
-    <path d="M306 642V446H360V378H408V642ZM1510 642V432H1560V355H1608V642Z" fill="url(#windows)" opacity=".92"/>
-    <path d="M1604 642V338H1650V284H1688V402H1728V242H1782V190H1825V420H1864V324H1920V642Z" fill="url(#windows)"/>
-    <path d="M200 642V390H238V324H271V642ZM1454 642V386H1490V314H1522V642Z" fill="url(#building)"/>
+    <path d="M0 654V352H48V301H91V423H126V272H175V211H219V437H254V341H298V654Z" fill="url(#windows)"/>
+    <path d="M272 654V446H329V372H375V654ZM397 654V404H444V320H483V654Z" fill="url(#windows)" opacity=".88"/>
+    <path d="M1480 654V412H1528V325H1568V654ZM1594 654V348H1638V294H1678V413H1715V254H1764V198H1808V429H1844V331H1920V654Z" fill="url(#windows)"/>
+    <path d="M132 654V431H169V359H201V654ZM1426 654V428H1465V350H1497V654Z" fill="url(#metal)"/>
   </g>
-  <g stroke="#1ab9ff" stroke-width="2" opacity=".65" filter="url(#screenGlow)">
-    <path d="M58 382H99M138 303H190M1650 330H1688M1728 286H1782"/>
-    <path d="M111 260V216M1748 241V196"/>
+  <g stroke="#1abfff" stroke-width="2" opacity=".60" filter="url(#glowSmall)">
+    <path d="M48 383H91M126 316H175M1638 338H1678M1715 299H1764"/>
+    <path d="M151 272V225M1740 254V205M217 211V168M1786 198V157"/>
   </g>
-
-  <!-- Curved NOC monitoring consoles -->
-  <g fill="url(#console)" stroke="#0b68d9" stroke-width="2.2">
-    <path d="M0 610L398 520L505 760L0 842Z"/>
-    <path d="M1920 610L1522 520L1415 760L1920 842Z"/>
-  </g>
-  <g fill="#020b19" stroke="#108eff" stroke-width="2.2">
-    <rect x="28" y="610" width="176" height="126" rx="9"/>
-    <rect x="224" y="570" width="188" height="134" rx="9"/>
-    <rect x="429" y="546" width="100" height="120" rx="9"/>
-    <rect x="1716" y="610" width="176" height="126" rx="9"/>
-    <rect x="1508" y="570" width="188" height="134" rx="9"/>
-    <rect x="1391" y="546" width="100" height="120" rx="9"/>
-  </g>
-  <g fill="url(#screen)" stroke="#0f83f2" stroke-width="1.5">
-    <rect x="43" y="625" width="146" height="96" rx="5"/>
-    <rect x="240" y="586" width="156" height="102" rx="5"/>
-    <rect x="444" y="560" width="70" height="91" rx="4"/>
-    <rect x="1731" y="625" width="146" height="96" rx="5"/>
-    <rect x="1524" y="586" width="156" height="102" rx="5"/>
-    <rect x="1406" y="560" width="70" height="91" rx="4"/>
-  </g>
-  <g stroke="#35d9ff" stroke-width="2" fill="none" opacity=".78" filter="url(#screenGlow)">
-    <path d="M58 699V662M77 699V646M96 699V680M115 699V634M134 699V667M153 699V650M172 699V674"/>
-    <path d="M256 663L281 640L307 651L334 612L360 631L384 604"/>
-    <circle cx="479" cy="606" r="23"/><path d="M456 606h46M479 583v46"/>
-    <path d="M1746 699V659M1765 699V671M1784 699V641M1803 699V660M1822 699V630M1841 699V649M1860 699V676"/>
-    <path d="M1540 664L1567 639L1591 652L1618 614L1643 634L1667 608"/>
-    <circle cx="1441" cy="606" r="23"/><path d="M1418 606h46M1441 583v46"/>
-  </g>
-  <g fill="#087cff" opacity=".50">
-    <circle cx="66" cy="643" r="3"/><circle cx="82" cy="643" r="3"/><circle cx="98" cy="643" r="3"/>
-    <circle cx="1550" cy="604" r="3"/><circle cx="1566" cy="604" r="3"/><circle cx="1582" cy="604" r="3"/>
+  <g fill="#ff6a42" opacity=".42">
+    <rect x="73" y="339" width="3" height="3"/><rect x="186" y="287" width="3" height="3"/>
+    <rect x="1659" y="327" width="3" height="3"/><rect x="1786" y="274" width="3" height="3"/>
   </g>
 
-  <!-- Reflective command floor -->
+  <!-- Curved command-center consoles -->
+  <g fill="url(#metal)" stroke="#0a74e8" stroke-width="2.4">
+    <path d="M0 606L405 514L542 776L0 882Z"/>
+    <path d="M1920 606L1515 514L1378 776L1920 882Z"/>
+  </g>
+  <g fill="#010712" stroke="#0f8dff" stroke-width="2.2">
+    <path d="M22 613L200 575L220 732L39 770Z"/>
+    <path d="M223 566L421 526L458 698L257 739Z"/>
+    <path d="M442 522L537 505L572 644L478 666Z"/>
+    <path d="M1898 613L1720 575L1700 732L1881 770Z"/>
+    <path d="M1697 566L1499 526L1462 698L1663 739Z"/>
+    <path d="M1478 522L1383 505L1348 644L1442 666Z"/>
+  </g>
+  <g fill="url(#screen)" stroke="#1aa7ff" stroke-width="1.4">
+    <path d="M39 624L187 592L202 716L54 748Z"/>
+    <path d="M241 579L405 546L438 684L274 717Z"/>
+    <path d="M457 535L525 523L551 632L484 647Z"/>
+    <path d="M1881 624L1733 592L1718 716L1866 748Z"/>
+    <path d="M1679 579L1515 546L1482 684L1646 717Z"/>
+    <path d="M1463 535L1395 523L1369 632L1436 647Z"/>
+  </g>
+  <g fill="none" stroke="#39d9ff" stroke-width="2" opacity=".78" filter="url(#glowSmall)">
+    <path d="M56 707L80 672L104 684L128 637L153 656L179 620"/>
+    <path d="M274 681V625M296 681V647M318 681V612M340 681V640M362 681V600M384 681V632M406 681V651"/>
+    <ellipse cx="512" cy="580" rx="27" ry="22"/><path d="M485 580h54M512 558v44"/>
+    <path d="M1864 707L1840 672L1816 684L1792 637L1767 656L1741 620"/>
+    <path d="M1646 681V625M1624 681V647M1602 681V612M1580 681V640M1558 681V600M1536 681V632M1514 681V651"/>
+    <ellipse cx="1408" cy="580" rx="27" ry="22"/><path d="M1381 580h54M1408 558v44"/>
+  </g>
+  <g fill="#057cff" opacity=".62">
+    <circle cx="73" cy="627" r="3"/><circle cx="90" cy="624" r="3"/><circle cx="107" cy="620" r="3"/>
+    <circle cx="1813" cy="627" r="3"/><circle cx="1830" cy="624" r="3"/><circle cx="1847" cy="620" r="3"/>
+  </g>
+
+  <!-- Reflective metallic floor and perspective grid -->
+  <path d="M0 640Q960 540 1920 640V1080H0Z" fill="url(#floor)"/>
   <g clip-path="url(#floorClip)">
-    <rect y="590" width="1920" height="490" fill="url(#floor)"/>
-    <rect y="590" width="1920" height="490" fill="url(#floorGrid)" opacity=".85"/>
-    <g stroke="#0b77ff" fill="none" opacity=".48">
-      <path d="M0 810Q960 640 1920 810"/>
-      <path d="M0 900Q960 700 1920 900"/>
-      <path d="M0 990Q960 760 1920 990"/>
-      <path d="M960 610V1080M730 620L560 1080M1190 620L1360 1080M520 640L180 1080M1400 640L1740 1080"/>
+    <rect x="0" y="620" width="1920" height="460" fill="url(#fineGrid)" opacity=".56"/>
+    <g stroke="#0b6ee1" stroke-width="1.2" opacity=".37">
+      <path d="M960 600L42 1080"/><path d="M960 600L220 1080"/><path d="M960 600L410 1080"/>
+      <path d="M960 600L602 1080"/><path d="M960 600L780 1080"/><path d="M960 600L960 1080"/>
+      <path d="M960 600L1140 1080"/><path d="M960 600L1318 1080"/><path d="M960 600L1510 1080"/>
+      <path d="M960 600L1700 1080"/><path d="M960 600L1878 1080"/>
     </g>
-    <g fill="none" stroke="#0b7fff" opacity=".56">
-      <ellipse cx="960" cy="790" rx="610" ry="145" stroke-width="2.4"/>
-      <ellipse cx="960" cy="790" rx="510" ry="122" stroke-width="2"/>
-      <ellipse cx="960" cy="790" rx="405" ry="98" stroke-width="1.8"/>
-      <ellipse cx="960" cy="790" rx="305" ry="72" stroke-width="1.6"/>
-      <ellipse cx="960" cy="790" rx="202" ry="48" stroke-width="1.5"/>
+    <g fill="none" stroke="#0b72df" opacity=".36">
+      <ellipse cx="960" cy="666" rx="260" ry="34"/><ellipse cx="960" cy="712" rx="420" ry="64"/>
+      <ellipse cx="960" cy="790" rx="640" ry="112"/><ellipse cx="960" cy="930" rx="870" ry="190"/>
     </g>
-    <ellipse cx="960" cy="792" rx="370" ry="58" fill="#006dff" opacity=".18" filter="url(#softGlow)"/>
-    <ellipse cx="960" cy="790" rx="238" ry="30" fill="none" stroke="#00d8ff" stroke-width="5" filter="url(#blueGlow)"/>
-    <ellipse cx="960" cy="790" rx="150" ry="18" fill="none" stroke="#1677ff" stroke-width="3" stroke-dasharray="14 10" filter="url(#blueGlow)"/>
-    <circle cx="960" cy="790" r="9" fill="#d9fbff" filter="url(#blueGlow)"/>
-    <path d="M960 790V655" stroke="#42e8ff" stroke-width="3" opacity=".40" filter="url(#softGlow)"/>
+    <ellipse cx="960" cy="740" rx="620" ry="125" fill="#087cff" opacity=".07" filter="url(#blurLarge)"/>
   </g>
 
-  <!-- Soft reflections and vignette -->
-  <ellipse cx="960" cy="865" rx="470" ry="95" fill="#087cff" opacity=".08" filter="url(#softGlow)"/>
-  <rect width="1920" height="1080" fill="none" stroke="#1677ff" stroke-opacity=".22" stroke-width="2"/>
-  <rect width="1920" height="1080" fill="url(#centerGlow)" opacity=".26"/>
+  <!-- Central holographic platform and reflection -->
+  <g fill="none" filter="url(#glowSmall)">
+    <ellipse cx="960" cy="706" rx="330" ry="66" stroke="#00bfff" stroke-width="3" opacity=".80"/>
+    <ellipse cx="960" cy="706" rx="246" ry="48" stroke="#1677ff" stroke-width="3" opacity=".72"/>
+    <ellipse cx="960" cy="706" rx="152" ry="29" stroke="#39d9ff" stroke-width="3" opacity=".86"/>
+    <ellipse cx="960" cy="706" rx="70" ry="14" stroke="#b7f5ff" stroke-width="2.5" opacity=".94"/>
+  </g>
+  <ellipse cx="960" cy="706" rx="54" ry="11" fill="#b7f5ff" opacity=".68" filter="url(#glowMedium)"/>
+  <path d="M920 710L1000 710L1110 1050H810Z" fill="#008cff" opacity=".055" filter="url(#blurLarge)"/>
+  <ellipse cx="960" cy="916" rx="430" ry="80" fill="#0077ff" opacity=".065" filter="url(#blurLarge)"/>
+
+  <!-- Foreground light streaks -->
+  <g fill="none" stroke="#0c7fff" stroke-width="2" opacity=".30">
+    <path d="M0 1010Q420 930 960 968T1920 1010"/>
+    <path d="M180 1080Q610 960 960 990T1740 1080"/>
+  </g>
+  <g fill="#39d9ff" opacity=".48" filter="url(#glowSmall)">
+    <circle cx="245" cy="921" r="2.2"/><circle cx="516" cy="1004" r="1.8"/><circle cx="758" cy="916" r="2"/>
+    <circle cx="1168" cy="930" r="2.1"/><circle cx="1410" cy="1002" r="1.8"/><circle cx="1692" cy="916" r="2.2"/>
+  </g>
 </svg>
