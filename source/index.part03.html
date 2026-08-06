@@ -1,37 +1,3 @@
-            <label class="field" for="link-category-filter"><span>หมวดหมู่</span><select id="link-category-filter"><option value="">ทุกหมวดหมู่</option></select></label>
-            <label class="field" for="link-sort"><span>จัดลำดับ</span><select id="link-sort"><option value="manual">ลำดับที่กำหนด</option><option value="name">ชื่อ A–Z</option><option value="last-used">ใช้ล่าสุด</option><option value="most-used">ใช้บ่อยที่สุด</option></select></label>
-            <label class="check-control filter-check" for="favorite-only"><input id="favorite-only" type="checkbox"><span>เฉพาะ Favorite</span></label>
-            <strong id="link-result-count" class="result-count">0 รายการ</strong>
-          </section>
-
-          <div id="links-list" class="links-list link-grid"></div>
-
-          <div class="work-link-management-grid">
-            <section class="panel form-panel" aria-labelledby="category-heading">
-              <div class="panel-heading"><div><p class="eyebrow">CATEGORY MANAGEMENT</p><h3 id="category-heading">จัดการหมวดหมู่</h3></div></div>
-              <form id="category-form" class="inline-form"><label class="field grow" for="category-name"><span>ชื่อหมวดหมู่ใหม่</span><input id="category-name" type="text" maxlength="80" required></label><button class="button button-primary" type="submit">เพิ่มหมวดหมู่</button></form>
-              <div id="category-manager-list" class="category-manager-list"></div>
-            </section>
-
-            <section class="panel form-panel" id="link-form-card" aria-labelledby="add-link-heading">
-              <div class="panel-heading"><div><p class="eyebrow">CUSTOM LINK</p><h3 id="add-link-heading">เพิ่มข้อมูลและลิงก์งานเอง</h3></div></div>
-              <form id="link-form" class="form-grid form-grid-2" autocomplete="off">
-                <input id="link-edit-id" type="hidden">
-                <label class="field"><span>ชื่องาน</span><input id="link-name" type="text" maxlength="120" required></label>
-                <label class="field"><span>หมวดหมู่</span><select id="link-category" required></select></label>
-                <label class="field span-full"><span>คำอธิบายสั้น</span><input id="link-description" type="text" maxlength="240"></label>
-                <label class="field span-full"><span>URL</span><input id="link-url" type="url" inputmode="url" placeholder="https://example.internal/" required></label>
-                <label class="field"><span>ไอคอน/ประเภทระบบ</span><input id="link-icon" type="text" maxlength="10" value="LINK"></label>
-                <label class="field"><span>สถานะ</span><select id="link-status"><option value="internal">Internal</option><option value="external">External</option><option value="available">Available</option></select></label>
-                <label class="check-control"><input id="link-favorite" type="checkbox"><span>Favorite</span></label>
-                <label class="check-control"><input id="link-requires-vpn" type="checkbox"><span>Requires VPN</span></label>
-                <label class="check-control"><input id="link-requires-login" type="checkbox"><span>Requires Login</span></label>
-                <div class="button-row span-full"><button class="button button-primary" id="link-save-button" type="submit">บันทึกลิงก์</button><button class="button button-ghost" id="link-cancel-edit" type="button" hidden>ยกเลิกแก้ไข</button></div>
-              </form>
-            </section>
-          </div>
-        </section>
-
         <section class="page" id="page-report" data-route="report" aria-labelledby="report-heading" hidden>
           <div class="page-heading"><div><p class="eyebrow">REPORT & HANDOVER</p><h2 id="report-heading">บันทึกรายงานและส่งมอบ</h2><p class="muted">ข้อความส่งมอบอัปเดตอัตโนมัติเมื่อข้อมูลเปลี่ยน</p></div><button class="button button-ghost" id="clear-report-draft" type="button">ล้าง Draft</button></div>
           <form id="report-form" autocomplete="off">
