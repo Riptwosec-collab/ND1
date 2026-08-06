@@ -29,7 +29,7 @@ function initApp() {
   runInitializer('operator selector', populateOperatorSelect);
   runInitializer('dashboard', initDashboard);
   runInitializer('checklist', initChecklist);
-  runInitializer('work links', initLinks);
+  if (!document.getElementById('linkTaskGrid')) runInitializer('work links', initLinks);
   runInitializer('report', initReport);
   runInitializer('history', initHistory);
   runInitializer('settings', initSettings);
