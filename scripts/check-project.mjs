@@ -6,37 +6,61 @@ const root = new URL('../', import.meta.url);
 const rootPath = fileURLToPath(root);
 const required = [
   'index.html','404.html','.nojekyll','assets/css/variables.css','assets/css/base.css','assets/css/layout.css',
-  'assets/css/components.css','assets/css/pages.css','assets/css/responsive.css','assets/css/work-links-v7.css','assets/css/task-checklist-v7.css',
-  'assets/js/navigation.js','assets/js/app.js','assets/js/router.js','assets/js/storage.js','assets/js/utils.js',
-  'assets/js/modal.js','assets/js/toast.js','assets/js/dashboard.js','assets/js/links.js','assets/js/work-links-v7.js','assets/js/task-checklist-v7.js',
-  '.github/workflows/deploy-pages.yml','package.json','README.md','QA_REPORT.md','DELIVERY.md','scripts/build-static.mjs'
+  'assets/css/components.css','assets/css/pages.css','assets/css/responsive.css','assets/css/work-links-v7.css',
+  'assets/css/task-checklist-v7.css','assets/css/night-helpdesk-theme.css','assets/js/navigation.js','assets/js/app.js',
+  'assets/js/router.js','assets/js/storage.js','assets/js/utils.js','assets/js/modal.js','assets/js/toast.js',
+  'assets/js/dashboard.js','assets/js/links.js','assets/js/work-links-v7.js','assets/js/netflow-scripts.js',
+  'assets/js/task-checklist-v7.js','.github/workflows/deploy-pages.yml','package.json','README.md','QA_REPORT.md','DELIVERY.md',
+  'scripts/build-static.mjs','scripts/serve.mjs','scripts/test-data.mjs','scripts/test-spec.mjs'
 ];
 const retired = ['assets/js/report.js','assets/js/history.js','assets/js/settings.js','assets/js/checklist.js'];
 const errors = [];
-for (const file of required) { try { await stat(new URL(file, root)); } catch { errors.push(`Missing: ${file}`); } }
-for (const file of retired) { try { await stat(new URL(file, root)); errors.push(`Retired file still exists: ${file}`); } catch {} }
+
+for (const file of required) {
+  try { await stat(new URL(file, root)); }
+  catch { errors.push(`Missing: ${file}`); }
+}
+for (const file of retired) {
+  try { await stat(new URL(file, root)); errors.push(`Retired system file still exists: ${file}`); }
+  catch { /* expected */ }
+}
 
 async function walk(dir) {
-  const output=[];
+  const output = [];
   for (const entry of await readdir(dir,{withFileTypes:true})) {
     if (entry.name === '.git' || entry.name === 'node_modules' || entry.name === 'dist') continue;
-    const full=join(dir,entry.name);
-    if(entry.isDirectory())output.push(...await walk(full));else output.push(full);
+    const full = join(dir,entry.name);
+    if (entry.isDirectory()) output.push(...await walk(full));
+    else output.push(full);
   }
   return output;
 }
-const files=await walk(rootPath);
-for(const file of files){
-  const rel=relative(rootPath,file);const extension=extname(file).toLowerCase();
-  if(['.cmd','.bat','.ps1','.exe','.msi'].includes(extension))errors.push(`Forbidden executable/script file: ${rel}`);
-  if(!['.js','.mjs','.html'].includes(extension))continue;
-  const text=await readFile(file,'utf8');
-  if(new RegExp('\\b'+'e'+'val'+'\\s*\\(').test(text))errors.push(`Forbidden dynamic evaluation found: ${rel}`);
-  if(new RegExp('new'+'\\s+'+'Fun'+'ction'+'\\s*\\(').test(text))errors.push(`Forbidden function constructor found: ${rel}`);
-  if(/\.innerHTML\s*=/.test(text))errors.push(`innerHTML assignment found: ${rel}`);
-  if(/src=["']\/assets\//.test(text)||/href=["']\/assets\//.test(text))errors.push(`Absolute asset path found: ${rel}`);
+
+const files = await walk(rootPath);
+for (const file of files) {
+  const rel = relative(rootPath,file);
+  const extension = extname(file).toLowerCase();
+  if (['.cmd','.bat','.ps1','.exe','.msi'].includes(extension)) errors.push(`Forbidden executable/script file: ${rel}`);
+  if (!['.js','.mjs','.html'].includes(extension)) continue;
+  const text = await readFile(file,'utf8');
+  const evalPattern = new RegExp('\\b'+'e'+'val'+'\\s*\\(');
+  const functionPattern = new RegExp('new'+'\\s+'+'Fun'+'ction'+'\\s*\\(');
+  if (evalPattern.test(text)) errors.push(`Forbidden dynamic evaluation found: ${rel}`);
+  if (functionPattern.test(text)) errors.push(`Forbidden function constructor found: ${rel}`);
+  if (/\.innerHTML\s*=/.test(text)) errors.push(`innerHTML assignment found: ${rel}`);
+  if (/src=["']\/assets\//.test(text) || /href=["']\/assets\//.test(text)) errors.push(`Absolute asset path found: ${rel}`);
 }
-const build=await readFile(new URL('scripts/build-static.mjs',root),'utf8');
-for(const marker of ['data-route="todo"','id="tcTodoList"','id="tcCheckCategories"','task-checklist-v7.js']){if(!build.includes(marker))errors.push(`Task/Checklist V7 build marker missing: ${marker}`);}
-if(errors.length){console.error(errors.join('\n'));process.exit(1);}
-console.log(`PASS: checked ${files.length} files. Task and Checklist V7 are active; legacy Checklist, Report, History and Settings modules are absent.`);
+
+const buildScript = await readFile(new URL('scripts/build-static.mjs',root),'utf8');
+const netflowScript = await readFile(new URL('assets/js/netflow-scripts.js',root),'utf8');
+for (const marker of ['data-route="todo"','id="tcTodoList"','id="tcCheckCategories"','task-checklist-v7.js','class="helpdesk-hero"']) {
+  if (!buildScript.includes(marker)) errors.push(`Build marker missing: ${marker}`);
+}
+if (!buildScript.includes('copyNetflowChromeScript') || !buildScript.includes('copyNetflowEdgeScript')) errors.push('NetFlow copy buttons are missing');
+if (!buildScript.includes('\\\\10.1.1.94\\share noc\\รายงานประจำวัน')) errors.push('UIH path is missing or incorrect');
+if ((netflowScript.match(/NetflowNodeDetails\.aspx\?NetObject=NN:/g) || []).length !== 14) errors.push('NetFlow script must contain exactly 14 URLs');
+if (!netflowScript.includes('Google\\Chrome\\Application\\chrome.exe')) errors.push('Chrome PowerShell path is missing');
+if (!netflowScript.includes('Microsoft\\Edge\\Application\\msedge.exe')) errors.push('Edge PowerShell path is missing');
+
+if (errors.length) { console.error(errors.join('\n')); process.exit(1); }
+console.log(`PASS: checked ${files.length} files. Helpdesk theme, routes, UIH path and NetFlow script tools are valid.`);
