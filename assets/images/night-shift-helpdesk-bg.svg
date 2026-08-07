@@ -55,7 +55,6 @@
   <rect width="1920" height="620" fill="url(#stars)" opacity=".72"/>
   <rect width="1920" height="1080" fill="url(#centerGlow)"/>
 
-  <!-- moon and light cloud -->
   <g opacity=".96">
     <circle cx="1650" cy="105" r="59" fill="url(#moon)" filter="url(#softGlow)"/>
     <circle cx="1632" cy="92" r="10" fill="#829bbd" opacity=".42"/>
@@ -63,7 +62,6 @@
   </g>
   <path d="M1510 160c58-32 102-30 151 2 52-24 112-22 166 7" fill="none" stroke="#345378" stroke-width="18" opacity=".12" stroke-linecap="round"/>
 
-  <!-- world network map -->
   <g fill="none" stroke="#087dff" stroke-width="1.6" opacity=".55" filter="url(#smallGlow)">
     <path d="M265 116l79-43 118 7 91 37 75-18 97 36 47 67-41 42-76-18-63 22-72-22-55 27-74-20-57 17-79-42-48-59z"/>
     <path d="M722 104l90-50 126 9 65 33 94-10 91 50 58 55-35 45-78-10-76 31-65-28-76 18-52-32-78 15-59-42z"/>
@@ -79,7 +77,6 @@
     <circle cx="1168" cy="126" r="4"/><circle cx="1287" cy="177" r="4"/><circle cx="1432" cy="142" r="4"/>
   </g>
 
-  <!-- city skyline, center intentionally open -->
   <g fill="#010711" stroke="#073a75" stroke-width="2">
     <path d="M0 500V282h58v-95h48v313h52V230h60v270h48V325h63v175h48V205h61v295h52V310h70v190h72V370h68v130H0Z"/>
     <path d="M1920 500V246h-62v254h-48V190h-62v310h-52V290h-58v210h-52V225h-64v275h-55V320h-66v180h-58V268h-64v232h-62V360h-67v140h718Z"/>
@@ -96,7 +93,6 @@
     <path d="M105 188V120M109 120h-8M433 207v-70M437 137h-8M1751 192v-72M1755 120h-8M1516 229v-66M1520 163h-8"/>
   </g>
 
-  <!-- side command-center consoles without foreground shadow sheets -->
   <g stroke="#087dff" stroke-width="3" fill="url(#metal)" opacity=".92">
     <path d="M0 520L365 450l128 68-58 170L0 730Z"/>
     <path d="M1920 520l-365-70-128 68 58 170 435 42Z"/>
@@ -114,24 +110,14 @@
     <circle cx="1855" cy="563" r="4"/><circle cx="1836" cy="559" r="4"/><circle cx="1816" cy="555" r="4"/>
   </g>
 
-  <!-- metallic reflective floor and perspective grid -->
   <path d="M0 592H1920V1080H0Z" fill="url(#floor)"/>
   <g clip-path="url(#floorClip)" fill="none">
     <g stroke="#087dff" stroke-width="1.3" opacity=".48">
       <path d="M960 592L70 1080M960 592L250 1080M960 592L430 1080M960 592L610 1080M960 592L790 1080M960 592L1130 1080M960 592L1310 1080M960 592L1490 1080M960 592L1670 1080M960 592L1850 1080"/>
       <path d="M0 650H1920M0 720H1920M0 800H1920M0 895H1920M0 1005H1920"/>
     </g>
-    <g stroke="#00bfff" opacity=".48">
-      <ellipse cx="960" cy="675" rx="355" ry="78" stroke-width="3"/>
-      <ellipse cx="960" cy="675" rx="480" ry="116" stroke-width="2"/>
-      <ellipse cx="960" cy="675" rx="650" ry="170" stroke-width="1.5"/>
-      <ellipse cx="960" cy="675" rx="820" ry="235" stroke-width="1"/>
-    </g>
-    <ellipse cx="960" cy="675" rx="260" ry="52" fill="#087dff" opacity=".07"/>
-    <ellipse cx="960" cy="686" rx="205" ry="34" fill="#39d9ff" opacity=".06" filter="url(#softGlow)"/>
   </g>
 
-  <!-- subtle foreground light only, no dark overlay panels -->
   <path d="M480 1000Q960 895 1440 1000" fill="none" stroke="#087dff" stroke-width="2" opacity=".34"/>
   <path d="M610 1030Q960 958 1310 1030" fill="none" stroke="#39d9ff" stroke-width="1.5" opacity=".28"/>
 </svg>
