@@ -1,0 +1,319 @@
+:root{
+  --ref-cyan:#34c8ff;
+  --ref-blue:#007bff;
+  --ref-deep:#020611;
+  --ref-navy:#030a18;
+  --ref-text:#f5fbff;
+  --ref-muted:#9cb9d4;
+}
+
+/* HOME ONLY — preserve all existing routes, links and handlers. */
+body:has(#page-dashboard:not([hidden])){
+  margin:0!important;
+  overflow:hidden!important;
+  background:#020611!important;
+}
+body:has(#page-dashboard:not([hidden]))::before,
+body:has(#page-dashboard:not([hidden]))::after{display:none!important}
+body:has(#page-dashboard:not([hidden])) .sidebar,
+body:has(#page-dashboard:not([hidden])) .sidebar-backdrop{display:none!important}
+body:has(#page-dashboard:not([hidden])) .workspace,
+body:has(#page-dashboard:not([hidden])) main,
+body:has(#page-dashboard:not([hidden])) #page-dashboard{
+  width:100%!important;
+  max-width:none!important;
+  min-height:100svh!important;
+  margin:0!important;
+  padding:0!important;
+}
+
+/* Keep the existing shift countdown unobtrusively in the upper-right corner. */
+body:has(#page-dashboard:not([hidden])) .topbar{
+  display:flex!important;
+  position:fixed!important;
+  top:14px!important;
+  right:18px!important;
+  left:auto!important;
+  z-index:300!important;
+  width:auto!important;
+  height:auto!important;
+  min-height:0!important;
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  pointer-events:none!important;
+}
+body:has(#page-dashboard:not([hidden])) .topbar-title,
+body:has(#page-dashboard:not([hidden])) .topbar .menu-toggle,
+body:has(#page-dashboard:not([hidden])) .topbar .operator-control{display:none!important}
+body:has(#page-dashboard:not([hidden])) .topbar-meta{display:block!important;margin:0!important}
+body:has(#page-dashboard:not([hidden])) .topbar .live-clock{
+  display:grid!important;
+  min-width:188px!important;
+  padding:8px 12px!important;
+  border:1px solid rgba(52,200,255,.26)!important;
+  border-radius:8px!important;
+  background:rgba(2,10,24,.54)!important;
+  box-shadow:0 0 18px rgba(0,87,217,.16)!important;
+  backdrop-filter:blur(5px)!important;
+  pointer-events:auto!important;
+}
+
+/* Exact master visual supplied by the user. */
+.helpdesk-hero{
+  position:relative!important;
+  isolation:isolate!important;
+  width:100vw!important;
+  height:100svh!important;
+  min-height:620px!important;
+  overflow:hidden!important;
+  border:0!important;
+  border-radius:0!important;
+  background:#020611!important;
+  box-shadow:none!important;
+}
+.helpdesk-hero::before{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  pointer-events:none!important;
+  background-image:url("../images/command-center-master.svg?v=20260807-17")!important;
+  background-repeat:no-repeat!important;
+  background-position:center center!important;
+  background-size:cover!important;
+  filter:saturate(1.03) contrast(1.025) brightness(.99)!important;
+  transform:scale(1.002)!important;
+}
+.helpdesk-hero::after{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  pointer-events:none!important;
+  background:
+    linear-gradient(180deg,rgba(1,4,11,.03) 0%,transparent 24%,transparent 70%,rgba(1,4,11,.18) 100%),
+    radial-gradient(ellipse at 50% 58%,transparent 0 44%,rgba(2,6,17,.05) 72%,rgba(2,6,17,.12) 100%),
+    repeating-linear-gradient(180deg,rgba(52,200,255,.008) 0 1px,transparent 1px 5px)!important;
+}
+
+/* The master background already contains map, skyline, consoles and holographic platform. */
+.hero-skyline,
+.hero-orbit,
+.hero-orbit::before,
+.hero-orbit::after{display:none!important;animation:none!important}
+
+.hero-content{
+  position:relative!important;
+  z-index:5!important;
+  width:100%!important;
+  height:100%!important;
+  margin:0!important;
+  padding:0!important;
+}
+
+/* Minimal transparent HUD so the existing NIGHT SHIFT title does not hide the reference scene. */
+.hero-command-panel{
+  position:absolute!important;
+  left:50%!important;
+  top:46.5%!important;
+  transform:translate(-50%,-50%)!important;
+  width:min(720px,55vw)!important;
+  min-height:118px!important;
+  margin:0!important;
+  padding:22px 54px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  overflow:visible!important;
+  clip-path:polygon(7% 0,93% 0,100% 24%,100% 76%,93% 100%,7% 100%,0 76%,0 24%)!important;
+  border:0!important;
+  background:linear-gradient(180deg,rgba(2,15,34,.34),rgba(2,7,20,.20))!important;
+  box-shadow:0 0 18px rgba(0,123,255,.13),inset 0 0 18px rgba(52,200,255,.05)!important;
+  backdrop-filter:blur(1.5px)!important;
+  animation:none!important;
+}
+.hero-command-panel::before{
+  content:""!important;
+  position:absolute!important;
+  inset:-1px!important;
+  z-index:-1!important;
+  clip-path:inherit!important;
+  background:linear-gradient(90deg,transparent 0 7%,rgba(52,200,255,.72) 7.2% 25%,transparent 25.4% 74.6%,rgba(52,200,255,.72) 75% 92.8%,transparent 93%),linear-gradient(180deg,rgba(52,200,255,.55),transparent 18% 82%,rgba(0,123,255,.42))!important;
+  opacity:.56!important;
+}
+.hero-command-panel::after{
+  content:""!important;
+  position:absolute!important;
+  inset:8px 13px!important;
+  z-index:-1!important;
+  clip-path:inherit!important;
+  border:1px solid rgba(52,200,255,.22)!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+.hero-title,
+.hero-subtitle,
+.hero-afterhours{display:none!important}
+.hero-kicker{
+  position:relative!important;
+  z-index:2!important;
+  display:block!important;
+  width:auto!important;
+  max-width:100%!important;
+  margin:0!important;
+  padding:.04em .02em .08em!important;
+  color:var(--ref-text)!important;
+  font-family:"Arial Narrow","Rajdhani","Segoe UI",sans-serif!important;
+  font-size:clamp(3.1rem,4.7vw,5.35rem)!important;
+  font-weight:900!important;
+  line-height:.92!important;
+  letter-spacing:.095em!important;
+  text-align:center!important;
+  white-space:nowrap!important;
+  background:linear-gradient(180deg,#ffffff 0%,#f7fcff 45%,#c8e8ff 77%,#f7fcff 100%)!important;
+  -webkit-background-clip:text!important;
+  background-clip:text!important;
+  -webkit-text-fill-color:transparent!important;
+  -webkit-text-stroke:.25px rgba(236,250,255,.72)!important;
+  text-shadow:0 0 3px rgba(255,255,255,.92),0 0 9px rgba(52,200,255,.56),0 0 22px rgba(0,87,217,.28)!important;
+  filter:drop-shadow(0 5px 8px rgba(0,2,10,.48))!important;
+}
+.hero-kicker::before,
+.hero-kicker::after{display:none!important}
+
+/* Existing three routes become low-profile holographic controls over the master scene. */
+.hero-menu{
+  position:absolute!important;
+  left:50%!important;
+  bottom:3.6%!important;
+  z-index:8!important;
+  width:min(820px,72vw)!important;
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:54px!important;
+  margin:0!important;
+  padding:0!important;
+  transform:translateX(-50%)!important;
+}
+.hero-menu::before{
+  content:""!important;
+  position:absolute!important;
+  left:13%!important;
+  right:13%!important;
+  top:43px!important;
+  z-index:-1!important;
+  height:1px!important;
+  background:linear-gradient(90deg,transparent,rgba(52,200,255,.48) 14%,rgba(0,123,255,.34) 50%,rgba(52,200,255,.48) 86%,transparent)!important;
+  box-shadow:0 0 8px rgba(0,123,255,.20)!important;
+}
+.hero-menu-link{
+  position:relative!important;
+  display:grid!important;
+  justify-items:center!important;
+  gap:7px!important;
+  min-width:0!important;
+  padding:0 8px!important;
+  color:var(--ref-text)!important;
+  text-decoration:none!important;
+  cursor:pointer!important;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  transition:transform .22s ease,filter .22s ease!important;
+}
+.hero-menu-link:hover{transform:translateY(-5px)!important;filter:brightness(1.16)!important}
+.hero-menu-link:focus-visible{outline:2px solid #8cecff!important;outline-offset:8px!important;border-radius:14px!important}
+.hero-menu-icon{
+  width:88px!important;
+  height:88px!important;
+  display:grid!important;
+  place-items:center!important;
+  border:1px solid rgba(91,224,255,.88)!important;
+  border-radius:50%!important;
+  background:radial-gradient(circle at 50% 46%,rgba(0,123,255,.24),rgba(2,15,36,.70) 58%,rgba(2,6,17,.90) 100%)!important;
+  box-shadow:0 0 6px rgba(52,200,255,.72),0 0 18px rgba(0,123,255,.38),inset 0 0 14px rgba(52,200,255,.08)!important;
+}
+.hero-menu-icon::before{
+  content:""!important;
+  position:absolute!important;
+  left:8%!important;
+  right:8%!important;
+  bottom:-15px!important;
+  height:9px!important;
+  border:1px solid rgba(52,200,255,.50)!important;
+  border-radius:50%!important;
+  background:radial-gradient(ellipse,rgba(52,200,255,.26),transparent 68%)!important;
+  box-shadow:0 0 12px rgba(0,123,255,.30)!important;
+}
+.hero-menu-icon svg{width:44px!important;height:44px!important;fill:none!important;stroke:#eaf9ff!important;stroke-width:2.2!important;filter:drop-shadow(0 0 5px rgba(52,200,255,.72))!important}
+.hero-menu-link strong{
+  margin-top:12px!important;
+  color:#b9efff!important;
+  font-family:"Arial Narrow","Rajdhani","Segoe UI",sans-serif!important;
+  font-size:.90rem!important;
+  font-weight:800!important;
+  letter-spacing:.055em!important;
+  text-align:center!important;
+  text-transform:uppercase!important;
+  text-shadow:0 0 7px rgba(52,200,255,.24)!important;
+}
+.hero-menu-link>span:last-child{
+  max-width:210px!important;
+  color:#b5c9da!important;
+  font-size:.76rem!important;
+  line-height:1.35!important;
+  text-align:center!important;
+  text-shadow:0 1px 5px rgba(0,0,0,.78)!important;
+}
+
+@media(min-width:1900px){
+  .hero-command-panel{top:47%!important;width:760px!important}
+  .hero-menu{bottom:4.4%!important;width:860px!important}
+}
+@media(max-width:1440px){
+  .hero-command-panel{top:46%!important;width:min(670px,57vw)!important;min-height:108px!important;padding:19px 44px!important}
+  .hero-kicker{font-size:clamp(3rem,4.8vw,4.7rem)!important}
+  .hero-menu{bottom:3%!important;width:min(760px,76vw)!important;gap:38px!important}
+  .hero-menu-icon{width:78px!important;height:78px!important}
+  .hero-menu-icon svg{width:39px!important;height:39px!important}
+  .hero-menu::before{top:38px!important}
+  .hero-menu-link strong{font-size:.82rem!important}
+  .hero-menu-link>span:last-child{font-size:.70rem!important}
+}
+@media(max-width:1024px){
+  .helpdesk-hero{min-height:600px!important}
+  .hero-command-panel{top:43%!important;width:min(620px,72vw)!important}
+  .hero-kicker{font-size:clamp(2.75rem,6.8vw,4.2rem)!important;letter-spacing:.07em!important}
+  .hero-menu{width:min(700px,88vw)!important;gap:20px!important}
+}
+@media(max-width:768px){
+  body:has(#page-dashboard:not([hidden])) .topbar{top:9px!important;right:9px!important}
+  body:has(#page-dashboard:not([hidden])) .topbar .live-clock{min-width:160px!important;padding:6px 9px!important}
+  .helpdesk-hero::before{background-position:center top!important}
+  .hero-command-panel{top:35%!important;width:88vw!important;min-height:92px!important;padding:16px 26px!important}
+  .hero-kicker{font-size:clamp(2.3rem,8.5vw,3.7rem)!important;letter-spacing:.055em!important}
+  .hero-menu{left:50%!important;bottom:2.2%!important;width:94vw!important;gap:8px!important}
+  .hero-menu-icon{width:66px!important;height:66px!important}
+  .hero-menu-icon svg{width:32px!important;height:32px!important}
+  .hero-menu::before{top:32px!important;left:10%!important;right:10%!important}
+  .hero-menu-link strong{font-size:.68rem!important;letter-spacing:.025em!important}
+  .hero-menu-link>span:last-child{display:none!important}
+}
+@media(max-width:430px){
+  .helpdesk-hero{height:100svh!important;min-height:560px!important}
+  .helpdesk-hero::before{background-size:auto 100%!important;background-position:center center!important}
+  .hero-command-panel{top:28%!important;width:92vw!important;min-height:78px!important;padding:14px 18px!important}
+  .hero-kicker{font-size:clamp(1.95rem,10.5vw,2.85rem)!important;letter-spacing:.045em!important}
+  .hero-menu{grid-template-columns:1fr!important;width:min(310px,88vw)!important;bottom:3%!important;gap:7px!important}
+  .hero-menu::before{display:none!important}
+  .hero-menu-link{grid-template-columns:56px 1fr!important;grid-template-rows:auto!important;justify-items:start!important;align-items:center!important;column-gap:12px!important;padding:5px 10px!important;background:rgba(2,10,24,.42)!important;border:1px solid rgba(52,200,255,.16)!important;border-radius:12px!important;backdrop-filter:blur(3px)!important}
+  .hero-menu-icon{grid-row:1!important;width:52px!important;height:52px!important}
+  .hero-menu-icon::before{display:none!important}
+  .hero-menu-icon svg{width:27px!important;height:27px!important}
+  .hero-menu-link strong{grid-column:2!important;margin:0!important;font-size:.76rem!important;text-align:left!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-menu-link{transition:none!important}
+}
