@@ -3,6 +3,7 @@ import { formatThaiDate, todayIso } from './utils.js';
 export function initDashboard() {
   ensureSceneStylesheet();
   ensureVisualOverride();
+  ensureBalanceOverride();
   updateDashboard();
 
   window.addEventListener('nightNoc:route-changed', event => {
@@ -39,6 +40,23 @@ function ensureVisualOverride() {
 
   if (existing) {
     if (!existing.getAttribute('href')?.includes('20260807-20')) existing.setAttribute('href', stylesheetHref);
+    return;
+  }
+
+  const link = document.createElement('link');
+  link.id = stylesheetId;
+  link.rel = 'stylesheet';
+  link.href = stylesheetHref;
+  document.head.append(link);
+}
+
+function ensureBalanceOverride() {
+  const stylesheetId = 'home-balance-v22-styles';
+  const stylesheetHref = './assets/css/home-balance-v22.css?v=20260807-22';
+  const existing = document.getElementById(stylesheetId);
+
+  if (existing) {
+    if (!existing.getAttribute('href')?.includes('20260807-22')) existing.setAttribute('href', stylesheetHref);
     return;
   }
 
