@@ -1,0 +1,224 @@
+/* Home v23 — exact desktop visual matching using the user's reference scene.
+   Only the Home presentation layer changes; existing routes, links and logic remain intact. */
+
+@media (min-width:801px){
+  body:has(#page-dashboard:not([hidden])){
+    margin:0!important;
+    overflow:hidden!important;
+    background:#01040b!important;
+  }
+
+  body:has(#page-dashboard:not([hidden])) .workspace,
+  body:has(#page-dashboard:not([hidden])) main,
+  body:has(#page-dashboard:not([hidden])) #page-dashboard,
+  body:has(#page-dashboard:not([hidden])) .helpdesk-hero{
+    width:100vw!important;
+    height:100svh!important;
+    min-height:0!important;
+    max-width:none!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:hidden!important;
+  }
+
+  /* Use the approved reference image as the actual scene instead of redrawing it with CSS. */
+  body:has(#page-dashboard:not([hidden])) .helpdesk-hero{
+    position:relative!important;
+    isolation:isolate!important;
+    background:#01040b!important;
+    border:0!important;
+    border-radius:0!important;
+    box-shadow:none!important;
+    perspective:none!important;
+  }
+
+  body:has(#page-dashboard:not([hidden])) .helpdesk-hero::before{
+    content:""!important;
+    position:absolute!important;
+    inset:0!important;
+    z-index:0!important;
+    background-image:url("../images/night-shift-reference-v23.svg?v=20260807-23")!important;
+    background-repeat:no-repeat!important;
+    background-position:center center!important;
+    background-size:cover!important;
+    filter:none!important;
+    transform:none!important;
+    opacity:1!important;
+    pointer-events:none!important;
+  }
+
+  body:has(#page-dashboard:not([hidden])) .helpdesk-hero::after,
+  body:has(#page-dashboard:not([hidden])) .hero-skyline,
+  body:has(#page-dashboard:not([hidden])) .hero-command-panel,
+  body:has(#page-dashboard:not([hidden])) .hero-orbit{
+    display:none!important;
+  }
+
+  body:has(#page-dashboard:not([hidden])) .hero-content{
+    position:absolute!important;
+    inset:0!important;
+    z-index:8!important;
+    width:100%!important;
+    height:100%!important;
+    padding:0!important;
+    margin:0!important;
+    transform:none!important;
+  }
+
+  /* Keep the real anchors and routes, but let the reference artwork supply the visible icons/text. */
+  body:has(#page-dashboard:not([hidden])) .hero-menu{
+    position:absolute!important;
+    left:50%!important;
+    bottom:2.6%!important;
+    z-index:30!important;
+    width:min(1180px,74vw)!important;
+    height:30.5%!important;
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:7.2%!important;
+    margin:0!important;
+    padding:0!important;
+    transform:translateX(-50%)!important;
+    background:none!important;
+    border:0!important;
+    box-shadow:none!important;
+    pointer-events:none!important;
+  }
+
+  body:has(#page-dashboard:not([hidden])) .hero-menu::before,
+  body:has(#page-dashboard:not([hidden])) .hero-menu::after{
+    display:none!important;
+  }
+
+  body:has(#page-dashboard:not([hidden])) .hero-menu-link{
+    position:relative!important;
+    display:block!important;
+    width:100%!important;
+    height:100%!important;
+    min-width:0!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    border-radius:50%!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    filter:none!important;
+    transform:none!important;
+    opacity:1!important;
+    cursor:pointer!important;
+    pointer-events:auto!important;
+    text-decoration:none!important;
+  }
+
+  body:has(#page-dashboard:not([hidden])) .hero-menu-link > *{
+    opacity:0!important;
+    visibility:hidden!important;
+    pointer-events:none!important;
+  }
+
+  body:has(#page-dashboard:not([hidden])) .hero-menu-link:hover{
+    transform:none!important;
+    filter:none!important;
+    background:radial-gradient(circle at 50% 48%,rgba(66,232,255,.08),transparent 62%)!important;
+  }
+
+  body:has(#page-dashboard:not([hidden])) .hero-menu-link:focus-visible{
+    outline:2px solid rgba(190,249,255,.92)!important;
+    outline-offset:-10px!important;
+    box-shadow:0 0 18px rgba(0,200,255,.38),inset 0 0 18px rgba(0,123,255,.12)!important;
+  }
+
+  /* Keep the required shift countdown, but make it visually subordinate to the reference scene. */
+  body:has(#page-dashboard:not([hidden])) .topbar{
+    display:flex!important;
+    position:fixed!important;
+    top:14px!important;
+    right:18px!important;
+    left:auto!important;
+    z-index:80!important;
+    width:auto!important;
+    height:auto!important;
+    min-height:0!important;
+    padding:0!important;
+    border:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    pointer-events:none!important;
+  }
+
+  body:has(#page-dashboard:not([hidden])) .topbar-title,
+  body:has(#page-dashboard:not([hidden])) .topbar .menu-toggle,
+  body:has(#page-dashboard:not([hidden])) .topbar .operator-control{
+    display:none!important;
+  }
+
+  body:has(#page-dashboard:not([hidden])) .topbar-meta{
+    display:block!important;
+    margin:0!important;
+    padding:0!important;
+  }
+
+  body:has(#page-dashboard:not([hidden])) .topbar .live-clock{
+    display:grid!important;
+    min-width:154px!important;
+    grid-template-columns:auto auto!important;
+    gap:8px!important;
+    align-items:center!important;
+    padding:6px 10px!important;
+    border:1px solid rgba(66,232,255,.25)!important;
+    border-radius:8px!important;
+    background:rgba(1,8,22,.42)!important;
+    box-shadow:0 0 12px rgba(0,123,255,.15),inset 0 0 10px rgba(0,174,255,.05)!important;
+    backdrop-filter:blur(5px)!important;
+    pointer-events:auto!important;
+  }
+
+  body:has(#page-dashboard:not([hidden])) .topbar .live-clock span{
+    grid-column:1!important;
+    grid-row:1!important;
+    color:#9fcbe0!important;
+    font-size:.58rem!important;
+    letter-spacing:.08em!important;
+    white-space:nowrap!important;
+  }
+
+  body:has(#page-dashboard:not([hidden])) .topbar .live-clock strong{
+    grid-column:2!important;
+    grid-row:1!important;
+    color:#68efff!important;
+    font-size:1.02rem!important;
+    font-weight:800!important;
+    line-height:1!important;
+    letter-spacing:.06em!important;
+    text-shadow:0 0 6px rgba(66,232,255,.52)!important;
+  }
+}
+
+/* 16:10 and 4:3 desktops/tablets: show the whole reference with minimal crop. */
+@media (min-width:801px) and (max-aspect-ratio:16/10){
+  body:has(#page-dashboard:not([hidden])) .helpdesk-hero::before{
+    background-size:auto 100%!important;
+    background-color:#01040b!important;
+  }
+  body:has(#page-dashboard:not([hidden])) .hero-menu{
+    width:74.5vw!important;
+    height:29%!important;
+    bottom:4%!important;
+  }
+}
+
+@media (min-width:801px) and (max-width:1100px){
+  body:has(#page-dashboard:not([hidden])) .hero-menu{
+    width:76vw!important;
+    height:29%!important;
+    gap:6.5%!important;
+    bottom:3.5%!important;
+  }
+  body:has(#page-dashboard:not([hidden])) .topbar{top:9px!important;right:9px!important}
+  body:has(#page-dashboard:not([hidden])) .topbar .live-clock{min-width:138px!important;padding:5px 8px!important}
+  body:has(#page-dashboard:not([hidden])) .topbar .live-clock strong{font-size:.92rem!important}
+}
+
+@media (prefers-reduced-motion:reduce){
+  body:has(#page-dashboard:not([hidden])) .hero-menu-link{transition:none!important}
+}
