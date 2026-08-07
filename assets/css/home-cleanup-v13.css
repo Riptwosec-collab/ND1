@@ -78,7 +78,7 @@ body:has(#page-dashboard:not([hidden])) .topbar .live-clock{
 
 /* Force the cleaned cinematic scene and bypass old cached foreground effects. */
 .helpdesk-hero::before{
-  background-image:url("../images/night-shift-helpdesk-bg.svg?v=20260807-15")!important;
+  background-image:url("../images/night-shift-helpdesk-bg.svg?v=20260807-16")!important;
   background-position:center center!important;
   background-size:cover!important;
   filter:saturate(1.12) contrast(1.08) brightness(1.06)!important;
@@ -95,21 +95,22 @@ body:has(#page-dashboard:not([hidden])) .topbar .live-clock{
 .hero-orbit::before,
 .hero-orbit::after{display:none!important;animation:none!important}
 
-/* NIGHT SHIFT is the only title in the center HUD. */
+/* NIGHT SHIFT is the sole primary title and must always fit inside the HUD. */
 .hero-command-panel{
   top:25.5%!important;
-  width:min(920px,62vw)!important;
-  min-height:260px!important;
-  padding:52px 64px!important;
+  width:min(1080px,76vw)!important;
+  min-height:230px!important;
+  padding:42px 48px!important;
   justify-content:center!important;
+  overflow:hidden!important;
   background:
-    radial-gradient(ellipse at 50% 48%,rgba(0,118,255,.20),transparent 58%),
+    radial-gradient(ellipse at 50% 48%,rgba(0,118,255,.18),transparent 60%),
     linear-gradient(180deg,rgba(3,20,52,.90),rgba(0,7,22,.95))!important;
   box-shadow:
-    0 0 9px rgba(86,228,255,.92),
-    0 0 28px rgba(0,191,255,.56),
-    0 0 76px rgba(0,93,255,.38),
-    inset 0 0 30px rgba(0,153,255,.19)!important;
+    0 0 7px rgba(86,228,255,.86),
+    0 0 22px rgba(0,191,255,.48),
+    0 0 58px rgba(0,93,255,.30),
+    inset 0 0 28px rgba(0,153,255,.16)!important;
 }
 .hero-title,
 .hero-subtitle,
@@ -117,39 +118,44 @@ body:has(#page-dashboard:not([hidden])) .topbar .live-clock{
 .hero-kicker{
   position:relative;
   z-index:2;
+  display:block!important;
+  width:100%!important;
+  max-width:100%!important;
   margin:0!important;
-  padding:0 0 .08em!important;
+  padding:.04em .02em .10em!important;
   color:#f7fdff!important;
   font-family:"Arial Narrow","Rajdhani","Segoe UI",sans-serif!important;
-  font-size:clamp(5.7rem,9vw,9.4rem)!important;
-  font-weight:950!important;
-  line-height:.86!important;
-  letter-spacing:.105em!important;
-  white-space:nowrap;
-  background:linear-gradient(180deg,#ffffff 0%,#ffffff 30%,#d8efff 62%,#88c8ff 87%,#f8fdff 100%)!important;
+  font-size:clamp(4rem,6.2vw,7.2rem)!important;
+  font-weight:900!important;
+  line-height:.96!important;
+  letter-spacing:.07em!important;
+  text-align:center!important;
+  white-space:nowrap!important;
+  background:linear-gradient(180deg,#ffffff 0%,#ffffff 34%,#d9efff 66%,#9bd3ff 88%,#f8fdff 100%)!important;
   -webkit-background-clip:text!important;
   background-clip:text!important;
   -webkit-text-fill-color:transparent;
+  -webkit-text-stroke:.45px rgba(235,250,255,.82);
   text-shadow:
-    0 0 3px rgba(255,255,255,.95),
-    0 0 12px rgba(120,224,255,.90),
-    0 0 28px rgba(0,171,255,.70),
-    0 0 60px rgba(0,91,255,.48)!important;
-  filter:drop-shadow(0 6px 8px rgba(0,2,12,.56));
+    0 0 2px rgba(255,255,255,.95),
+    0 0 8px rgba(120,224,255,.74),
+    0 0 18px rgba(0,171,255,.48),
+    0 0 34px rgba(0,91,255,.28)!important;
+  filter:drop-shadow(0 5px 7px rgba(0,2,12,.48));
 }
 .hero-kicker::before,
 .hero-kicker::after{
   content:"";
   position:absolute;
-  left:8%;
-  right:8%;
+  left:10%;
+  right:10%;
   height:1px;
-  background:linear-gradient(90deg,transparent,rgba(97,236,255,.94) 16%,rgba(22,119,255,.84) 50%,rgba(97,236,255,.94) 84%,transparent);
-  box-shadow:0 0 7px rgba(97,236,255,.62),0 0 16px rgba(0,119,255,.42);
+  background:linear-gradient(90deg,transparent,rgba(97,236,255,.88) 16%,rgba(22,119,255,.76) 50%,rgba(97,236,255,.88) 84%,transparent);
+  box-shadow:0 0 6px rgba(97,236,255,.52),0 0 13px rgba(0,119,255,.34);
   pointer-events:none;
 }
-.hero-kicker::before{top:-.28em}
-.hero-kicker::after{bottom:-.30em}
+.hero-kicker::before{top:-.32em}
+.hero-kicker::after{bottom:-.31em}
 
 /* Keep three original route links, positioned cleanly below the title. */
 .hero-menu{
@@ -165,26 +171,54 @@ body:has(#page-dashboard:not([hidden])) .topbar .live-clock{
 }
 
 @media(max-width:1180px){
-  .hero-command-panel{top:24%!important;width:min(820px,72vw)!important;min-height:232px!important}
-  .hero-kicker{font-size:clamp(4.8rem,9.5vw,7.8rem)!important}
+  .hero-command-panel{
+    top:23.5%!important;
+    width:88vw!important;
+    min-height:210px!important;
+    padding:38px 40px!important;
+  }
+  .hero-kicker{
+    font-size:clamp(4rem,7.5vw,5.9rem)!important;
+    letter-spacing:.06em!important;
+  }
   .hero-menu{width:min(820px,86vw)!important;gap:34px!important}
 }
 @media(max-width:900px){
   body:has(#page-dashboard:not([hidden])) .topbar{top:9px!important;right:10px!important}
   body:has(#page-dashboard:not([hidden])) .topbar .live-clock{min-width:176px;padding:7px 11px}
   .live-clock strong{font-size:1.25rem!important}
-  .hero-command-panel{top:17%!important;width:min(720px,88vw)!important;min-height:190px!important;padding:38px 28px!important}
-  .hero-kicker{font-size:clamp(4rem,12vw,6.4rem)!important;letter-spacing:.075em!important}
+  .hero-command-panel{
+    top:17%!important;
+    width:90vw!important;
+    min-height:180px!important;
+    padding:34px 28px!important;
+  }
+  .hero-kicker{
+    font-size:clamp(3.5rem,9.2vw,5rem)!important;
+    letter-spacing:.05em!important;
+  }
   .hero-menu{bottom:4%!important}
 }
 @media(max-width:650px){
   body:has(#page-dashboard:not([hidden])) .topbar .live-clock{min-width:160px}
   .live-clock span{font-size:.58rem!important}
   .live-clock strong{font-size:1.05rem!important}
-  .hero-command-panel{top:10%!important;width:92vw!important;min-height:145px!important;padding:30px 16px!important}
-  .hero-kicker{font-size:clamp(2.75rem,14.5vw,4.25rem)!important;letter-spacing:.045em!important}
-  .hero-kicker::before{top:-.34em}.hero-kicker::after{bottom:-.38em}
+  .hero-command-panel{
+    top:10%!important;
+    width:92vw!important;
+    min-height:140px!important;
+    padding:28px 15px!important;
+  }
+  .hero-kicker{
+    font-size:clamp(2.45rem,12.5vw,3.85rem)!important;
+    letter-spacing:.035em!important;
+  }
+  .hero-kicker::before{top:-.34em}.hero-kicker::after{bottom:-.36em}
   .hero-menu{top:39%!important;bottom:auto!important}
+}
+@media(max-width:420px){
+  .hero-command-panel{width:94vw!important;padding-inline:10px!important}
+  .hero-kicker{font-size:clamp(2.15rem,11.7vw,3.1rem)!important;letter-spacing:.025em!important}
 }
 @media(prefers-reduced-motion:reduce){
   .hero-command-panel,.hero-menu-icon,.hero-skyline::before{animation:none!important}
