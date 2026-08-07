@@ -4,6 +4,7 @@ export function initDashboard() {
   ensureSceneStylesheet();
   ensureVisualOverride();
   ensureBalanceOverride();
+  ensureReferenceOverride();
   updateDashboard();
 
   window.addEventListener('nightNoc:route-changed', event => {
@@ -57,6 +58,25 @@ function ensureBalanceOverride() {
 
   if (existing) {
     if (!existing.getAttribute('href')?.includes('20260807-22')) existing.setAttribute('href', stylesheetHref);
+    return;
+  }
+
+  const link = document.createElement('link');
+  link.id = stylesheetId;
+  link.rel = 'stylesheet';
+  link.href = stylesheetHref;
+  document.head.append(link);
+}
+
+function ensureReferenceOverride() {
+  const stylesheetId = 'home-reference-v23-styles';
+  const stylesheetHref = './assets/css/home-reference-v23.css?v=20260807-23';
+  const existing = document.getElementById(stylesheetId);
+
+  if (existing) {
+    if (!existing.getAttribute('href')?.includes('20260807-23')) existing.setAttribute('href', stylesheetHref);
+    existing.remove();
+    document.head.append(existing);
     return;
   }
 
