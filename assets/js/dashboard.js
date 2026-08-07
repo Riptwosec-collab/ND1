@@ -17,11 +17,11 @@ export function updateDashboard() {
 
 function ensureSceneStylesheet() {
   const stylesheetId = 'night-helpdesk-scene-styles';
-  const stylesheetHref = './assets/css/night-helpdesk-scene.css?v=20260806-12';
+  const stylesheetHref = './assets/css/night-helpdesk-scene.css?v=20260807-14';
   const existing = document.getElementById(stylesheetId);
 
   if (existing) {
-    if (!existing.getAttribute('href')?.includes('20260806-12')) existing.setAttribute('href', stylesheetHref);
+    existing.setAttribute('href', stylesheetHref);
     return;
   }
 
@@ -34,11 +34,17 @@ function ensureSceneStylesheet() {
 
 function ensureVisualOverride() {
   const stylesheetId = 'home-cleanup-v13-styles';
-  if (document.getElementById(stylesheetId)) return;
+  const stylesheetHref = './assets/css/home-cleanup-v13.css?v=20260807-14';
+  const existing = document.getElementById(stylesheetId);
+
+  if (existing) {
+    existing.setAttribute('href', stylesheetHref);
+    return;
+  }
 
   const link = document.createElement('link');
   link.id = stylesheetId;
   link.rel = 'stylesheet';
-  link.href = './assets/css/home-cleanup-v13.css?v=20260806-13';
+  link.href = stylesheetHref;
   document.head.append(link);
 }
