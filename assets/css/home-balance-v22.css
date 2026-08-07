@@ -1,0 +1,189 @@
+/* Home v22 — balance, scale and sharpness refinements only. */
+
+body:has(#page-dashboard:not([hidden])) .hero-command-panel{
+  top:24.5%!important;
+  width:min(1040px,64vw)!important;
+  min-height:190px!important;
+  padding:30px 52px!important;
+  transform:translateX(-50%) translateZ(36px)!important;
+  box-shadow:
+    0 0 2px rgba(255,255,255,.96),
+    0 0 8px rgba(99,239,255,.86),
+    0 0 20px rgba(0,200,255,.58),
+    0 0 46px rgba(0,87,217,.34),
+    0 18px 36px rgba(0,0,0,.58),
+    inset 0 0 22px rgba(0,174,255,.14),
+    inset 0 -20px 38px rgba(0,0,0,.56)!important;
+  filter:drop-shadow(0 0 12px rgba(0,123,255,.28))!important;
+}
+
+body:has(#page-dashboard:not([hidden])) .hero-command-panel::before{
+  inset:-12px -17px!important;
+  box-shadow:0 0 8px rgba(99,239,255,.80),0 0 28px rgba(0,123,255,.42)!important;
+}
+
+body:has(#page-dashboard:not([hidden])) .hero-command-panel::after{
+  inset:11px 15px!important;
+  border-color:rgba(107,239,255,.50)!important;
+  box-shadow:inset 0 0 20px rgba(0,174,255,.11)!important;
+}
+
+body:has(#page-dashboard:not([hidden])) .hero-kicker{
+  font-size:clamp(3.8rem,6.15vw,6.35rem)!important;
+  line-height:.92!important;
+  letter-spacing:.055em!important;
+  padding:.02em 0 .06em!important;
+  text-shadow:
+    0 0 1px #fff,
+    0 0 5px rgba(205,250,255,.90),
+    0 0 12px rgba(0,200,255,.68),
+    0 0 24px rgba(0,123,255,.42),
+    0 6px 12px rgba(0,0,0,.70)!important;
+  filter:drop-shadow(0 0 3px rgba(255,255,255,.48))!important;
+}
+
+body:has(#page-dashboard:not([hidden])) .hero-kicker::before{
+  width:108px!important;
+  height:108px!important;
+  opacity:.28!important;
+  box-shadow:0 0 14px rgba(0,174,255,.18),inset 0 0 14px rgba(0,123,255,.10)!important;
+}
+
+body:has(#page-dashboard:not([hidden])) .hero-orbit{
+  top:57.5%!important;
+  width:min(760px,51vw)!important;
+  height:112px!important;
+  border-width:1.5px!important;
+  box-shadow:
+    0 0 5px rgba(200,252,255,.78),
+    0 0 16px rgba(0,200,255,.56),
+    0 0 42px rgba(0,87,217,.34),
+    0 18px 34px rgba(0,0,0,.32),
+    inset 0 0 22px rgba(0,153,255,.18)!important;
+}
+
+body:has(#page-dashboard:not([hidden])) .hero-orbit::before{
+  width:70%!important;
+  height:52%!important;
+  border-width:1.5px!important;
+  box-shadow:0 0 12px rgba(0,200,255,.36),inset 0 0 14px rgba(0,123,255,.14)!important;
+}
+
+body:has(#page-dashboard:not([hidden])) .hero-orbit::after{
+  width:34%!important;
+  height:24%!important;
+  border-width:1.5px!important;
+  box-shadow:0 0 18px rgba(99,239,255,.56),0 -38px 64px rgba(0,123,255,.16)!important;
+}
+
+body:has(#page-dashboard:not([hidden])) .hero-menu{
+  bottom:4.3%!important;
+  width:min(900px,64vw)!important;
+  gap:58px!important;
+  transform:translateX(-50%) translateZ(32px)!important;
+}
+
+body:has(#page-dashboard:not([hidden])) .hero-menu::before{
+  left:12%!important;
+  right:12%!important;
+  top:53px!important;
+  height:1px!important;
+  box-shadow:0 0 5px rgba(99,239,255,.68),0 0 13px rgba(0,123,255,.28)!important;
+}
+
+body:has(#page-dashboard:not([hidden])) .hero-menu-link{
+  gap:7px!important;
+  padding:0 6px 5px!important;
+}
+
+body:has(#page-dashboard:not([hidden])) .hero-menu-link:hover{
+  transform:translateY(-5px) translateZ(22px)!important;
+}
+
+body:has(#page-dashboard:not([hidden])) .hero-menu-icon{
+  width:106px!important;
+  height:106px!important;
+  border-width:1.5px!important;
+  box-shadow:
+    0 0 2px rgba(255,255,255,.90),
+    0 0 8px rgba(99,239,255,.84),
+    0 0 20px rgba(0,200,255,.54),
+    0 0 36px rgba(0,87,217,.32),
+    inset 0 0 20px rgba(0,174,255,.18),
+    inset 0 -12px 20px rgba(0,0,0,.54)!important;
+  transform:translateZ(14px)!important;
+}
+
+body:has(#page-dashboard:not([hidden])) .hero-menu-icon::before{
+  inset:-9px!important;
+  opacity:.68!important;
+}
+
+body:has(#page-dashboard:not([hidden])) .hero-menu-icon::after{
+  bottom:-24px!important;
+  width:150%!important;
+  height:34px!important;
+  border-width:1.5px!important;
+  box-shadow:0 0 8px rgba(99,239,255,.62),0 0 22px rgba(0,123,255,.34)!important;
+}
+
+body:has(#page-dashboard:not([hidden])) .hero-menu-icon svg{
+  width:54%!important;
+  height:54%!important;
+  stroke-width:2.5!important;
+  filter:drop-shadow(0 0 3px #fff) drop-shadow(0 0 7px rgba(0,200,255,.74))!important;
+}
+
+body:has(#page-dashboard:not([hidden])) .hero-menu-link strong{
+  margin-top:15px!important;
+  font-size:clamp(.88rem,.95vw,1.02rem)!important;
+  letter-spacing:.045em!important;
+  text-shadow:0 0 5px rgba(0,200,255,.48),0 3px 8px rgba(0,0,0,.64)!important;
+}
+
+/* Make the scene itself crisper and less washed-out. */
+body:has(#page-dashboard:not([hidden])) .helpdesk-hero::before{
+  filter:saturate(1.34) contrast(1.20) brightness(.90) drop-shadow(0 0 10px rgba(0,91,255,.14))!important;
+  transform:scale(1.018)!important;
+}
+
+body:has(#page-dashboard:not([hidden])) .helpdesk-hero::after{
+  background:
+    radial-gradient(ellipse at 50% 61%,rgba(0,200,255,.10) 0 2%,rgba(0,123,255,.06) 8%,transparent 24%),
+    linear-gradient(180deg,rgba(0,6,18,.02) 0 48%,rgba(0,14,38,.05) 61%,rgba(0,4,13,.24) 100%),
+    linear-gradient(90deg,rgba(0,0,0,.13),transparent 18%,transparent 82%,rgba(0,0,0,.13)),
+    repeating-linear-gradient(180deg,rgba(100,235,255,.009) 0 1px,transparent 1px 5px)!important;
+  box-shadow:inset 0 -70px 100px rgba(0,0,0,.18)!important;
+}
+
+@media(max-width:1440px){
+  body:has(#page-dashboard:not([hidden])) .hero-command-panel{top:23.5%!important;width:68vw!important;min-height:176px!important;padding:27px 43px!important}
+  body:has(#page-dashboard:not([hidden])) .hero-kicker{font-size:clamp(3.5rem,6.4vw,5.55rem)!important}
+  body:has(#page-dashboard:not([hidden])) .hero-orbit{top:56.5%!important;width:55vw!important;height:102px!important}
+  body:has(#page-dashboard:not([hidden])) .hero-menu{bottom:4.6%!important;width:70vw!important;gap:38px!important}
+  body:has(#page-dashboard:not([hidden])) .hero-menu-icon{width:96px!important;height:96px!important}
+}
+
+@media(max-width:1100px){
+  body:has(#page-dashboard:not([hidden])) .hero-command-panel{top:20.5%!important;width:82vw!important;min-height:164px!important;padding:24px 34px!important}
+  body:has(#page-dashboard:not([hidden])) .hero-kicker{font-size:clamp(3rem,7.4vw,4.8rem)!important}
+  body:has(#page-dashboard:not([hidden])) .hero-orbit{top:52%!important;width:68vw!important;height:94px!important}
+  body:has(#page-dashboard:not([hidden])) .hero-menu{bottom:4.5%!important;width:84vw!important;gap:20px!important}
+  body:has(#page-dashboard:not([hidden])) .hero-menu-icon{width:88px!important;height:88px!important}
+}
+
+@media(max-width:800px){
+  body:has(#page-dashboard:not([hidden])) .hero-command-panel{top:12.5%!important;width:90vw!important;min-height:136px!important;padding:20px 16px!important}
+  body:has(#page-dashboard:not([hidden])) .hero-kicker{font-size:clamp(2.5rem,9.5vw,4rem)!important}
+  body:has(#page-dashboard:not([hidden])) .hero-orbit{top:35.5%!important;width:82vw!important;height:78px!important}
+  body:has(#page-dashboard:not([hidden])) .hero-menu{top:43.5%!important;bottom:auto!important;width:min(500px,90vw)!important;gap:14px!important}
+  body:has(#page-dashboard:not([hidden])) .hero-menu-icon{width:68px!important;height:68px!important}
+  body:has(#page-dashboard:not([hidden])) .hero-menu-link strong{font-size:.94rem!important}
+}
+
+@media(max-width:430px){
+  body:has(#page-dashboard:not([hidden])) .hero-command-panel{top:10%!important;width:92vw!important;min-height:116px!important;padding:17px 10px!important}
+  body:has(#page-dashboard:not([hidden])) .hero-kicker{font-size:clamp(2.15rem,10.8vw,3.15rem)!important}
+  body:has(#page-dashboard:not([hidden])) .hero-orbit{top:31.5%!important;width:88vw!important;height:64px!important}
+  body:has(#page-dashboard:not([hidden])) .hero-menu{top:39.5%!important;width:92vw!important}
+}
