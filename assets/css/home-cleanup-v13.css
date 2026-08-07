@@ -78,7 +78,7 @@ body:has(#page-dashboard:not([hidden])) .topbar .live-clock{
 
 /* Use the cleaned cinematic scene without foreground shadow sheets. */
 .helpdesk-hero::before{
-  background-image:url("../images/night-shift-helpdesk-bg.svg?v=20260806-13")!important;
+  background-image:url("../images/night-shift-helpdesk-bg.svg?v=20260807-14")!important;
   background-position:center center!important;
   background-size:cover!important;
   filter:saturate(1.12) contrast(1.08) brightness(1.06)!important;
