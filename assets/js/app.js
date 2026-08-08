@@ -2,7 +2,7 @@ import { getSettings, initStorage, saveSettings } from './storage.js';
 import { initToast } from './toast.js';
 import { initModal } from './modal.js';
 import { initRouter, navigate } from './router.js';
-import { initDashboard } from './dashboard.js?v=20260808-29';
+import { initDashboard } from './dashboard.js?v=20260808-30';
 import { initLinks } from './links.js';
 
 function runInitializer(name, initializer) {
