@@ -2,12 +2,29 @@ import { getSettings, initStorage, saveSettings } from './storage.js';
 import { initToast } from './toast.js';
 import { initModal } from './modal.js';
 import { initRouter, navigate } from './router.js';
-import { initDashboard } from './dashboard.js?v=20260807-24';
+import { initDashboard } from './dashboard.js?v=20260808-27';
 import { initLinks } from './links.js';
 
 function runInitializer(name, initializer) {
   try { initializer(); }
   catch (error) { console.error(`[Night Shift NOC] ${name} initialization failed`, error); }
+}
+
+function ensureStylesheet(id, href) {
+  const existing = document.getElementById(id);
+  if (existing) {
+    if (existing.getAttribute('href') !== href) existing.setAttribute('href', href);
+    return;
+  }
+  const link = document.createElement('link');
+  link.id = id;
+  link.rel = 'stylesheet';
+  link.href = href;
+  document.head.append(link);
+}
+
+function ensureGlobalFontStyles() {
+  ensureStylesheet('noc-fonts-v27-styles', './assets/css/noc-fonts-v27.css?v=20260808-27');
 }
 
 function applySavedShell(settings = getSettings()) {
@@ -23,6 +40,7 @@ function applySavedShell(settings = getSettings()) {
 }
 
 function initApp() {
+  runInitializer('global font system', ensureGlobalFontStyles);
   initStorage();
   initRouter();
   runInitializer('toast', initToast);
@@ -75,18 +93,7 @@ function populateOperatorSelect() {
 }
 
 function ensureShiftCountdownStyles() {
-  const stylesheetId = 'shift-countdown-v25-styles';
-  const stylesheetHref = './assets/css/shift-countdown-v25.css?v=20260808-26';
-  const existing = document.getElementById(stylesheetId);
-  if (existing) {
-    if (existing.getAttribute('href') !== stylesheetHref) existing.setAttribute('href', stylesheetHref);
-    return;
-  }
-  const link = document.createElement('link');
-  link.id = stylesheetId;
-  link.rel = 'stylesheet';
-  link.href = stylesheetHref;
-  document.head.append(link);
+  ensureStylesheet('shift-countdown-v25-styles', './assets/css/shift-countdown-v25.css?v=20260808-26');
 }
 
 function getShiftCountdownState(now = new Date()) {
