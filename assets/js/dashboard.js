@@ -8,7 +8,8 @@ const LEGACY_HOME_STYLE_IDS = [
   'home-reference-v23-styles',
   'home-command-v24-styles',
   'home-epic-v27-styles',
-  'home-image-v28-styles'
+  'home-image-v28-styles',
+  'home-image-v29-styles'
 ];
 
 export function initDashboard() {
@@ -35,8 +36,8 @@ function removeLegacyHomeStyles() {
 }
 
 function ensureHomeStylesheet() {
-  const stylesheetId = 'home-image-v29-styles';
-  const stylesheetHref = './assets/css/home-image-v29.css?v=20260808-29';
+  const stylesheetId = 'home-image-v30-styles';
+  const stylesheetHref = './assets/css/home-image-v29.css?v=20260808-30';
   const existing = document.getElementById(stylesheetId);
 
   if (existing) {
