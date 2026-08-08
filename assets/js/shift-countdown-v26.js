@@ -1,4 +1,14 @@
 (() => {
+  const stylesheetId = 'shift-countdown-v26-styles';
+  const stylesheetHref = './assets/css/shift-countdown-v25.css?v=20260808-26';
+  if (!document.getElementById(stylesheetId)) {
+    const link = document.createElement('link');
+    link.id = stylesheetId;
+    link.rel = 'stylesheet';
+    link.href = stylesheetHref;
+    document.head.append(link);
+  }
+
   const pad = value => String(value).padStart(2, '0');
 
   function getShiftCountdownState(now = new Date()) {
