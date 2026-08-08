@@ -1,0 +1,78 @@
+/* Global shift countdown — shared by every route. */
+.live-clock.shift-countdown-clock{
+  min-width:190px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:3px;
+  padding:8px 12px;
+  text-align:right;
+  border:1px solid rgba(62,226,255,.38);
+  border-radius:9px;
+  background:linear-gradient(180deg,rgba(2,20,43,.88),rgba(1,9,23,.92));
+  box-shadow:0 0 10px rgba(0,191,255,.18),inset 0 0 16px rgba(0,126,255,.08);
+  backdrop-filter:blur(7px);
+}
+.live-clock.shift-countdown-clock span{
+  display:block;
+  color:#a7dceb;
+  font-size:.66rem;
+  font-weight:700;
+  line-height:1.15;
+  letter-spacing:.045em;
+  white-space:nowrap;
+}
+.live-clock.shift-countdown-clock strong{
+  display:block;
+  color:#6fefff;
+  font-family:var(--font-mono,ui-monospace,Consolas,monospace);
+  font-size:1.14rem;
+  font-weight:900;
+  line-height:1;
+  letter-spacing:.075em;
+  text-shadow:0 0 5px rgba(91,237,255,.58),0 0 12px rgba(0,123,255,.22);
+}
+.live-clock.shift-countdown-clock[data-shift-state="active"]{
+  border-color:rgba(87,239,255,.5);
+}
+.live-clock.shift-countdown-clock[data-shift-state="waiting"] strong{
+  color:#8acbff;
+}
+
+/* Keep the same countdown instrument in the circled top-right position on Home. */
+body:has(#page-dashboard:not([hidden])) .topbar .live-clock.shift-countdown-clock{
+  min-width:190px!important;
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  gap:3px!important;
+  padding:8px 12px!important;
+  text-align:right!important;
+  border:1px solid rgba(62,226,255,.40)!important;
+  border-radius:9px!important;
+  background:linear-gradient(180deg,rgba(2,20,43,.82),rgba(1,9,23,.88))!important;
+  box-shadow:0 0 12px rgba(0,191,255,.18),inset 0 0 16px rgba(0,126,255,.08)!important;
+  backdrop-filter:blur(7px)!important;
+}
+body:has(#page-dashboard:not([hidden])) .topbar .live-clock.shift-countdown-clock span{
+  color:#a7dceb!important;
+  font-size:.66rem!important;
+  font-weight:700!important;
+  line-height:1.15!important;
+  letter-spacing:.045em!important;
+}
+body:has(#page-dashboard:not([hidden])) .topbar .live-clock.shift-countdown-clock strong{
+  color:#6fefff!important;
+  font-size:1.14rem!important;
+  font-weight:900!important;
+  line-height:1!important;
+  letter-spacing:.075em!important;
+  text-shadow:0 0 5px rgba(91,237,255,.58),0 0 12px rgba(0,123,255,.22)!important;
+}
+
+@media(max-width:700px){
+  .live-clock.shift-countdown-clock{min-width:160px;padding:7px 9px}
+  .live-clock.shift-countdown-clock span{font-size:.58rem}
+  .live-clock.shift-countdown-clock strong{font-size:1rem}
+  body:has(#page-dashboard:not([hidden])) .topbar .live-clock.shift-countdown-clock{min-width:160px!important;padding:7px 9px!important}
+  body:has(#page-dashboard:not([hidden])) .topbar .live-clock.shift-countdown-clock span{font-size:.58rem!important}
+  body:has(#page-dashboard:not([hidden])) .topbar .live-clock.shift-countdown-clock strong{font-size:1rem!important}
+}
