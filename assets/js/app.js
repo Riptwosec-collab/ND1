@@ -32,6 +32,7 @@ function initApp() {
   runInitializer('operator selector', populateOperatorSelect);
   runInitializer('dashboard', initDashboard);
   if (!document.getElementById('linkTaskGrid')) runInitializer('work links', initLinks);
+  runInitializer('shift countdown styles', ensureShiftCountdownStyles);
   runInitializer('shift countdown', initClock);
 }
 
@@ -71,6 +72,21 @@ function populateOperatorSelect() {
   select.onchange = () => { const latest = getSettings(); latest.activeOperator = select.value; saveSettings(latest); window.dispatchEvent(new CustomEvent('nightNoc:data-changed', { detail: { source: 'operator' } })); };
 }
 
+function ensureShiftCountdownStyles() {
+  const stylesheetId = 'shift-countdown-v25-styles';
+  const stylesheetHref = './assets/css/shift-countdown-v25.css?v=20260808-25';
+  const existing = document.getElementById(stylesheetId);
+  if (existing) {
+    if (existing.getAttribute('href') !== stylesheetHref) existing.setAttribute('href', stylesheetHref);
+    return;
+  }
+  const link = document.createElement('link');
+  link.id = stylesheetId;
+  link.rel = 'stylesheet';
+  link.href = stylesheetHref;
+  document.head.append(link);
+}
+
 function getShiftCountdownState(now = new Date()) {
   const current = new Date(now);
   const shiftEnd = new Date(current);
@@ -108,12 +124,20 @@ function initClock() {
   const timeNode = document.getElementById('clock-time');
   if (!labelNode || !timeNode) return;
 
+  const clockNode = timeNode.parentElement;
+  clockNode?.classList.add('shift-countdown-clock');
   const pad = value => String(value).padStart(2, '0');
+
   const tick = () => {
     const state = getShiftCountdownState(new Date());
-    labelNode.textContent = state.activeShift ? 'เหลือเวลากะ' : 'เริ่มกะใน';
-    timeNode.textContent = `${pad(state.hours)}:${pad(state.minutes)}:${pad(state.seconds)}`;
-    timeNode.parentElement?.setAttribute('aria-label', `${labelNode.textContent} ${timeNode.textContent}`);
+    const status = state.activeShift ? 'เหลือเวลากะ' : 'เริ่มกะใน';
+    const countdown = `${pad(state.hours)}:${pad(state.minutes)}:${pad(state.seconds)}`;
+
+    labelNode.textContent = 'กะดึก 20.30 - 08.30 น.';
+    timeNode.textContent = countdown;
+    clockNode?.setAttribute('data-shift-state', state.activeShift ? 'active' : 'waiting');
+    clockNode?.setAttribute('title', `${status} ${countdown}`);
+    clockNode?.setAttribute('aria-label', `${status} ${countdown} กะดึก 20.30 ถึง 08.30 น.`);
   };
 
   tick();
