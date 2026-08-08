@@ -32,8 +32,10 @@ function initApp() {
   runInitializer('operator selector', populateOperatorSelect);
   runInitializer('dashboard', initDashboard);
   if (!document.getElementById('linkTaskGrid')) runInitializer('work links', initLinks);
-  runInitializer('shift countdown styles', ensureShiftCountdownStyles);
-  runInitializer('shift countdown', initClock);
+  if (!window.__shiftCountdownInitialized) {
+    runInitializer('shift countdown styles', ensureShiftCountdownStyles);
+    runInitializer('shift countdown', initClock);
+  }
 }
 
 function initShellControls() {
@@ -74,7 +76,7 @@ function populateOperatorSelect() {
 
 function ensureShiftCountdownStyles() {
   const stylesheetId = 'shift-countdown-v25-styles';
-  const stylesheetHref = './assets/css/shift-countdown-v25.css?v=20260808-25';
+  const stylesheetHref = './assets/css/shift-countdown-v25.css?v=20260808-26';
   const existing = document.getElementById(stylesheetId);
   if (existing) {
     if (existing.getAttribute('href') !== stylesheetHref) existing.setAttribute('href', stylesheetHref);
@@ -120,12 +122,14 @@ function getShiftCountdownState(now = new Date()) {
 }
 
 function initClock() {
+  if (window.__shiftCountdownInitialized) return;
   const labelNode = document.getElementById('clock-date');
   const timeNode = document.getElementById('clock-time');
   if (!labelNode || !timeNode) return;
 
   const clockNode = timeNode.parentElement;
   clockNode?.classList.add('shift-countdown-clock');
+  window.__shiftCountdownInitialized = true;
   const pad = value => String(value).padStart(2, '0');
 
   const tick = () => {
