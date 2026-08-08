@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700;800&family=Rajdhani:wght@500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --font-ui:"Oxanium","Noto Sans Thai","Rajdhani","Bahnschrift","Leelawadee UI",system-ui,sans-serif;
+  --font-display:"Rajdhani","Oxanium","Noto Sans Thai","Bahnschrift Condensed","Arial Narrow",sans-serif;
+  --font-mono:"Oxanium","Cascadia Code","SFMono-Regular",Consolas,monospace;
+}
+
+html,body,button,input,select,textarea,a{font-family:var(--font-ui)!important;}
+body{font-feature-settings:"kern" 1,"liga" 1;text-rendering:geometricPrecision;}
+h1,h2,h3,h4,.brand-copy strong,.nav-link,.button,.wl7-btn,.tc-btn,.hero-kicker,.hero-menu-link strong,.live-clock strong{font-family:var(--font-display)!important;letter-spacing:.035em;}
+.eyebrow,.muted,.metric-caption,.wl7-note,.tc-badge,.wl7-badge{font-family:var(--font-ui)!important;letter-spacing:.055em;}
+input,select,textarea{letter-spacing:.015em;}
+.button,.wl7-btn,.tc-btn{font-weight:800;text-transform:none;}
+.nav-link span:not(.nav-icon),.brand-copy span{font-weight:700;}
+
+::selection{background:rgba(38,223,255,.28);color:#f8fdff;}
